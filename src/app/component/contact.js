@@ -63,9 +63,9 @@ export const Contact = () => {
                   </svg>
                 </dt>
                 <dd>
-                  545 Mavis Island
+                  Reshimbag, Siraspeth, Near Budh Vihar
                   <br />
-                  Chicago, IL 99191{" "}
+                  Nagpur, 440041{" "}
                 </dd>
               </div>
               <div className="la ace">
@@ -89,8 +89,8 @@ export const Contact = () => {
                   </svg>
                 </dt>
                 <dd>
-                  <a href="tel:+1 (555) 234-5678" className="bvw">
-                    +1 (555) 234-5678
+                  <a href="tel:+919975767561" className="bvw">
+                    +91 9975767561
                   </a>
                 </dd>
               </div>
@@ -115,8 +115,8 @@ export const Contact = () => {
                   </svg>
                 </dt>
                 <dd>
-                  <a href="mailto:hello@example.com" className="bvw">
-                    hello@example.com
+                  <a href="mailto:innovativeitdcorporation@gmail.com" className="bvw">
+                  innovativeitdcorporation@gmail.com
                   </a>
                 </dd>
               </div>
