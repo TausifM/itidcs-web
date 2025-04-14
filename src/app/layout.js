@@ -1,15 +1,8 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
+import Header from "./component/header";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "ITIDCS - Innovate the Future of Digital Solutions",
@@ -26,9 +19,11 @@ export const metadata = {
     "innovative IT company",
     "coding",
     "programming",
-    "ai"
+    "ai",
   ],
-  authors: [{ name: "ITIDCS Team", url: "https://itidcs.vercel.app/leadership" }],
+  authors: [
+    { name: "ITIDCS Team", url: "https://itidcs.vercel.app/leadership" },
+  ],
   creator: "ITIDCS",
   publisher: "ITIDCS",
   openGraph: {
@@ -60,10 +55,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={inter.className}>
+        <div className="afg">
+          <div className="aoc">
+            <Header />
+            {children}
+          </div>
+        </div>
       </body>
     </html>
   );

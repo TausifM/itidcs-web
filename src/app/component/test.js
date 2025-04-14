@@ -1,102 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import Image from "next/image";
-
 export default function Test() {
-  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="afg">
-      <div className="aoc">
-        <header className="j y au dv">
-          <nav aria-label="Global" className="fy la vy aaz abe atn dwm">
-            <div className="la dqo">
-              <a href="#" className="fe ath">
-                <span className="i">Your Company</span>
-                <Image
-                  src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
-                  alt="Logo"
-                  width={40}
-                  height={40}
-                  className="pt vn"
-                />
-              </a>
-            </div>
-
-            {/* Mobile Menu Button */}
-            <div className="la dns">
-              <button
-                type="button"
-                className="fg lg aaz abf agd atj bau"
-                onClick={() => setMenuOpen(!menuOpen)}
-              >
-                <span className="i">Open main menu</span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                  data-slot="icon"
-                  className="on"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-                  />
-                </svg>
-              </button>
-            </div>
-
-            {/* Desktop Navigation */}
-            <div className="ld dnq dst hidden lg:flex space-x-6">
-              <a href="#" className="aze azr baw">
-                Product
-              </a>
-              <a href="#" className="aze azr baw">
-                Features
-              </a>
-              <a href="#" className="aze azr baw">
-                Marketplace
-              </a>
-              <a href="#" className="aze azr baw">
-                Company
-              </a>
-            </div>
-
-            <div className="ld dnq dqo dsh hidden lg:flex">
-              <a href="#" className="aze azr baw">
-                Log in <span aria-hidden="true">→</span>
-              </a>
-            </div>
-          </nav>
-
-          {/* Mobile Menu */}
-          {menuOpen && (
-            <div className="lg:hidden px-4 py-4 space-y-2 bg-white shadow-md">
-              <a href="#" className="aze azr baw block">
-                Product
-              </a>
-              <a href="#" className="aze azr baw block">
-                Features
-              </a>
-              <a href="#" className="aze azr baw block">
-                Marketplace
-              </a>
-              <a href="#" className="aze azr baw block">
-                Company
-              </a>
-              <a href="#" className="aze azr baw block">
-                Log in <span aria-hidden="true">→</span>
-              </a>
-            </div>
-          )}
-        </header>
-
-        {/* Hero Section */}
         <main>
           <div className="l dn">
             <svg aria-hidden="true" className="j y au do qn vo asc biz">
@@ -205,7 +111,5 @@ export default function Test() {
             </div>
           </div>
         </main>
-      </div>
-    </div>
   );
 }

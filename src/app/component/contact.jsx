@@ -1,4 +1,72 @@
+"use client"
+import { useEffect, useState } from "react";
+
 export const Contact = () => {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phoneNumber: "",
+    message: "",
+  });
+
+  const [errors, setErrors] = useState({
+    email: false,
+    phoneNumber: false,
+  });
+
+  const [isFormValid, setIsFormValid] = useState(false);
+  const [showToast, setShowToast] = useState(false);
+
+  const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  const validatePhone = (phone) => /^[6-9]\d{9}$/.test(phone);
+
+  useEffect(() => {
+    const emailValid = validateEmail(formData.email);
+    const phoneValid = validatePhone(formData.phoneNumber);
+    const allFilled = Object.values(formData).every((val) => val.trim() !== "");
+
+    setErrors({
+      email: formData.email && !emailValid,
+      phoneNumber: formData.phoneNumber && !phoneValid,
+    });
+
+    setIsFormValid(allFilled && emailValid && phoneValid);
+  }, [formData]);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Prevent default form behavior
+
+    const formData = new FormData(e.target);
+
+    try {
+      const response = await fetch(
+        "https://formsubmit.co/ajax/innovativeitdcorporation@gmail.com",
+        {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+          },
+          body: formData,
+        }
+      );
+
+      if (response.ok) {
+        setShowToast(true); // show toast
+        e.target.reset(); // clear form
+      } else {
+        alert("Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      alert("Something went wrong. Please try again.");
+    }
+  };
+
   return (
     <div className="l dn aoc">
       <div className="fy lc vy aah drk">
@@ -115,15 +183,26 @@ export const Contact = () => {
                   </svg>
                 </dt>
                 <dd>
-                  <a href="mailto:innovativeitdcorporation@gmail.com" className="bvw">
-                  innovativeitdcorporation@gmail.com
+                  <a
+                    href="mailto:innovativeitdcorporation@gmail.com"
+                    className="bvw"
+                  >
+                    innovativeitdcorporation@gmail.com
                   </a>
                 </dd>
               </div>
             </dl>
           </div>
         </div>
-        <form action="#" method="POST" className="auc avr axe czj dwm dxb">
+        <form
+          action="https://formsubmit.co/innovativeitdcorporation@gmail.com"
+          method="POST"
+          onSubmit={handleSubmit}
+          className="auc avr axe czj dwm dxb"
+        >
+          {/* Add hidden inputs for customization */}
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_template" value="table" />
           <div className="fy wk dmx dqg">
             <div className="lc aah ach adi csu">
               <div>
@@ -133,8 +212,9 @@ export const Contact = () => {
                 <div className="hg">
                   <input
                     id="first-name"
-                    name="first-name"
-                    type="text"
+                    name="firstName"
+                    value={formData.firstName}
+                    onChange={handleChange}
                     autoComplete="given-name"
                     className="ky vo agd aoc atz aul ayn baw bhh bhj bhm bqb bzo bzq bzx"
                   />
@@ -147,7 +227,9 @@ export const Contact = () => {
                 <div className="hg">
                   <input
                     id="last-name"
-                    name="last-name"
+                    name="lastName"
+                    value={formData.lastName}
+                    onChange={handleChange}
                     type="text"
                     autoComplete="family-name"
                     className="ky vo agd aoc atz aul ayn baw bhh bhj bhm bqb bzo bzq bzx"
@@ -162,10 +244,17 @@ export const Contact = () => {
                   <input
                     id="email"
                     name="email"
+                    value={formData.email}
+                    onChange={handleChange}
                     type="email"
                     autoComplete="email"
                     className="ky vo agd aoc atz aul ayn baw bhh bhj bhm bqb bzo bzq bzx"
                   />
+                  {errors.email && (
+                    <span className="text-red-500 text-sm mr-1">
+                      Enter a valid email
+                    </span>
+                  )}
                 </div>
               </div>
               <div className="clo">
@@ -175,11 +264,18 @@ export const Contact = () => {
                 <div className="hg">
                   <input
                     id="phone-number"
-                    name="phone-number"
+                    name="phoneNumber"
+                    value={formData.phoneNumber}
+                    onChange={handleChange}
                     type="tel"
                     autoComplete="tel"
                     className="ky vo agd aoc atz aul ayn baw bhh bhj bhm bqb bzo bzq bzx"
                   />
+                  {errors.phoneNumber && (
+                    <span className="text-red-500 text-sm mr-1">
+                      Enter a valid 10-digit phone number
+                    </span>
+                  )}
                 </div>
               </div>
               <div className="clo">
@@ -190,6 +286,8 @@ export const Contact = () => {
                   <textarea
                     id="message"
                     name="message"
+                    value={formData.message}
+                    onChange={handleChange}
                     rows="4"
                     className="ky vo agd aoc atz aul ayn baw bhh bhj bhm bqb bzo bzq bzx"
                   ></textarea>
@@ -199,13 +297,50 @@ export const Contact = () => {
             <div className="hm la abg">
               <button
                 type="submit"
-                className="agd amg atz aum ayb ayp azr bdk bff bto car cat cba"
+                disabled={!isFormValid}
+                className={`agd amg atz aum ayb ayp azr bdk bff bto car cat cba ${
+                  !isFormValid ? "opacity-50 cursor-not-allowed" : ""
+                }`}
               >
                 Send message
               </button>
             </div>
           </div>
         </form>
+        {/* ✅ Toast Notification */}
+        {showToast && (
+          <div className="fy vv fixed bottom-4 right-4 z-50">
+            <div className="agd alr atr bg-white shadow-lg rounded-lg p-4">
+              <div className="la flex items-center">
+                <div className="ww">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon" className="om bbf"><path fillRule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clipRule="evenodd"></path></svg>
+                </div>
+                <div className="ki ml-3">
+                  <p className="azg azv bbj font-medium text-green-700">
+                    Successfully sent!
+                  </p>
+                </div>
+                <div className="kt axv ml-auto">
+                  <button
+                    type="button"
+                    onClick={() => setShowToast(false)}
+                    className="lg agd alr atn bbg bth bxx byh byv bzc bzk text-blue-500 hover:text-blue-300"
+                  >
+                    <span className="sr-only">Dismiss</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="om w-5 h-5"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path d="M6.28 5.22a.75.75 0 0 0-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 1 0 1.06 1.06L10 11.06l3.72 3.72a.75.75 0 1 0 1.06-1.06L11.06 10l3.72-3.72a.75.75 0 0 0-1.06-1.06L10 8.94 6.28 5.22Z" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
