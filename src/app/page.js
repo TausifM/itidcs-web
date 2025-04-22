@@ -1,6 +1,7 @@
 "use client";
 import { useRef, useEffect, useState } from "react";
-import Test from "./component/test";
+import Head from 'next/head';
+import HeroSection from "./component/test";
 import MainSection from "./component/mainsection";
 import CTASection from "./component/ctasection";
 import BentoGrid from "./component/bentogrid";
@@ -10,7 +11,7 @@ import Stats from "./component/stats";
 import Testimonials from "./component/testimonials";
 import { Contact } from "./component/contact";
 import Modal from "./component/promotionModal";
-import 'leaflet/dist/leaflet.css';
+import "leaflet/dist/leaflet.css";
 
 export default function Home() {
   const mainRef = useRef(null);
@@ -37,19 +38,27 @@ export default function Home() {
   }, [triggerCount]);
 
   return (
-    <div id="app">
-      <Test />
-      <div ref={mainRef}>
-        <MainSection />
+    <>
+      <Head>
+        <meta
+          name="google-site-verification"
+          content="6kVFdmL0NC0JuYelngHfHel3A-W0O00u03zsJ070_2A"
+        />
+      </Head>
+      <div id="app">
+        <HeroSection />
+        <div ref={mainRef}>
+          <MainSection />
+        </div>
+        <CTASection />
+        <BentoGrid />
+        <AboutSection />
+        <Stats />
+        <Testimonials />
+        <Contact />
+        <NewsLetter />
+        <Modal show={showModal} onClose={() => setShowModal(false)} />
       </div>
-      <CTASection />
-      <BentoGrid />
-      <AboutSection />
-      <Stats />
-      <Testimonials />
-      <Contact />
-      <NewsLetter />
-      <Modal show={showModal} onClose={() => setShowModal(false)} />
-    </div>
+    </>
   );
 }
