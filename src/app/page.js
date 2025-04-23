@@ -1,6 +1,6 @@
 "use client";
 import { useRef, useEffect, useState } from "react";
-import Head from 'next/head';
+import Head from "next/head";
 import HeroSection from "./component/test";
 import MainSection from "./component/mainsection";
 import CTASection from "./component/ctasection";
@@ -9,7 +9,7 @@ import AboutSection from "./component/aboutsection";
 import NewsLetter from "./component/newsletter";
 import Stats from "./component/stats";
 import Testimonials from "./component/testimonials";
-import { Contact } from "./component/contact";
+import Contact from "./contact/page";
 import Modal from "./component/promotionModal";
 import "leaflet/dist/leaflet.css";
 
@@ -45,20 +45,19 @@ export default function Home() {
           content="6kVFdmL0NC0JuYelngHfHel3A-W0O00u03zsJ070_2A"
         />
       </Head>
-      <div id="app">
-        <HeroSection />
-        <div ref={mainRef}>
-          <MainSection />
-        </div>
-        <CTASection />
-        <BentoGrid />
-        <AboutSection />
-        <Stats />
-        <Testimonials />
-        <Contact />
-        <NewsLetter />
-        <Modal show={showModal} onClose={() => setShowModal(false)} />
+
+      <HeroSection />
+      <div ref={mainRef}>
+        <MainSection />
       </div>
+      <CTASection />
+      <BentoGrid />
+      <AboutSection />
+      <Stats />
+      <Testimonials />
+      <Contact />
+      <NewsLetter />
+      <Modal show={showModal} onClose={() => setShowModal(false)} />
     </>
   );
 }

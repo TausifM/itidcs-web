@@ -1,36 +1,12 @@
 "use client";
+import Link from "next/link";
 
-export default function Test() {
+export default function HeroSection() {
 
   return (
         <main>
           <div className="l dn">
-            <svg aria-hidden="true" className="j y au do qn vo asc biz">
-              <defs>
-                <pattern
-                  x="50%"
-                  y="-1"
-                  id="pattern-bg"
-                  width="200"
-                  height="200"
-                  patternUnits="userSpaceOnUse"
-                >
-                  <path d="M.5 200V.5H200" fill="none"></path>
-                </pattern>
-              </defs>
-              <svg x="50%" y="-1" className="afi arf">
-                <path
-                  d="M-200 0h201v201h-201Z M600 0h201v201h-201Z M-400 600h201v201h-201Z M200 800h201v201h-201Z"
-                  strokeWidth="0"
-                ></path>
-              </svg>
-              <rect
-                fill="url(#pattern-bg)"
-                width="100%"
-                height="100%"
-                strokeWidth="0"
-              ></rect>
-            </svg>
+           
             <div className="afg">
               <div className="fy vy auc avu axf cym dwm dxq">
                 <div className="fy vt ack dlx dnq dqi dsb">
@@ -47,15 +23,16 @@ export default function Test() {
                       the competitive tech landscape.
                     </p>
                     <div className="ho la aaz acg">
-                      <a
-                        href="#"
+                      <Link
+                        href="https://docs.google.com/forms/d/e/1FAIpQLSflmV56d0cYZcW4q5tVbuOfQQ7Qb_YKbYrqm4AEnTCjbzTeKA/viewform"
                         className="agd amg atz aum ayp azr bdk bff bto car cat cba"
+                        target="_blank"
                       >
                       Join Today
-                      </a>
-                      <a href="#" className="aze azr baw">
+                      </Link>
+                      <Link href="/enroll" className="aze azr baw" >
                       Take your career or business to the next level! <span aria-hidden="true">→</span>
-                      </a>
+                      </Link>
                     </div>
                   </div>{" "}
                   <div className="hr la abg abr cmx ctr czt dmd dyo">

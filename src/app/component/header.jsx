@@ -1,27 +1,31 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   return (
     <header className="j y au dv">
       <nav aria-label="Global" className="fy la vy aaz abe atn dwm">
         <div className="la dqo">
           {/* <a href="#" className="fe ath"> */}
-          <Link href="/" className="fe ath">
+          <Link href="/" className="fe ath amg agd atj">
             {/* <span className="i">Your Company</span> */}
             <Image
-              src="/itidcs-logo.png"
+              src="/logo.png"
               alt="Logo"
               width={40}
               height={40}
               className="pt vn"
             />
-            </Link>
+          </Link>
         </div>
 
         <div className="la dns">
@@ -50,47 +54,77 @@ export default function Header() {
         </div>
 
         <div className="ld dnq dst hidden lg:flex space-x-6">
-          <a href="#services" className="aze azr baw hover:text-blue-600">
+          <Link href="/" className="aze azr baw hover:text-blue-600">
+            Home
+          </Link>
+          <Link href="/services" className="aze azr baw hover:text-blue-600">
             Services
-          </a>
-          <a href="#courses" className="aze azr baw hover:text-blue-600">
+          </Link>
+          <Link href="/enroll" className="aze azr baw hover:text-blue-600">
             Courses
-          </a>
-          <a href="#portfolio" className="aze azr baw hover:text-blue-600">
-            Portfolio
-          </a>
-          <a href="#about" className="aze azr baw hover:text-blue-600">
+          </Link>
+          <Link href="/blogs" className="aze azr baw hover:text-blue-600">
+            Blogs
+          </Link>
+          <Link href="/about" className="aze azr baw hover:text-blue-600">
             About
-          </a>
-          <a href="#contact" className="aze azr baw hover:text-blue-600">
+          </Link>
+          <Link href="/contact" className="aze azr baw hover:text-blue-600">
             Contact
-          </a>
+          </Link>
         </div>
 
         <div className="ld dnq dqo dsh hidden lg:flex">
-          <a href="#" className="aze azr baw">
+          <Link href="/login" className="aze azr baw hover:text-blue-600">
             Log in <span aria-hidden="true">→</span>
-          </a>
+          </Link>
         </div>
       </nav>
 
-      {menuOpen && (
+      {mounted && menuOpen && (
         <div className="lg:hidden px-4 py-4 space-y-2 bg-white shadow-md">
-          <a href="#" className="aze azr baw block">
-            Product
-          </a>
-          <a href="#" className="aze azr baw block">
-            Features
-          </a>
-          <a href="#" className="aze azr baw block">
-            Marketplace
-          </a>
-          <a href="#" className="aze azr baw block">
-            Company
-          </a>
-          <a href="#" className="aze azr baw block">
-            Log in <span aria-hidden="true">→</span>
-          </a>
+           <Link
+            href="/"
+            className="block text-gray-700 hover:text-blue-600"
+          >
+            Home
+          </Link>
+          <Link
+            href="/services"
+            className="block text-gray-700 hover:text-blue-600"
+          >
+            Services
+          </Link>
+          <Link
+            href="/courses"
+            className="block text-gray-700 hover:text-blue-600"
+          >
+            Courses
+          </Link>
+          <Link
+            href="/blogs"
+            className="block text-gray-700 hover:text-blue-600"
+          >
+            Blogs
+          </Link>
+          <Link
+            href="/about"
+            className="block text-gray-700 hover:text-blue-600"
+          >
+            About
+          </Link>
+          <Link
+            href="/contact"
+            className="block text-gray-700 hover:text-blue-600"
+          >
+            Contact
+          </Link>
+          <Link
+            href="/login"
+            className="block text-gray-700 hover:text-blue-600"
+          >
+            Log in →
+          </Link>
         </div>
       )}
     </header>

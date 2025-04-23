@@ -1,7 +1,7 @@
-"use client"
+"use client";
 import { useEffect, useState } from "react";
 
-export const Contact = () => {
+export default function Contact() {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -105,9 +105,9 @@ export const Contact = () => {
             </div>
             <h2 className="ayk azr azt azw baw daa">Get in touch</h2>
             <p className="hk azc bat">
-              Proin volutpat consequat porttitor cras nullam gravida at. Orci
-              molestie a eu arcu. Sed ut tincidunt integer elementum id sem.
-              Arcu sed malesuada et magna.
+              Let’s Connect! Have a question or just want to say hi? Fill out
+              the form below and we’ll be in touch shortly. We're always happy
+              to help!
             </p>
             <dl className="ho acp ayy bat">
               <div className="la ace">
@@ -313,7 +313,20 @@ export const Contact = () => {
             <div className="agd alr atr bg-white shadow-lg rounded-lg p-4">
               <div className="la flex items-center">
                 <div className="ww">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon" className="om bbf"><path fillRule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clipRule="evenodd"></path></svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    aria-hidden="true"
+                    data-slot="icon"
+                    className="om bbf"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"
+                      clipRule="evenodd"
+                    ></path>
+                  </svg>
                 </div>
                 <div className="ki ml-3">
                   <p className="azg azv bbj font-medium text-green-700">
@@ -344,4 +357,4 @@ export const Contact = () => {
       </div>
     </div>
   );
-};
+}

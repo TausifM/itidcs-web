@@ -56,10 +56,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="afg">
-          <div className="aoc">
-            <Header />
-            {children}
+        <div id="app">
+          <div className="afg">
+            <div className="aoc">
+              <Header />
+              {children}
+            </div>
           </div>
         </div>
       </body>
