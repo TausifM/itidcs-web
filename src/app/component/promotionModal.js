@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-
+import Link from "next/link";
 export default function PromoModal({ show, onClose }) {
   useEffect(() => {
     document.body.style.overflow = show ? "hidden" : "auto";
@@ -48,11 +48,18 @@ export default function PromoModal({ show, onClose }) {
           </button>
           <button
             className="px-5 py-2 text-sm bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
-            onClick={() => {
-              window.location.href = "/enroll"; // or a real route
-            }}
+            // onClick={() => {
+            //   window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLSflmV56d0cYZcW4q5tVbuOfQQ7Qb_YKbYrqm4AEnTCjbzTeKA/viewform"; // /enroll // or a real route
+            // }}
           >
-            Enroll Now
+            <Link
+             href="https://docs.google.com/forms/d/e/1FAIpQLSflmV56d0cYZcW4q5tVbuOfQQ7Qb_YKbYrqm4AEnTCjbzTeKA/viewform"
+             className="text-white hover:text-blue-950 transition font-medium"
+             target="_blank"
+           >
+                    Enroll Now →
+           </Link>
+     
           </button>
         </div>
       </div>

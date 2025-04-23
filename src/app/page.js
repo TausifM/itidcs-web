@@ -6,7 +6,6 @@ import MainSection from "./component/mainsection";
 import CTASection from "./component/ctasection";
 import BentoGrid from "./component/bentogrid";
 import AboutSection from "./component/aboutsection";
-import NewsLetter from "./component/newsletter";
 import Stats from "./component/stats";
 import Testimonials from "./component/testimonials";
 import Contact from "./contact/page";
@@ -56,7 +55,6 @@ export default function Home() {
       <Stats />
       <Testimonials />
       <Contact />
-      <NewsLetter />
       <Modal show={showModal} onClose={() => setShowModal(false)} />
     </>
   );

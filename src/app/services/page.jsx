@@ -4,7 +4,7 @@ export default function ServicesPage() {
     <div className="overflow-hidden bg-white py-15 sm:py-18">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Grid Features */}
-        <div className="bg-gray-50 py-8 sm:py-12">
+        <div className="bg-gray-50 py-20 sm:py-22">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             {/* Title Section */}
             <div className="text-center">
