@@ -1,7 +1,13 @@
 import Link from 'next/link'
+import SEOHead from '../component/SEOHead';
 export default function ServicesPage() {
   return (
-    <div className="overflow-hidden bg-white py-15 sm:py-18">
+    <>
+     <SEOHead
+        title="Our Services - ITIDCS"
+        description="Explore ITIDCS services including web development, digital marketing, UI/UX design, and cloud solutions."
+      />
+     <div className="overflow-hidden bg-white py-15 sm:py-18">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Grid Features */}
         <div className="bg-gray-50 py-20 sm:py-22">
@@ -348,6 +354,8 @@ export default function ServicesPage() {
           </div>
         </div>
       </div>
-    </div>
+    </div> 
+    </>
+    
   );
 }

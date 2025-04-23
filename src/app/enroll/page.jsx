@@ -1,54 +1,134 @@
-
-"use client"
+"use client";
 import { useState } from "react";
 import Image from "next/image";
-import dynamic from "next/dynamic";
+import SEOHead from "../component/SEOHead";
+import Link from "next/link";
 
-// Updated path to existing MapComponent file
-const Map = dynamic(() => import("../component/mapcomponent"), { ssr: false });
+const coursesData = [
+  {
+    id: 1,
+    title: "Full Stack Web Development",
+    image: "/images/fullstack.png",
+    description:
+      "Learn front-end and back-end development with hands-on projects.",
+    category: "Web Development",
+  },
+  {
+    id: 2,
+    title: "Data Science & Machine Learning",
+    image: "/images/data-science.png",
+    description:
+      "Master data analysis, visualization, and machine learning techniques.",
+    category: "Data Science",
+  },
+  {
+    id: 3,
+    title: "UI/UX Design Fundamentals",
+    image: "/images/ui-ux.png",
+    description:
+      "Understand design principles, tools, and user-centric processes.",
+    category: "Design",
+  },
+  {
+    id: 4,
+    title: "Cybersecurity Essentials",
+    image: "/images/cyber-security.jpg",
+    description:
+      "Protect systems, networks, and data with cybersecurity practices.",
+    category: "Security",
+  },
+  {
+    id: 5,
+    title: "Mobile App Development",
+    image: "/images/mobile-app-development.png",
+    description: "Build responsive apps using Flutter and React Native.",
+    category: "Mobile",
+  },
+];
 
-export default function TravelGuide() {
-  const [selectedLocation, setSelectedLocation] = useState(null);
+export default function CoursesPage() {
+  const [search, setSearch] = useState("");
+  const [filter, setFilter] = useState("All");
 
-  const locations = [
-    { name: "Kyoto, Japan", image: "/kyoto.jpg", description: "A city rich in history and culture..." },
-    { name: "Marrakech, Morocco", image: "/marrakech.jpg", description: "A vibrant city that tantalizes..." },
-    { name: "Santorini, Greece", image: "/santorini.jpg", description: "Known for stunning sunsets..." },
-    { name: "Cape Town, South Africa", image: "/capetown.jpg", description: "Nestled between the ocean..." },
-    { name: "Reykjavik, Iceland", image: "/reykjavik.jpg", description: "The capital of Iceland is..." },
-    { name: "Cusco, Peru", image: "/cusco.jpg", description: "Once the capital of the Inca Empire..." },
-    { name: "Queenstown", image: "/queenstown.jpg", description: "Known as the adventure capital..." },
-    { name: "Barcelona, Spain", image: "/barcelona.jpg", description: "A city that blends modernity..." },
-    { name: "Banff, Canada", image: "/banff.jpg", description: "Located in the heart of the Canadian Rockies..." }
-  ];
+  const filteredCourses = coursesData.filter((course) => {
+    return (
+      (filter === "All" || course.category === filter) &&
+      course.title.toLowerCase().includes(search.toLowerCase())
+    );
+  });
+
+  const categories = ["All", ...new Set(coursesData.map((c) => c.category))];
 
   return (
     <>
-      <div className="flex px-4 py-6 gap-4 mt-10">
-        <div className="flex-1 grid grid-cols-3 gap-4">
-          {locations.map((loc, idx) => (
-            <div key={idx} className="bg-white shadow-md rounded overflow-hidden">
-              <Image src={loc.image} alt={loc.name} width={400} height={300} className="w-full h-48 object-cover" />
-              <div className="p-3">
-                <h3 className="font-bold text-lg">{loc.name}</h3>
-                <p className="text-sm text-gray-600">{loc.description}</p>
-              </div>
-            </div>
-          ))}
+      <SEOHead
+        title="Explore Courses - ITIDCS"
+        description="Browse our professional IT and development courses. Learn skills that matter."
+      />
 
-          {/* Pagination */}
-          <div className="col-span-3 flex justify-center space-x-2 mt-4">
-            {[1, 2, 3, 4].map(n => (
-              <button key={n} className="px-3 py-1 border rounded hover:bg-gray-200">{n}</button>
-            ))}
+      {/* Navigation Bar */}
+      <nav className="bg-white shadow-md sticky top-0 pt-18 w-full">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row items-center justify-between py-4 gap-4">
+            {/* Search Bar */}
+            <input
+              type="text"
+              placeholder="Search courses..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className="border px-4 py-2 rounded-md w-full md:w-1/2 lg:w-1/3"
+            />
+
+            {/* Category Filters */}
+            <div className="flex flex-wrap justify-center md:justify-end gap-2 w-full md:w-auto">
+              {categories.map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setFilter(cat)}
+                  className={`px-4 py-2 border rounded-full whitespace-nowrap text-sm transition ${
+                    filter === cat
+                      ? "amg text-white"
+                      : "bg-gray-100 text-gray-800 hover:bg-gray-200"
+                  }`}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
+      </nav>
 
-        <div className="w-[400px]">
-          <Map selectedLocation={selectedLocation} onSelect={setSelectedLocation} />
-        </div>
+      {/* Courses Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-6">
+        {filteredCourses.map((course) => (
+          <div
+            key={course.id}
+            className="bg-white shadow rounded-lg overflow-hidden hover:shadow-lg transition"
+          >
+            <Image
+              src={course.image}
+              alt={course.title}
+              width={500}
+              height={500}
+              className="w-full h-65 object-cover"
+            />
+            <div className="p-4">
+              <h2 className="text-xl font-semibold">{course.title}</h2>
+              <p className="text-gray-600 text-sm mt-2">{course.description}</p>
+              <div className="mt-4 flex justify-center">
+              <Link
+                href={`/enroll/${course.id}`}  // Dynamically links to course details page
+              >
+                <button className="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700">
+                  View Details
+                </button>
+              </Link>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
-
     </>
-  )
+  );
 }

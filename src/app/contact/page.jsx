@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import SEOHead from "../component/SEOHead";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -68,7 +69,12 @@ export default function Contact() {
   };
 
   return (
-    <div className="l dn aoc">
+    <>
+    <SEOHead
+        title="Contact Us - ITIDCS"
+        description="Get in touch with ITIDCS for queries about courses, services, or support. We're here to help you succeed."
+      /> 
+      <div className="l dn aoc">
       <div className="fy lc vy aah drk">
         <div className="l auc avs axd cyi diz dwm dxb">
           <div className="fy wk dlx dqg">
@@ -356,5 +362,6 @@ export default function Contact() {
         )}
       </div>
     </div>
+    </>
   );
 }

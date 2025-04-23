@@ -6,7 +6,6 @@ export default function HeroSection() {
   return (
         <main>
           <div className="l dn">
-           
             <div className="afg">
               <div className="fy vy auc avu axf cym dwm dxq">
                 <div className="fy vt ack dlx dnq dqi dsb">
@@ -17,7 +16,7 @@ export default function HeroSection() {
                     </h1>
                     <p className="hm ayo azp azw bas crt dak dqi">
                       Looking to master the latest IT skills or build a
-                      high-performing website or app? You're in the right place!
+                      high-performing website or app? You&apos;re in the right place!
                       At ITIDCS, we offer top-tier IT training and
                       professional digital solutions to help you stay ahead in
                       the competitive tech landscape.

@@ -10,7 +10,6 @@ import Stats from "./component/stats";
 import Testimonials from "./component/testimonials";
 import Contact from "./contact/page";
 import Modal from "./component/promotionModal";
-import "leaflet/dist/leaflet.css";
 
 export default function Home() {
   const mainRef = useRef(null);

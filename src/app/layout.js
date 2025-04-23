@@ -57,15 +57,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div id="app">
-          <div className="afg">
-            <div className="aoc">
-              <Header />
-              {children}
-              <NewsLetter />
-            </div>
-          </div>
-        </div>
+        <Header />
+        <div id="app">{children}</div>
+        <NewsLetter />
       </body>
     </html>
   );
