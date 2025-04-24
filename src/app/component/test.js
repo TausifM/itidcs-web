@@ -42,6 +42,8 @@ export default function HeroSection() {
                           alt=""
                           src="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;h=528&amp;q=80"
                           className="lu vo agg all asz bfb"
+                          width={400}
+                          height={528}
                         />
                         <div className="d j u agg ber bga bjg"></div>
                       </div>
@@ -52,6 +54,8 @@ export default function HeroSection() {
                           alt=""
                           src="https://images.unsplash.com/photo-1485217988980-11786ced9454?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;h=528&amp;q=80"
                           className="lu vo agg all asz bfb"
+                          width={400}
+                          height={528}
                         />
                         <div className="d j u agg ber bga bjg"></div>
                       </div>
@@ -60,6 +64,8 @@ export default function HeroSection() {
                           alt=""
                           src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;crop=focalpoint&amp;fp-x=.4&amp;w=396&amp;h=528&amp;q=80"
                           className="lu vo agg all asz bfb"
+                          width={400}
+                          height={528}
                         />
                         <div className="d j u agg ber bga bjg"></div>
                       </div>
@@ -70,6 +76,8 @@ export default function HeroSection() {
                           alt=""
                           src="https://images.unsplash.com/photo-1670272504528-790c24957dda?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;crop=left&amp;w=400&amp;h=528&amp;q=80"
                           className="lu vo agg all asz bfb"
+                          width={400}
+                          height={528}
                         />
                         <div className="d j u agg ber bga bjg"></div>
                       </div>
@@ -78,6 +86,8 @@ export default function HeroSection() {
                           alt=""
                           src="https://images.unsplash.com/photo-1670272505284-8faba1c31f7d?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;h=528&amp;q=80"
                           className="lu vo agg all asz bfb"
+                          width={400}
+                          height={528}
                         />
                         <div className="d j u agg ber bga bjg"></div>
                       </div>

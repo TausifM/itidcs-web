@@ -29,6 +29,7 @@ export default function BentoGrid() {
                   className="size-full object-cover object-top"
                   src="https://images.unsplash.com/photo-1529209076408-5a115ec9f1c6"
                   alt=""
+                  fill
                 />
                 </div>
               </div>
@@ -52,6 +53,7 @@ export default function BentoGrid() {
                   className="w-full max-lg:max-w-xs"
                   src="https://images.unsplash.com/photo-1634084462412-b54873c0a56d"
                   alt=""
+                  fill
                 />
               </div>
             </div>
@@ -74,6 +76,7 @@ export default function BentoGrid() {
                   className="h-[min(152px,40cqw)]"
                   src="https://tailwindcss.com/plus-assets/img/component-images/bento-03-performance.png"
                   alt=""
+                  fill
                 />
               </div>
             </div>
@@ -98,6 +101,7 @@ export default function BentoGrid() {
                       className="size-full object-cover object-top"
                       src="https://images.unsplash.com/photo-1618788372246-79faff0c3742"
                       alt=""
+                      fill
                     />
                   </div>
                 </div>

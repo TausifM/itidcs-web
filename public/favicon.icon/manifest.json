@@ -1,0 +1,22 @@
+{
+  "name": "Innovative IT Development Corporation and Services Pvt. Ltd",
+  "short_name": "itidcs",
+  "description": "Learn top tech courses at ITIDCS – Web Dev, AI, Cybersecurity, and Website / App Making for Business.",
+  "icons": [
+    {
+      "src": "/favicon.icon/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/favicon.icon/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "theme_color": "#24085a",
+  "background_color": "#130268",
+  "display": "standalone"
+}
