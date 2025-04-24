@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 const features = [
   {
     name: "Enroll & Upgrade Your IT Skills",
@@ -33,7 +35,7 @@ export default function MainSection() {
                 Ready to take the next step?
               </p>
               <p className="mt-6 text-lg/8 text-gray-600">
-                Don't wait to level up your skills or bring your digital vision
+                Don&apos;t wait to level up your skills or bring your digital vision
                 to life. Partner with ITIDCS and unlock new
                 opportunities today!
               </p>
@@ -50,7 +52,7 @@ export default function MainSection() {
               </dl>
             </div>
           </div>
-          <img
+          <Image
             alt="Product screenshot"
             src="https://tailwindcss.com/plus-assets/img/component-images/dark-project-app-screenshot.png"
             width={2432}

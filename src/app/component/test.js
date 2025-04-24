@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from 'next/image';
 
 export default function HeroSection() {
 
@@ -37,7 +38,7 @@ export default function HeroSection() {
                   <div className="hr la abg abr cmx ctr czt dmd dyo">
                     <div className="kt ug wt acs avt com cyn dkl dxr eas ega">
                       <div className="l">
-                        <img
+                        <Image
                           alt=""
                           src="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;h=528&amp;q=80"
                           className="lu vo agg all asz bfb"
@@ -47,7 +48,7 @@ export default function HeroSection() {
                     </div>
                     <div className="iw ug wt acs cnt cyl dxr">
                       <div className="l">
-                        <img
+                        <Image
                           alt=""
                           src="https://images.unsplash.com/photo-1485217988980-11786ced9454?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;h=528&amp;q=80"
                           className="lu vo agg all asz bfb"
@@ -55,7 +56,7 @@ export default function HeroSection() {
                         <div className="d j u agg ber bga bjg"></div>
                       </div>
                       <div className="l">
-                        <img
+                        <Image
                           alt=""
                           src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;crop=focalpoint&amp;fp-x=.4&amp;w=396&amp;h=528&amp;q=80"
                           className="lu vo agg all asz bfb"
@@ -65,7 +66,7 @@ export default function HeroSection() {
                     </div>
                     <div className="ug wt acs avt cxv">
                       <div className="l">
-                        <img
+                        <Image
                           alt=""
                           src="https://images.unsplash.com/photo-1670272504528-790c24957dda?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;crop=left&amp;w=400&amp;h=528&amp;q=80"
                           className="lu vo agg all asz bfb"
@@ -73,7 +74,7 @@ export default function HeroSection() {
                         <div className="d j u agg ber bga bjg"></div>
                       </div>
                       <div className="l">
-                        <img
+                        <Image
                           alt=""
                           src="https://images.unsplash.com/photo-1670272505284-8faba1c31f7d?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;h=528&amp;q=80"
                           className="lu vo agg all asz bfb"

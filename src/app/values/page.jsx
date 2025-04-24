@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 const ValuesandIntership = () => {
   return (
     <div className="bg-white py-16 sm:py-24 lg:py-32">
@@ -140,22 +142,22 @@ const ValuesandIntership = () => {
           </div>
 
           <div className="grid grid-cols-2 gap-4">
-            <img
+            <Image
               alt=""
               src="https://images.unsplash.com/photo-1590650516494-0c8e4a4dd67e?&auto=format&fit=crop&crop=center&w=560&h=560&q=90"
               className="rounded-lg object-cover w-full h-full"
             />
-            <img
+            <Image
               alt=""
               src="https://images.unsplash.com/photo-1557804506-669a67965ba0?&auto=format&fit=crop&crop=left&w=560&h=560&q=90"
               className="rounded-lg object-cover w-full h-full"
             />
-            <img
+            <Image
               alt=""
               src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?&auto=format&fit=crop&crop=left&w=560&h=560&q=90"
               className="rounded-lg object-cover w-full h-full"
             />
-            <img
+            <Image
               alt=""
               src="https://images.unsplash.com/photo-1598257006458-087169a1f08d?&auto=format&fit=crop&crop=center&w=560&h=560&q=90"
               className="rounded-lg object-cover w-full h-full"

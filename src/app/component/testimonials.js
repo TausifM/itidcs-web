@@ -1,3 +1,4 @@
+import Image from 'next/image';
 
 export default function Testimonials() {
     const clipPathStyle = {
@@ -35,7 +36,7 @@ export default function Testimonials() {
               </p>
             </blockquote>
             <figcaption className="la aav aaz ace adg ahn aij auc aup ctg">
-              <img
+              <Image
                 alt=""
                 src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=1024&amp;h=1024&amp;q=80"
                 className="or wt agb akr"
@@ -44,7 +45,7 @@ export default function Testimonials() {
                 <div className="azr">Brenna Goyette</div>
                 <div className="bat">@brennagoyette</div>
               </div>
-              <img
+              <Image
                 alt=""
                 src="https://tailwindcss.com/plus-assets/img/logos/savvycal-logo-gray-900.svg"
                 className="pv vn wt"
@@ -61,7 +62,7 @@ export default function Testimonials() {
                   </p>
                 </blockquote>
                 <figcaption className="hk la aaz ace">
-                  <img
+                  <Image
                     alt=""
                     src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80"
                     className="or agb akr"
@@ -80,7 +81,7 @@ export default function Testimonials() {
                   </p>
                 </blockquote>
                 <figcaption className="hk la aaz ace">
-                  <img
+                  <Image
                     alt=""
                     src="https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80"
                     className="or agb akr"
@@ -100,7 +101,7 @@ export default function Testimonials() {
                   </p>
                 </blockquote>
                 <figcaption className="hk la aaz ace">
-                  <img
+                  <Image
                     alt=""
                     src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80"
                     className="or agb akr"
@@ -121,7 +122,7 @@ export default function Testimonials() {
                   </p>
                 </blockquote>
                 <figcaption className="hk la aaz ace">
-                  <img
+                  <Image
                     alt=""
                     src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80"
                     className="or agb akr"
@@ -140,7 +141,7 @@ export default function Testimonials() {
                   </p>
                 </blockquote>
                 <figcaption className="hk la aaz ace">
-                  <img
+                  <Image
                     alt=""
                     src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80"
                     className="or agb akr"
@@ -164,7 +165,7 @@ export default function Testimonials() {
                   </p>
                 </blockquote>
                 <figcaption className="hk la aaz ace">
-                  <img
+                  <Image
                     alt=""
                     src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80"
                     className="or agb akr"
@@ -183,7 +184,7 @@ export default function Testimonials() {
                   </p>
                 </blockquote>
                 <figcaption className="hk la aaz ace">
-                  <img
+                  <Image
                     alt=""
                     src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80"
                     className="or agb akr"
@@ -205,7 +206,7 @@ export default function Testimonials() {
                   </p>
                 </blockquote>
                 <figcaption className="hk la aaz ace">
-                  <img
+                  <Image
                     alt=""
                     src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80"
                     className="or agb akr"
@@ -225,7 +226,7 @@ export default function Testimonials() {
                   </p>
                 </blockquote>
                 <figcaption className="hk la aaz ace">
-                  <img
+                  <Image
                     alt=""
                     src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80"
                     className="or agb akr"
@@ -245,7 +246,7 @@ export default function Testimonials() {
                   </p>
                 </blockquote>
                 <figcaption className="hk la aaz ace">
-                  <img
+                  <Image
                     alt=""
                     src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80"
                     className="or agb akr"

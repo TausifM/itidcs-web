@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export default function BentoGrid() {
   return (
     <div className="bg-gray-50 py-15 sm:py-20">
@@ -23,7 +25,7 @@ export default function BentoGrid() {
               </div>
               <div className="@container relative min-h-[30rem] w-full grow max-lg:mx-auto max-lg:max-w-sm">
               <div className="absolute inset-x-10 top-10 bottom-0 overflow-hidden rounded-t-[12cqw] border-x-[3cqw] border-t-[3cqw] border-gray-700 bg-gray-900 shadow-2xl">
-                <img
+                <Image
                   className="size-full object-cover object-top"
                   src="https://images.unsplash.com/photo-1529209076408-5a115ec9f1c6"
                   alt=""
@@ -46,7 +48,7 @@ export default function BentoGrid() {
                 </p>
               </div>
               <div className="flex flex-1 items-center justify-center px-8 max-lg:pt-10 max-lg:pb-12 sm:px-10 lg:pb-2">
-                <img
+                <Image
                   className="w-full max-lg:max-w-xs"
                   src="https://images.unsplash.com/photo-1634084462412-b54873c0a56d"
                   alt=""
@@ -68,7 +70,7 @@ export default function BentoGrid() {
                 </p>
               </div>
               <div className="@container flex flex-1 items-center max-lg:py-6 lg:pb-2">
-                <img
+                <Image
                   className="h-[min(152px,40cqw)]"
                   src="https://tailwindcss.com/plus-assets/img/component-images/bento-03-performance.png"
                   alt=""
@@ -90,16 +92,9 @@ export default function BentoGrid() {
                 stunning visuals that make an impact.
                 </p>
               </div>
-              {/* <div className="@container relative w-full grow lg:h-[20rem] max-h-[15rem]">
-                <img
-                  className="size-full object-cover object-top"
-                  src="https://images.unsplash.com/photo-1618788372246-79faff0c3742"
-                  alt=""
-                />
-              </div> */}
               <div className="@container relative min-h-[30rem] w-full grow max-lg:mx-auto max-lg:max-w-sm">
                   <div className="absolute inset-x-10 top-10 bottom-0 overflow-hidden rounded-t-[12cqw] border-x-[3cqw] border-t-[3cqw] border-gray-700 bg-gray-900 shadow-2xl">
-                    <img
+                    <Image
                       className="size-full object-cover object-top"
                       src="https://images.unsplash.com/photo-1618788372246-79faff0c3742"
                       alt=""

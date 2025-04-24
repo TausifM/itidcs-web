@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export default function CTASection() {
   return (
     <div className="bg-white">
@@ -28,8 +30,8 @@ export default function CTASection() {
             </h2>
             <p className="mt-6 text-lg/8 text-pretty text-gray-300">
               🚀 Empower your future with expert IT training & custom-built
-              websites and apps that drive success. Whether you're learning new
-              skills or launching your dream project—we've got you covered! Take
+              websites and apps that drive success. Whether you&apos;re learning new
+              skills or launching your dream project—we&apos;ve got you covered! Take
               the first step now.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
@@ -45,7 +47,7 @@ export default function CTASection() {
             </div>
           </div>
           <div className="relative mt-16 h-80 lg:mt-8">
-            <img
+            <Image
               alt="App screenshot"
               src="https://tailwindcss.com/plus-assets/img/component-images/dark-project-app-screenshot.png"
               width={1824}

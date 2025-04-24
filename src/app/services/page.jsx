@@ -1,5 +1,7 @@
 import Link from 'next/link'
 import SEOHead from '../component/SEOHead';
+import Image from 'next/image';
+
 export default function ServicesPage() {
   return (
     <>
@@ -236,7 +238,7 @@ export default function ServicesPage() {
             {/* Service 1 */}
             <div className="mt-16">
               <div className="flex flex-col sm:flex-row items-center sm:items-start justify-between space-y-8 sm:space-y-0 sm:space-x-8">
-                <img
+                <Image
                   className="w-full sm:w-1/2 h-auto rounded-lg shadow-lg"
                   src="https://images.unsplash.com/photo-1529209076408-5a115ec9f1c6"
                   alt="IT Skills"
@@ -263,7 +265,7 @@ export default function ServicesPage() {
             {/* Service 2 */}
             <div className="mt-16">
               <div className="flex flex-col sm:flex-row items-center sm:items-start justify-between space-y-8 sm:space-y-0 sm:space-x-8">
-                <img
+                <Image
                   className="w-full sm:w-1/2 h-auto rounded-lg shadow-lg"
                   src="https://images.unsplash.com/photo-1634084462412-b54873c0a56d"
                   alt="Web & App Development"
@@ -289,7 +291,7 @@ export default function ServicesPage() {
             {/* Service 3 */}
             <div className="mt-16">
               <div className="flex flex-col sm:flex-row items-center sm:items-start justify-between space-y-8 sm:space-y-0 sm:space-x-8">
-                <img
+                <Image
                   className="w-full sm:w-1/2 h-auto rounded-lg shadow-lg"
                   src="https://tailwindcss.com/plus-assets/img/component-images/bento-03-performance.png"
                   alt="SEO & Digital Marketing"
@@ -315,7 +317,7 @@ export default function ServicesPage() {
             {/* Service 4 */}
             <div className="mt-16">
               <div className="flex flex-col sm:flex-row items-center sm:items-start justify-between space-y-8 sm:space-y-0 sm:space-x-8">
-                <img
+                <Image
                   className="w-full sm:w-1/2 h-70 rounded-lg shadow-lg object-cover"
                   src="https://images.unsplash.com/photo-1618788372246-79faff0c3742"
                   alt="UI/UX & Branding"
