@@ -1,5 +1,15 @@
 @import "tailwindcss";
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* Ensure it stays on top */
+  width: 100%;
+  background-color: white; /* Or any background color */
+}
 
+#app {
+  padding-top: 60px; /* Adjust this to your header height */
+}
 @layer theme, base, components, utilities;
 @layer theme {
   :root { --font-sans: InterVariable, system-ui, sans-serif; --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif; --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
@@ -11246,7 +11256,7 @@
 }
 }
   .ehg {
-  @media (prefers-color-scheme: dark) {
+  @media (prefers-color-scheme: white) {
   color: var(--color-gray-400);
 }
 }

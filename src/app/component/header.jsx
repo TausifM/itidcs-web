@@ -63,6 +63,9 @@ export default function Header() {
           <Link href="/enroll" className="aze azr baw hover:text-blue-600">
             Courses
           </Link>
+          <Link href="/jobs" className="aze azr baw hover:text-blue-600">
+            Jobs
+          </Link>
           <Link href="/blogs" className="aze azr baw hover:text-blue-600">
             Blogs
           </Link>
