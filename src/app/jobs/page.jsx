@@ -35,7 +35,7 @@ const jobData = [
 ];
 export default function JobsPage() {
   return (
-    <div className="min-h-screen bg-gray-100 mt-20">
+    <div className="min-h-screen bg-gray-100">
       {/* Navbar with filters */}
       <nav className="bg-indigo-600 p-4">
         <div className="flex justify-between items-center max-w-7xl mx-auto">

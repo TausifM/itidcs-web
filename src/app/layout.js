@@ -72,7 +72,7 @@ export default function RootLayout({ children }) {
     />
     <body className={inter.className}>
       <Header />
-      <div id="app" style={{ marginTop: '40px' }}> {/* Ensure the app has enough space below the header */}
+      <div id="app" style={{ marginTop: '12px' }}> {/* Ensure the app has enough space below the header */}
         {children}
       </div>
       <NewsLetter />
