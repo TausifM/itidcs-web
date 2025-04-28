@@ -63,18 +63,20 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <SEOHead
-        title={metadata.title}
-        description={metadata.description}
-        image={metadata.openGraph.images[0].url}
-        canonical={metadata.openGraph.url}
-        type={metadata.openGraph.type}
-      />
-      <body className={inter.className}>
-        <Header />
-        <div id="app">{children}</div>
-        <NewsLetter />
-      </body>
-    </html>
+    <SEOHead
+      title={metadata.title}
+      description={metadata.description}
+      image={metadata.openGraph.images[0].url}
+      canonical={metadata.openGraph.url}
+      type={metadata.openGraph.type}
+    />
+    <body className={inter.className}>
+      <Header />
+      <div id="app" style={{ marginTop: '12px' }}> {/* Ensure the app has enough space below the header */}
+        {children}
+      </div>
+      <NewsLetter />
+    </body>
+  </html>
   );
 }

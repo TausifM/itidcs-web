@@ -63,6 +63,9 @@ export default function Header() {
           <Link href="/enroll" className="aze azr baw hover:text-blue-600">
             Courses
           </Link>
+          <Link href="/jobs" className="aze azr baw hover:text-blue-600">
+            Jobs
+          </Link>
           <Link href="/blogs" className="aze azr baw hover:text-blue-600">
             Blogs
           </Link>
@@ -83,10 +86,7 @@ export default function Header() {
 
       {mounted && menuOpen && (
         <div className="lg:hidden px-4 py-4 space-y-2 bg-white shadow-md">
-           <Link
-            href="/"
-            className="block text-gray-700 hover:text-blue-600"
-          >
+          <Link href="/" className="block text-gray-700 hover:text-blue-600">
             Home
           </Link>
           <Link
@@ -105,6 +105,9 @@ export default function Header() {
             href="/blogs"
             className="block text-gray-700 hover:text-blue-600"
           >
+          <Link href="/jobs" className="block text-gray-700 hover:text-blue-600">
+            Jobs
+          </Link>
             Blogs
           </Link>
           <Link

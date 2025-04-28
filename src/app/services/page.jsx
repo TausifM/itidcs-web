@@ -9,10 +9,10 @@ export default function ServicesPage() {
         title="Our Services - ITIDCS"
         description="Explore ITIDCS services including web development, digital marketing, UI/UX design, and cloud solutions."
       />
-     <div className="overflow-hidden bg-white py-15 sm:py-18">
+     <div className="overflow-hidden bg-white py-6 sm:py-8">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Grid Features */}
-        <div className="bg-gray-50 py-20 sm:py-22">
+        <div className="bg-gray-50 py-5 sm:py-8">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             {/* Title Section */}
             <div className="text-center">
@@ -242,9 +242,9 @@ export default function ServicesPage() {
                   className="w-full sm:w-1/2 h-auto rounded-lg shadow-lg"
                   src="https://images.unsplash.com/photo-1529209076408-5a115ec9f1c6"
                   alt="IT Skills"
-                  width={600}
-                  height={400}
-               />
+                  width={500}
+                  height={500}
+                />
                 <div className="sm:w-1/2">
                   <h3 className="text-3xl font-semibold text-gray-900">
                     Master IT Skills
@@ -271,8 +271,8 @@ export default function ServicesPage() {
                   className="w-full sm:w-1/2 h-auto rounded-lg shadow-lg"
                   src="https://images.unsplash.com/photo-1634084462412-b54873c0a56d"
                   alt="Web & App Development"
-                  width={600}
-                  height={400}
+                  width={500}
+                  height={500}
                 />
                 <div className="sm:w-1/2">
                   <h3 className="text-3xl font-semibold text-gray-900">
@@ -299,8 +299,8 @@ export default function ServicesPage() {
                   className="w-full sm:w-1/2 h-auto rounded-lg shadow-lg"
                   src="https://tailwindcss.com/plus-assets/img/component-images/bento-03-performance.png"
                   alt="SEO & Digital Marketing"
-                  width={600}
-                  height={400}
+                  width={500}
+                  height={500}
                 />
                 <div className="sm:w-1/2">
                   <h3 className="text-3xl font-semibold text-gray-900">
@@ -327,8 +327,8 @@ export default function ServicesPage() {
                   className="w-full sm:w-1/2 h-70 rounded-lg shadow-lg object-cover"
                   src="https://images.unsplash.com/photo-1618788372246-79faff0c3742"
                   alt="UI/UX & Branding"
-                  width={600}
-                  height={400}
+                  width={500}
+                  height={500}
                 />
                 <div className="sm:w-1/2">
                   <h3 className="text-3xl font-semibold text-gray-900">

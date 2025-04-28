@@ -1,4 +1,11 @@
 @import "tailwindcss";
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* Ensure it stays on top */
+  width: 100%;
+  background-color: white; /* Or any background color */
+}
 
 @layer theme, base, components, utilities;
 @layer theme {
@@ -11246,7 +11253,7 @@
 }
 }
   .ehg {
-  @media (prefers-color-scheme: dark) {
+  @media (prefers-color-scheme: white) {
   color: var(--color-gray-400);
 }
 }
