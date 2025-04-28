@@ -1,5 +1,5 @@
 import SEOHead from "../component/SEOHead";
-
+import Link from "next/link";
 export default function AboutPage() {
   return (
     <>
@@ -83,12 +83,12 @@ export default function AboutPage() {
         </p>
 
         <div className="mt-8">
-          <a
+          <Link
             href="/contact"
             className="bg-indigo-600 text-white px-6 py-3 rounded-lg text-xl hover:bg-indigo-700 transition duration-300"
           >
             Get in Touch with Us
-          </a>
+          </Link>
         </div>
       </div>
     </div>
