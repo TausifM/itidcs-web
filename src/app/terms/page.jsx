@@ -1,3 +1,5 @@
+"use client";
+
 import SEOHead from "../component/SEOHead";
 
 export default function Terms() {

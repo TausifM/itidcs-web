@@ -8,7 +8,7 @@ const jobData = [
     title: "Computer Teacher",
     category: "Education",
     description:
-      "We are looking for a passionate and skilled Computer Teacher to join our team in Arvi District Wardha. If you have a deep understanding of computer science, strong teaching abilities, and enjoy inspiring students, this is the job for you. You will be responsible for educating students, helping them build computer literacy, and preparing them for their future career paths in technology. LAST DATE OF APPLICATION: 05/05/2025",
+      "We are looking for a passionate and skilled Computer Teacher to join our team in Arvi District Wardha. If you have a deep understanding of computer science, strong teaching abilities, and enjoy inspiring students, this is the job for you. You will be responsible for educating students, helping them build computer literacy, and preparing them for their future career paths in technology. LAST DATE OF APPLICATION:10/05/2025",
     rolesAndResponsibilities: [
       "Plan and deliver computer science lessons for students of all ages.",
       "You have to teach students of 3 Villages and each Village ONE Hour = TOTAL 3 Hours a day",
@@ -30,21 +30,35 @@ const jobData = [
     location: "Arvi",
     salary: "₹8000 per month",
     applicationFees: "₹100",
-    lastDateOfApplication: "May/05/2025",
+    lastDateOfApplication: "May/10/2025"
   },
 ];
 export default function JobsPage() {
   return (
     <div className="min-h-screen bg-gray-100">
       {/* Navbar with filters */}
-      <nav className="bg-indigo-600 p-4">
-        <div className="flex justify-between items-center max-w-7xl mx-auto">
-          <h1 className="text-white text-xl font-semibold">Job Listings</h1>
-          <div className="flex space-x-4">
-            <button className="text-white">All Jobs</button>
-            <button className="text-white">Tech</button>
-            <button className="text-white">Marketing</button>
-            <button className="text-white">Design</button>
+      <nav className="amg bg-gradient-to-r from-blue-500 to-purple-600 py-4 shadow-lg">
+        <div className="container mx-auto px-6 flex justify-between items-center">
+          <h1 className="text-white text-2xl font-bold">Job Listings</h1>
+          <div className="flex space-x-6">
+            {/* <Link href="/jobs" className="text-white hover:text-gray-200"> */}
+
+            < span className="text-white hover:text-gray-200">All Jobs</span>
+            < span className="text-white hover:text-gray-200">Featured Jobs</span>
+            < span className="text-white hover:text-gray-200">Applied Jobs</span>
+            < span className="text-white hover:text-gray-200">Saved Jobs</span>
+
+              {/* All Jobs */}
+            {/* </Link> */}
+            {/* <Link href="/jobs/featured" className="text-white hover:text-gray-200"> */}
+              {/* Featured Jobs */}
+            {/* </Link> */}
+            {/* <Link href="/jobs/applied" className="text-white hover:text-gray-200"> */}
+              {/* Applied Jobs */}
+            {/* </Link> */}
+            {/* <Link href="/jobs/saved" className="text-white hover:text-gray-200"> */}
+              {/* Saved Jobs */}
+            {/* </Link> */}
           </div>
         </div>
       </nav>
@@ -121,7 +135,7 @@ export default function JobsPage() {
                   }
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-indigo-600 hover:text-indigo-800 text-lg"
+                  className="text-indigo-600 hover:text-indigo-800 text-lg hover:underline flex-grow"
                 >
                   Job Details Advertisement
                 </Link>
