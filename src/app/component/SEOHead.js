@@ -11,7 +11,7 @@ export default function SEOHead({
 }) {
   const pathname = usePathname();
   const baseUrl = "https://itidcs.vercel.app";
-  const currentUrl = `${baseUrl}${pathname}`;
+  const currentUrl = `${baseUrl}${pathname}`; // Construct the full URL using the base URL and pathname
   const canonicalUrl = canonical || currentUrl;
 
   return (
