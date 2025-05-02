@@ -1,6 +1,6 @@
 "use client";
-import React from "react";
-import Image from "next/image";
+import React, { useState } from "react";
+// import Image from "next/image";
 import Link from "next/link";
 const jobData = [
   {
@@ -34,34 +34,54 @@ const jobData = [
   },
 ];
 export default function JobsPage() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-gray-100">
       {/* Navbar with filters */}
       <nav className="amg bg-gradient-to-r from-blue-500 to-purple-600 py-4 shadow-lg">
-        <div className="container mx-auto px-6 flex justify-between items-center">
-          <h1 className="text-white text-2xl font-bold">Job Listings</h1>
-          <div className="flex space-x-6">
-            {/* <Link href="/jobs" className="text-white hover:text-gray-200"> */}
+      <div className="container mx-auto px-6 flex justify-between items-center">
+        <h1 className="text-white text-2xl font-bold">Job Listings</h1>
 
-            < span className="text-white hover:text-gray-200">All Jobs</span>
-            < span className="text-white hover:text-gray-200">Featured Jobs</span>
-            < span className="text-white hover:text-gray-200">Applied Jobs</span>
-            < span className="text-white hover:text-gray-200">Saved Jobs</span>
-
-              {/* All Jobs */}
-            {/* </Link> */}
-            {/* <Link href="/jobs/featured" className="text-white hover:text-gray-200"> */}
-              {/* Featured Jobs */}
-            {/* </Link> */}
-            {/* <Link href="/jobs/applied" className="text-white hover:text-gray-200"> */}
-              {/* Applied Jobs */}
-            {/* </Link> */}
-            {/* <Link href="/jobs/saved" className="text-white hover:text-gray-200"> */}
-              {/* Saved Jobs */}
-            {/* </Link> */}
-          </div>
+        {/* Desktop menu */}
+        <div className="hidden md:flex space-x-6">
+          <span className="text-white hover:text-gray-200 cursor-pointer">All Jobs</span>
+          <span className="text-white hover:text-gray-200 cursor-pointer">Featured Jobs</span>
+          <span className="text-white hover:text-gray-200 cursor-pointer">Applied Jobs</span>
+          <span className="text-white hover:text-gray-200 cursor-pointer">Saved Jobs</span>
         </div>
-      </nav>
+
+        {/* Mobile menu button */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="text-white md:hidden focus:outline-none"
+        >
+           {isOpen ? (
+            // Close icon SVG
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none"
+                 viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          ) : (
+            // Hamburger icon SVG
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none"
+                 viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          )}
+        </button>
+      </div>
+
+      {/* Mobile menu dropdown */}
+      {isOpen && (
+        <div className="md:hidden px-6 pt-2 pb-4 space-y-2 bg-gradient-to-r from-blue-500 to-purple-600">
+          <span className="block text-white hover:text-gray-200 cursor-pointer">All Jobs</span>
+          <span className="block text-white hover:text-gray-200 cursor-pointer">Featured Jobs</span>
+          <span className="block text-white hover:text-gray-200 cursor-pointer">Applied Jobs</span>
+          <span className="block text-white hover:text-gray-200 cursor-pointer">Saved Jobs</span>
+        </div>
+      )}
+    </nav>
 
       {/* Job Listings */}
       <div className="py-8 px-6 lg:px-22 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">

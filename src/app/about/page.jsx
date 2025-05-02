@@ -7,7 +7,50 @@ export default function AboutPage() {
         title="About Us - ITIDCS"
         description="Learn more about ITIDCS and our mission to deliver top-notch IT education and digital solutions."
       />
-     <div className="bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-600 text-white py-20">
+     <div className="bg-gray-100 min-h-screen py-16 px-4 sm:px-6 lg:px-8">
+      <div className="bg-white shadow-lg rounded-lg p-8 max-w-3xl mx-auto">
+        <h1 className="text-3xl font-bold mb-4">Welcome to Innovative IT Development Corporation and Services (ITIDCS)</h1>
+        <p className="text-lg text-gray-700 mb-6">
+          We are a leading provider of IT training courses and custom app development services. Our mission is to empower individuals and businesses with the skills and tools they need to thrive in the digital age.
+        </p>
+        <p className="text-lg text-gray-700 mb-6">
+          At ITIDCS, we believe in the power of technology to transform lives and businesses. Our team of experienced professionals is dedicated to providing high-quality education and innovative solutions that meet the unique needs of our clients.
+        </p>
+        <p className="text-lg text-gray-700 mb-6">
+          Whether you're looking to enhance your skills through our comprehensive training programs or seeking custom software solutions to streamline your operations, we are here to help you succeed.
+        </p>
+        <p className="text-lg text-gray-700 mb-6">
+          Join us on this exciting journey and discover how we can help you achieve your goals. Together, we can build a brighter future through technology.
+        </p>
+
+        <p className="text-lg text-gray-700 mb-6">
+          For more information about our services, please explore our website or contact us directly. We look forward to working with you!</p>
+        <p className="text-lg text-gray-700 mb-6">
+          Thank you for choosing ITIDCS as your trusted partner in IT education and development.</p>
+        <p className="text-lg text-gray-700 mb-6">
+          Best regards,<br />
+          The ITIDCS Team
+        </p>
+        <Link href="/contact" className="text-indigo-600 hover:text-indigo-800 font-semibold">Contact Us</Link>
+      </div>
+      </div>
+      <div className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-16">
+        <div className="container mx-auto px-6 text-center">
+          <h1 className="text-4xl font-bold mb-6">Welcome to ITIDCS</h1>
+          <p className="text-xl max-w-3xl mx-auto mb-12">
+            Your trusted partner for IT training and custom app development.
+          </p>
+          <Link
+            href="/contact"
+            className="bg-white text-blue-600 px-6 py-3 rounded-lg text-xl hover:bg-gray-200 transition duration-300"
+          >
+            Get Started Today
+          </Link>
+        </div>
+      </div>
+      <div className="bg-white py-16">
+
+                
       <div className="container mx-auto px-6 text-center">
         <h2 className="text-4xl font-extrabold mb-6">About Us</h2>
         <p className="text-xl max-w-3xl mx-auto mb-12">

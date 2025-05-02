@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function NewsLetter() {
   return (
     <footer className="relative isolate overflow-hidden bg-gray-900 text-gray-400 py-12">
@@ -26,10 +28,16 @@ export default function NewsLetter() {
           <div>
             <h4 className="text-white font-semibold text-sm mb-3">Company</h4>
             <ul className="space-y-2 text-sm">
-              <li><a href="#" className="hover:text-white transition">About Us</a></li>
-              <li><a href="#" className="hover:text-white transition">Careers</a></li>
-              <li><a href="#" className="hover:text-white transition">Blog</a></li>
-              <li><a href="#" className="hover:text-white transition">Contact</a></li>
+              <li><Link href="/about" className="hover:text-white transition">About Us</Link></li>
+              <li><Link href="/jobs" className="hover:text-white transition">Careers</Link></li>
+              <li><Link href="/blogs" className="hover:text-white transition">Blog</Link></li>
+              <li><Link href="/contact" className="hover:text-white transition">Contact</Link></li>
+              <li><Link href="/services" className="hover:text-white transition">Services</Link></li>
+              <li><Link href="/privacy-policy" className="hover:text-white transition">Privacy Policy</Link></li>
+              <li><Link href="/terms" className="hover:text-white transition">Terms of Service</Link></li>
+              <li><Link href="/support" className="hover:text-white transition">Support</Link></li>
+              <li><Link href="/values" className="hover:text-white transition">Values</Link></li>
+              <li><Link href="/cancellation-refund" className="hover:text-white transition">Cancellation & Refund Policy</Link></li>
             </ul>
           </div>
           <div>
@@ -53,7 +61,7 @@ export default function NewsLetter() {
               </li>
               <li className="mt-2">
                 <span className="block font-semibold text-white">Office 2:</span>
-                Siraspeth, Near Budh Vihar, Nagpur
+                Siraspeth, Near Anand Budh Vihar, Nagpur
               </li>
             </ul>
           </div>

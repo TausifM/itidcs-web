@@ -96,7 +96,7 @@ export default function Header() {
             Services
           </Link>
           <Link
-            href="/courses"
+            href="/enroll"
             className="block text-gray-700 hover:text-blue-600"
           >
             Courses
@@ -105,10 +105,10 @@ export default function Header() {
             href="/blogs"
             className="block text-gray-700 hover:text-blue-600"
           >
+            Blogs
+          </Link>
           <Link href="/jobs" className="block text-gray-700 hover:text-blue-600">
             Jobs
-          </Link>
-            Blogs
           </Link>
           <Link
             href="/about"
