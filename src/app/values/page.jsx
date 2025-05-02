@@ -146,21 +146,30 @@ const ValuesandIntership = () => {
               alt=""
               src="https://images.unsplash.com/photo-1590650516494-0c8e4a4dd67e?&auto=format&fit=crop&crop=center&w=560&h=560&q=90"
               className="rounded-lg object-cover w-full h-full"
+              width={560}
+              height={560}
             />
             <Image
               alt=""
               src="https://images.unsplash.com/photo-1557804506-669a67965ba0?&auto=format&fit=crop&crop=left&w=560&h=560&q=90"
               className="rounded-lg object-cover w-full h-full"
+              width={560}
+              height={560}
+
             />
             <Image
               alt=""
               src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?&auto=format&fit=crop&crop=left&w=560&h=560&q=90"
               className="rounded-lg object-cover w-full h-full"
+              width={560}
+              height={560}
             />
             <Image
               alt=""
               src="https://images.unsplash.com/photo-1598257006458-087169a1f08d?&auto=format&fit=crop&crop=center&w=560&h=560&q=90"
               className="rounded-lg object-cover w-full h-full"
+              width={560}
+              height={560}
             />
           </div>
         </section>
@@ -172,25 +181,25 @@ const ValuesandIntership = () => {
             <div className="la aas ade ahs ahy aic awu">
               <dt className="aze bat">Raised</dt>
               <dd className="eb aym azr azt">
-                $<span>150</span>M
+                $<span>0.5</span>M
               </dd>
             </div>
             <div className="la aas ade ahs ahy aic awu">
               <dt className="aze bat">Companies</dt>
               <dd className="eb aym azr azt">
-                <span>30</span>K
+                <span>1</span>K
               </dd>
             </div>
             <div className="la aas ade cjp cjq cjr cjt">
               <dt className="aze bat">Deals Closed</dt>
               <dd className="eb aym azr azt">
-                <span>1.5</span>M
+                <span>0.2</span>M
               </dd>
             </div>
             <div className="la aas ade">
               <dt className="aze bat">Leads Generated</dt>
               <dd className="eb aym azr azt">
-                <span>200</span>M
+                <span>5</span>M
               </dd>
             </div>
           </dl>

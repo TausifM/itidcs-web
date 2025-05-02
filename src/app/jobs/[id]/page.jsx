@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import { loadStripe } from "@stripe/stripe-js";
 
 export default function JobsDetailsPage() {
   const [formData, setFormData] = useState({
@@ -18,7 +19,10 @@ export default function JobsDetailsPage() {
   const [errorMessage, setErrorMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
-
+    const key = process.env.PB_Key || 'not-found';
+    console.log('Env key:', key);
+    const stripePromise = loadStripe(key);
+   
   const [isFormValid, setIsFormValid] = useState(false);
   const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   const validatePhone = (phone) => {
@@ -57,34 +61,59 @@ export default function JobsDetailsPage() {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault(); // Prevent default form behavior
+
+  //   const formData = new FormData(e.target);
+
+  //   try {
+  //     const response = await fetch(
+  //       "https://formsubmit.co/ajax/innovativeitdcorporation@gmail.com",
+  //       {
+  //         method: "POST",
+  //         headers: {
+  //           Accept: "application/json",
+  //         },
+  //         body: formData,
+  //       }
+  //     );
+
+  //     if (response.ok) {
+  //       setShowToast(true); // show toast
+  //       e.target.reset(); // clear form
+  //     } else {
+  //       alert("Something went wrong. Please try again.");
+  //     }
+  //   } catch (error) {
+  //     console.error("Form submission error:", error);
+  //     alert("Something went wrong. Please try again.");
+  //   }
+  // };
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Prevent default form behavior
-
-    const formData = new FormData(e.target);
-
+    e.preventDefault();
+  
+    if (!isFormValid || !agreed) {
+      alert("Please fill out all required fields and agree to the policy.");
+      return;
+    }
+  
     try {
-      const response = await fetch(
-        "https://formsubmit.co/ajax/innovativeitdcorporation@gmail.com",
-        {
-          method: "POST",
-          headers: {
-            Accept: "application/json",
-          },
-          body: formData,
-        }
-      );
-
-      if (response.ok) {
-        setShowToast(true); // show toast
-        e.target.reset(); // clear form
-      } else {
-        alert("Something went wrong. Please try again.");
+      const stripe = await stripePromise;
+      const response = await fetch("/api/create-checkout-session", {
+        method: "POST",
+      });
+      const session = await response.json();
+  
+      // Redirect to Stripe Checkout
+      const result = await stripe.redirectToCheckout({ sessionId: session.id });
+      if (result.error) {
+        console.error(result.error.message);
       }
-    } catch (error) {
-      console.error("Form submission error:", error);
-      alert("Something went wrong. Please try again.");
+    } catch (err) {
+      console.error("Stripe checkout error:", err);
     }
   };
+  
 
   return (
     <div className="isolate bg-white px-6 py-10 sm:py-15 lg:px-8">
