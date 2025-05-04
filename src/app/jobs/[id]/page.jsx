@@ -1,6 +1,9 @@
 "use client";
 import { useState, useEffect } from "react";
 import { loadStripe } from "@stripe/stripe-js";
+import 'dotenv/config'
+
+require('dotenv').config()
 
 export default function JobsDetailsPage() {
   const [formData, setFormData] = useState({
@@ -18,9 +21,8 @@ export default function JobsDetailsPage() {
   });
   const [errorMessage, setErrorMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-    const [isLoading, setIsLoading] = useState(false);
-    const key = process.env.PB_Key || 'not-found';
-    console.log('Env key:', key);
+  const [isLoading, setIsLoading] = useState(false);
+    const key = process.env.PB_Key || 'pk_live_51GmZ0rCbvecrCh11XfFN019Ajp0CvsGbElP62lt2C6jBn5r882WbYt6lHgTfwXRebPB_KeyjHVXXaNfjoNXAf1koz3tUEL005mWSoIbR';
     const stripePromise = loadStripe(key);
    
   const [isFormValid, setIsFormValid] = useState(false);
@@ -92,29 +94,42 @@ export default function JobsDetailsPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
   
-    if (!isFormValid || !agreed) {
-      alert("Please fill out all required fields and agree to the policy.");
-      return;
-    }
+    if (!isFormValid || !agreed) return;
+  
+    setIsLoading(true); // ✅ show loading spinner
   
     try {
       const stripe = await stripePromise;
+  
       const response = await fetch("/api/create-checkout-session", {
         method: "POST",
       });
+  
       const session = await response.json();
   
-      // Redirect to Stripe Checkout
       const result = await stripe.redirectToCheckout({ sessionId: session.id });
+      console.log(result, session, "reslut");
+      // if (result.ok) {
+        // setShowToast(true); // ✅ show toast on success
+        // e.target.reset(); // ✅ clear form on success
+        // setIsLoading(false); // ✅ revert loading state
+      // } else {
+      //   console.error(result.error.message);
+      //   setIsLoading(false); // ✅ revert loading state
+        
+      // }
       if (result.error) {
         console.error(result.error.message);
+        setIsLoading(false); // ✅ revert if error
+        setShowToast(false); // ✅ hide toast on error
       }
-    } catch (err) {
-      console.error("Stripe checkout error:", err);
+    } catch (error) {
+      console.error("Stripe checkout error:", error);
+      setIsLoading(false); // ✅ revert on error
+      setShowToast(false); // ✅ hide toast on error
     }
   };
   
-
   return (
     <div className="isolate bg-white px-6 py-10 sm:py-15 lg:px-8">
       <div
@@ -137,7 +152,6 @@ export default function JobsDetailsPage() {
           Apply to be a Computer Teacher at Arvi, with a salary of ₹8000/month.
         </p>
       </div>
-
       <form
         action="https://formsubmit.co/innovativeitdcorporation@gmail.com"
         method="POST"
@@ -325,21 +339,49 @@ export default function JobsDetailsPage() {
         </div>
 
         <div className="mt-10">
-          <button
-            type="submit"
-            disabled={!isFormValid}
-            onClick={() => setShowToast(true)}
-            className={`${
-              isFormValid
-                ? "bg-indigo-600 hover:bg-indigo-500"
-                : "bg-gray-400 cursor-not-allowed"
-            } block w-full rounded-md px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-xs focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600`}
-          >
-            Submit Application
-          </button>
-        </div>
+            <button
+              type="submit"
+              disabled={!isFormValid || isLoading}
+              onClick={() => {
+                setShowToast(true);
+              }}
+              className={`${
+                isFormValid && !isLoading
+                  ? "bg-indigo-600 hover:bg-indigo-500"
+                  : "bg-gray-400 cursor-not-allowed"
+              } flex items-center justify-center gap-2 w-full rounded-md px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-xs focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600`}
+            >
+              {isLoading ? (
+                <>
+                  <svg
+                    className="animate-spin h-5 w-5 text-white"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    ></circle>
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                    ></path>
+                  </svg>
+                  Processing...
+                </>
+              ) : (
+                "Submit Application"
+              )}
+            </button>
+          </div>
       </form>
-      {showToast && (
+      {/* {showToast && (
   <div className="fixed top-4 mt-20 right-4 w-96 max-w-sm rounded-lg bg-white p-4 shadow-lg ring-1 ring-gray-900/5 transition-all duration-300 ease-in-out">
     <div className="flex items-center">
       <div className="wx pr-2">
@@ -391,7 +433,7 @@ export default function JobsDetailsPage() {
       </div>
     </div>
   </div>
-)}
+)} */}
 
     </div>
   );
