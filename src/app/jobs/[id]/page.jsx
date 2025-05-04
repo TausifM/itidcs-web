@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import 'dotenv/config'
+import Link from "next/link";
 
 require('dotenv').config()
 
@@ -104,7 +105,10 @@ export default function JobsDetailsPage() {
       const response = await fetch("/api/create-checkout-session", {
         method: "POST",
       });
-  
+      if (!response.ok) {
+        const text = await response.text(); // safer for debugging
+        throw new Error(`Failed to create session: ${response.status} - ${text}`);
+      }
       const session = await response.json();
   
       const result = await stripe.redirectToCheckout({ sessionId: session.id });
@@ -153,8 +157,8 @@ export default function JobsDetailsPage() {
         </p>
       </div>
       <form
-        action="https://formsubmit.co/innovativeitdcorporation@gmail.com"
-        method="POST"
+        // action="https://formsubmit.co/innovativeitdcorporation@gmail.com"
+        // method="POST"
         onSubmit={handleSubmit}
         className="mx-auto mt-16 max-w-xl sm:mt-20"
         encType="multipart/form-data" // Required to send file data
@@ -316,7 +320,9 @@ export default function JobsDetailsPage() {
                 type="button"
                 onClick={() => setAgreed(!agreed)}
                 checked={agreed}
-                className="flex w-8 flex-none cursor-pointer rounded-full bg-gray-200 p-px ring-1 ring-gray-900/5 transition-colors duration-200 ease-in-out ring-inset focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                className={`${ agreed ? "bg-gray-400" : "bg-gray-200"} flex w-8 flex-none cursor-pointer rounded-full
+                 p-px ring-1
+                  ring-gray-900/5 transition-colors duration-200 ease-in-out ring-inset focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600`}
                 role="switch"
                 aria-checked="false"
                 aria-labelledby="switch-1-label"
@@ -324,16 +330,18 @@ export default function JobsDetailsPage() {
                 <span className="sr-only">Agree to policies</span>
                 <span
                   aria-hidden="true"
-                  className="size-4 translate-x-0 transform rounded-full bg-white shadow-xs ring-1 ring-gray-900/5 transition duration-200 ease-in-out"
+                  className={`${ agreed ? "translate-x-4 bg-blue-500" : "translate-x-0 bg-white" } 
+                  pointer-events-none block h-5 w-5 rounded-full shadow-xs ring-1 ring-gray-900/5 transition duration-200 ease-in-out`}
                 />
               </button>
             </div>
-            <label className="text-sm/6 text-gray-600" id="switch-1-label">
+            <label className="text-sm/6 text-gray-600"  htmlFor="switch-1">
+
+
               By selecting this, you agree to our
-              <a href="#" className="font-semibold text-indigo-600">
-               {" "} privacy&nbsp;policy
-              </a>
-              .
+              <Link href="/privacy-policy" className="text-indigo-600 hover:text-indigo-500">
+               {" "} privacy&nbsp;policy.
+              </Link>
             </label>
           </div>
         </div>
@@ -342,9 +350,9 @@ export default function JobsDetailsPage() {
             <button
               type="submit"
               disabled={!isFormValid || isLoading}
-              onClick={() => {
-                setShowToast(true);
-              }}
+              // onClick={() => {
+              //   setShowToast(true);
+              // }}
               className={`${
                 isFormValid && !isLoading
                   ? "bg-indigo-600 hover:bg-indigo-500"
