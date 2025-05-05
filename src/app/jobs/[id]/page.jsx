@@ -1,10 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { loadStripe } from "@stripe/stripe-js";
-import 'dotenv/config'
 import Link from "next/link";
-
-require('dotenv').config()
 
 export default function JobsDetailsPage() {
   const [formData, setFormData] = useState({
@@ -13,6 +9,8 @@ export default function JobsDetailsPage() {
     email: "",
     phoneNumber: "",
     graduation: "",
+    attachment: null,
+    message: "",
   });
   const [agreed, setAgreed] = useState(false);
   const [showToast, setShowToast] = useState(false);
@@ -21,11 +19,8 @@ export default function JobsDetailsPage() {
     phoneNumber: false,
   });
   const [errorMessage, setErrorMessage] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-    const key = process.env.PB_Key || 'pk_live_51GmZ0rCbvecrCh11XfFN019Ajp0CvsGbElP62lt2C6jBn5r882WbYt6lHgTfwXRebPB_KeyjHVXXaNfjoNXAf1koz3tUEL005mWSoIbR';
-    const stripePromise = loadStripe(key);
-   
+
   const [isFormValid, setIsFormValid] = useState(false);
   const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   const validatePhone = (phone) => {
@@ -51,8 +46,10 @@ export default function JobsDetailsPage() {
   useEffect(() => {
     const emailValid = validateEmail(formData.email);
     const phoneValid = validatePhone(formData.phoneNumber);
-    const allFilled = Object.values(formData).every((val) => val.trim() !== "");
-
+    const allFilled = Object.values(formData).every((val) => {
+      if (typeof val === "string") return val.trim() !== "";
+      return val !== null && val !== undefined;
+    });
     setErrors({
       email: formData.email && !emailValid,
       phoneNumber: formData.phoneNumber && !phoneValid,
@@ -60,80 +57,76 @@ export default function JobsDetailsPage() {
 
     setIsFormValid(allFilled && emailValid && phoneValid);
   }, [formData]);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault(); // Prevent default form behavior
-
-  //   const formData = new FormData(e.target);
-
-  //   try {
-  //     const response = await fetch(
-  //       "https://formsubmit.co/ajax/innovativeitdcorporation@gmail.com",
-  //       {
-  //         method: "POST",
-  //         headers: {
-  //           Accept: "application/json",
-  //         },
-  //         body: formData,
-  //       }
-  //     );
-
-  //     if (response.ok) {
-  //       setShowToast(true); // show toast
-  //       e.target.reset(); // clear form
-  //     } else {
-  //       alert("Something went wrong. Please try again.");
-  //     }
-  //   } catch (error) {
-  //     console.error("Form submission error:", error);
-  //     alert("Something went wrong. Please try again.");
-  //   }
-  // };
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    setFormData((prev) => ({ ...prev, attachment: file }));
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
-    if (!isFormValid || !agreed) return;
-  
-    setIsLoading(true); // ✅ show loading spinner
-  
+    const formBody = new FormData();
+    formBody.append("firstName", formData.firstName);
+    formBody.append("lastName", formData.lastName);
+    formBody.append("email", formData.email);
+    formBody.append("phoneNumber", formData.phoneNumber);
+    formBody.append("graduation", formData.graduation);
+    formBody.append("message", formData.message);
     try {
-      const stripe = await stripePromise;
-  
-      const response = await fetch("/api/create-checkout-session", {
-        method: "POST",
-      });
-      if (!response.ok) {
-        const text = await response.text(); // safer for debugging
-        throw new Error(`Failed to create session: ${response.status} - ${text}`);
+      const response = await fetch(
+        "https://formsubmit.co/ajax/innovativeitdcorporation@gmail.com",
+        {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+          },
+          body: formBody,
+        }
+      );
+
+      setIsLoading(true); // Set loading state
+
+      if (response.status === 422) {
+        const data = await response.json();
+        const errorFields = data.errors.map((error) => error.field).join(", ");
+        alert(`Please fill in the required fields: ${errorFields}`);
+        setIsLoading(false); // ✅ revert on error
+
+        return;
       }
-      const session = await response.json();
-  
-      const result = await stripe.redirectToCheckout({ sessionId: session.id });
-      console.log(result, session, "reslut");
-      // if (result.ok) {
-        // setShowToast(true); // ✅ show toast on success
-        // e.target.reset(); // ✅ clear form on success
-        // setIsLoading(false); // ✅ revert loading state
-      // } else {
-      //   console.error(result.error.message);
-      //   setIsLoading(false); // ✅ revert loading state
-        
-      // }
-      if (result.error) {
-        console.error(result.error.message);
-        setIsLoading(false); // ✅ revert if error
-        setShowToast(false); // ✅ hide toast on error
+      console.log("Response:", response);
+      if (response.ok) {
+        setShowToast(true); // show toast
+        setIsLoading(false); // Reset loading state
+        // e.target.reset(); // clear form
       }
     } catch (error) {
-      console.error("Stripe checkout error:", error);
-      setIsLoading(false); // ✅ revert on error
-      setShowToast(false); // ✅ hide toast on error
+      console.error("Form submission error:", error);
+      // alert("Something went wrong. Please try again.");
+      // setIsLoading(false); // ✅ revert on error
+      // setShowToast(false);
     }
   };
-  
+  const handleToastClose = (e) => {
+    setShowToast(false);
+    // e.target.reset(); // clear form
+    setFormData({
+      firstName: "",
+      lastName: "",
+      firstName: "",
+      lastName: "",
+      email: "",
+      phoneNumber: "",
+      graduation: "",
+      attachment: null,
+      message: "",
+    });
+    setAgreed(false);
+  };
+
   return (
     <div className="isolate bg-white px-6 py-10 sm:py-15 lg:px-8">
       <div
@@ -157,8 +150,8 @@ export default function JobsDetailsPage() {
         </p>
       </div>
       <form
-        // action="https://formsubmit.co/innovativeitdcorporation@gmail.com"
-        // method="POST"
+        action="https://formsubmit.co/innovativeitdcorporation@gmail.com"
+        method="POST"
         onSubmit={handleSubmit}
         className="mx-auto mt-16 max-w-xl sm:mt-20"
         encType="multipart/form-data" // Required to send file data
@@ -279,15 +272,16 @@ export default function JobsDetailsPage() {
 
           <div className="sm:col-span-2">
             <label
-              htmlFor="resume"
+              htmlFor="attachment"
               className="block text-sm/6 font-semibold text-gray-900"
             >
               Upload Resume
             </label>
             <div className="mt-2.5">
               <input
-                id="resume"
-                name="resume"
+                id="attachment"
+                name="attachment"
+                onChange={handleFileChange}
                 type="file"
                 className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
                 required
@@ -306,9 +300,11 @@ export default function JobsDetailsPage() {
               <textarea
                 id="message"
                 name="message"
+                value={formData.message || ""}
+                placeholder="Write your message here..."
+                onChange={handleChange}
                 rows={4}
                 className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
-                defaultValue={""}
                 required
               />
             </div>
@@ -318,9 +314,12 @@ export default function JobsDetailsPage() {
             <div className="flex h-6 items-center">
               <button
                 type="button"
+                value={agreed}
                 onClick={() => setAgreed(!agreed)}
                 checked={agreed}
-                className={`${ agreed ? "bg-gray-400" : "bg-gray-200"} flex w-8 flex-none cursor-pointer rounded-full
+                className={`${
+                  agreed ? "bg-gray-400" : "bg-gray-200"
+                } flex w-8 flex-none cursor-pointer rounded-full
                  p-px ring-1
                   ring-gray-900/5 transition-colors duration-200 ease-in-out ring-inset focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600`}
                 role="switch"
@@ -330,119 +329,127 @@ export default function JobsDetailsPage() {
                 <span className="sr-only">Agree to policies</span>
                 <span
                   aria-hidden="true"
-                  className={`${ agreed ? "translate-x-4 bg-blue-500" : "translate-x-0 bg-white" } 
+                  className={`${
+                    agreed
+                      ? "translate-x-4 bg-blue-500"
+                      : "translate-x-0 bg-white"
+                  } 
                   pointer-events-none block h-5 w-5 rounded-full shadow-xs ring-1 ring-gray-900/5 transition duration-200 ease-in-out`}
                 />
               </button>
             </div>
-            <label className="text-sm/6 text-gray-600"  htmlFor="switch-1">
-
-
+            <label className="text-sm/6 text-gray-600" htmlFor="switch-1">
               By selecting this, you agree to our
-              <Link href="/privacy-policy" className="text-indigo-600 hover:text-indigo-500">
-               {" "} privacy&nbsp;policy.
+              <Link
+                href="/privacy-policy"
+                className="text-indigo-600 hover:text-indigo-500"
+              >
+                {" "}
+                privacy&nbsp;policy.
               </Link>
             </label>
           </div>
         </div>
 
         <div className="mt-10">
-            <button
-              type="submit"
-              disabled={!isFormValid || isLoading}
-              // onClick={() => {
-              //   setShowToast(true);
-              // }}
-              className={`${
-                isFormValid && !isLoading
-                  ? "bg-indigo-600 hover:bg-indigo-500"
-                  : "bg-gray-400 cursor-not-allowed"
-              } flex items-center justify-center gap-2 w-full rounded-md px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-xs focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600`}
-            >
-              {isLoading ? (
-                <>
-                  <svg
-                    className="animate-spin h-5 w-5 text-white"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                  >
-                    <circle
-                      className="opacity-25"
-                      cx="12"
-                      cy="12"
-                      r="10"
-                      stroke="currentColor"
-                      strokeWidth="4"
-                    ></circle>
-                    <path
-                      className="opacity-75"
-                      fill="currentColor"
-                      d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
-                    ></path>
-                  </svg>
-                  Processing...
-                </>
-              ) : (
-                "Submit Application"
-              )}
-            </button>
-          </div>
-      </form>
-      {/* {showToast && (
-  <div className="fixed top-4 mt-20 right-4 w-96 max-w-sm rounded-lg bg-white p-4 shadow-lg ring-1 ring-gray-900/5 transition-all duration-300 ease-in-out">
-    <div className="flex items-center">
-      <div className="wx pr-2">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth="1.5"
-          stroke="currentColor"
-          aria-hidden="true"
-          data-slot="icon"
-          className="oo text-green-600"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-          ></path>
-        </svg>
-      </div>
-      <div className="">
-        <p className="azt bai bbp"> Success</p>
-        <p className="hd azt bbl">
-          Your application has been submitted successfully. We will get back to you soon.
-        </p>
-      </div>
-      <div className="kk lb wx">
-        <button
-          type="button"
-          onClick={() => {
-            setShowToast(false);
-          }}
-          className="lh age aoi bbk bwp byv bzh bzt cai"
-        >
-          <span className="i">Close</span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-            aria-hidden="true"
-            data-slot="icon"
-            className="on"
+          <button
+            type="submit"
+            disabled={!isFormValid || isLoading}
+            className={`${
+              isFormValid && !isLoading
+                ? "bg-indigo-600 hover:bg-indigo-500"
+                : "bg-gray-400 cursor-not-allowed"
+            } flex items-center justify-center gap-2 w-full rounded-md px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-xs focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600`}
           >
-            <path
-              d="M6.28 5.22a.75.75 0 0 0-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 1 0 1.06 1.06L10 11.06l3.72 3.72a.75.75 0 1 0 1.06-1.06L11.06 10l3.72-3.72a.75.75 0 0 0-1.06-1.06L10 8.94 6.28 5.22Z"
-            ></path>
-          </svg>
-        </button>
-      </div>
-    </div>
-  </div>
-)} */}
-
+            {isLoading ? (
+              <>
+                <svg
+                  className="animate-spin h-5 w-5 text-white"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                    className="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    strokeWidth="4"
+                  ></circle>
+                  <path
+                    className="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                  ></path>
+                </svg>
+                Processing...
+              </>
+            ) : (
+              "Submit Application"
+            )}
+          </button>
+        </div>
+      </form>
+      {showToast && (
+        <div className="fixed top-4 mt-20 right-4 w-96 max-w-sm rounded-lg bg-white p-4 shadow-lg ring-1 ring-gray-900/5 transition-all duration-300 ease-in-out">
+          <div className="flex items-center">
+            <div className="wx pr-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="currentColor"
+                aria-hidden="true"
+                data-slot="icon"
+                className="oo text-green-600"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                ></path>
+              </svg>
+            </div>
+            <div className="">
+              <p className="azt bai bbp"> Success</p>
+              <p className="hd azt bbl">
+                Your application has been submitted successfully. We will get
+                back to you soon on your email.
+              </p>
+              <p className="hd azt bbl">
+                Thank you for applying for the Computer Teacher position at
+                Arvi.
+              </p>
+              <p className="hd azt bbl">
+                We appreciate your interest please take rupees 100 as a token of
+                your application.
+              </p>
+            </div>
+            <div className="kk lb wx">
+              <button
+                type="button"
+                onClick={handleToastClose}
+                aria-label="Close"
+                className="lh age aoi bbk bwp byv bzh bzt cai"
+              >
+                <span className="i">Close</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                  data-slot="icon"
+                  className="on"
+                >
+                  <path d="M6.28 5.22a.75.75 0 0 0-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 1 0 1.06 1.06L10 11.06l3.72 3.72a.75.75 0 1 0 1.06-1.06L11.06 10l3.72-3.72a.75.75 0 0 0-1.06-1.06L10 8.94 6.28 5.22Z"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
