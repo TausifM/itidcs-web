@@ -6,7 +6,7 @@ const coursesData = [
   {
     id: 1,
     title: "Full Stack Web Development",
-    image: "/images/fullstack.png",
+    image: "https://res.cloudinary.com/plot-app-say-no-broker/image/upload/v1746501838/itidcs-web-images/jiuysrvzqzbaylwrnt3o.webp",
     description:
       "Learn front-end and back-end development with hands-on projects.",
     price: "₹59,999",
@@ -23,7 +23,7 @@ const coursesData = [
   {
     id: 2,
     title: "Data Science & Machine Learning",
-    image: "/images/data-science.png",
+    image: "https://res.cloudinary.com/plot-app-say-no-broker/image/upload/v1746502077/itidcs-web-images/rcudkrvgty7dpthqrg30.webp",
     description:
       "Master data analysis, visualization, and machine learning techniques.",
     price: "₹24,999",
@@ -41,7 +41,7 @@ const coursesData = [
   {
     id: 3,
     title: "UI/UX Design Fundamentals",
-    image: "/images/ui-ux.png",
+    image: "https://res.cloudinary.com/plot-app-say-no-broker/image/upload/v1746502077/itidcs-web-images/asrmxwqupclkqvqrsjxr.webp",
     description:
       "Understand design principles, tools, and user-centric processes.",
     price: "₹14,999",
@@ -58,7 +58,7 @@ const coursesData = [
   {
     id: 4,
     title: "Cybersecurity Essentials",
-    image: "/images/cyber-security.jpg",
+    image: "https://res.cloudinary.com/plot-app-say-no-broker/image/upload/v1746502076/itidcs-web-images/bnte32sey97snldaq0yh.webp",
     description:
       "Protect systems, networks, and data with cybersecurity practices.",
     price: "₹19,999",
@@ -75,7 +75,7 @@ const coursesData = [
   {
     id: 5,
     title: "Mobile App Development",
-    image: "/images/mobile-app-development.png",
+    image: "https://res.cloudinary.com/plot-app-say-no-broker/image/upload/v1746502075/itidcs-web-images/p7hdrrcvzs27rdtztzks.webp",
     description: "Build responsive apps using React Native and Backend APIs.",
     price: "₹49,999",
     offerPrice: "₹17,999", // Discounted price

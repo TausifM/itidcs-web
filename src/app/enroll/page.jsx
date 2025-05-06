@@ -16,7 +16,7 @@ const coursesData = [
   {
     id: 2,
     title: "Data Science & Machine Learning",
-    image: "https://res.cloudinary.com/plot-app-say-no-broker/image/upload/v1746501838/itidcs-web-images/jiuysrvzqzbaylwrnt3o.webp",
+    image: "https://res.cloudinary.com/plot-app-say-no-broker/image/upload/v1746502077/itidcs-web-images/rcudkrvgty7dpthqrg30.webp",
     description:
       "Master data analysis, visualization, and machine learning techniques.",
     category: "Data Science",
