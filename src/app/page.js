@@ -10,6 +10,7 @@ import Stats from "./component/stats";
 import Testimonials from "./component/testimonials";
 import Contact from "./contact/page";
 import Modal from "./component/promotionModal";
+import BadgeModal from "./component/BadgeModal";
 
 export default function Home() {
   const mainRef = useRef(null);
@@ -54,7 +55,9 @@ export default function Home() {
       <Stats />
       <Testimonials />
       <Contact />
+
       <Modal show={showModal} onClose={() => setShowModal(false)} />
+      <BadgeModal />
     </>
   );
 }
