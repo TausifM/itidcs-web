@@ -2,10 +2,10 @@ import Link from "next/link";
 import Image from 'next/image';
 
 const links = [
-  { name: "Open roles", href: "/carriers" },
-  { name: "Internship program", href:  "/values" },
+  { name: "Open roles", href: "/jobs" },
+  { name: "Internship program", href:  "/values#internship" },
   { name: "Our values", href: "/values" },
-  { name: "Meet our leadership", href: "/leadership" },
+  // { name: "Meet our leadership", href: "/leadership" },
 ];
 const stats = [
   { name: "Offices worldwide", value: "12" },

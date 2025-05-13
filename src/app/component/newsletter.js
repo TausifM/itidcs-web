@@ -43,10 +43,11 @@ export default function NewsLetter() {
           <div>
             <h4 className="text-white font-semibold text-sm mb-3">Services</h4>
             <ul className="space-y-2 text-sm">
-              <li><a href="#" className="hover:text-white transition">Software Development</a></li>
-              <li><a href="#" className="hover:text-white transition">Cloud Solutions</a></li>
-              <li><a href="#" className="hover:text-white transition">IT Consulting</a></li>
-              <li><a href="#" className="hover:text-white transition">Cybersecurity</a></li>
+              <li><Link href="/software-development" className="hover:text-white transition">Software Development</Link></li>
+              <li><Link href="/ai-solutions" className="hover:text-white transition">AI Solutions</Link></li>
+              <li><Link href="/cloud-solutions" className="hover:text-white transition">Cloud Solutions</Link></li>
+              <li><Link href="/it-consulting" className="hover:text-white transition">IT Consulting</Link></li>
+              <li><Link href="/cyber-security" className="hover:text-white transition">Cyber Security</Link></li>
             </ul>
           </div>
           <div>
