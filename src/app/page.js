@@ -11,6 +11,8 @@ import Testimonials from "./component/testimonials";
 import Contact from "./contact/page";
 import Modal from "./component/promotionModal";
 import BadgeModal from "./component/BadgeModal";
+import TrainingLandingPage from "./component/it-training";
+import CourseCarousel from "./component/course-carousel";
 
 export default function Home() {
   const mainRef = useRef(null);
@@ -49,6 +51,8 @@ export default function Home() {
       <div ref={mainRef}>
         <MainSection />
       </div>
+      <TrainingLandingPage />
+      <CourseCarousel />
       <CTASection />
       <BentoGrid />
       <AboutSection />

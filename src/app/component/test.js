@@ -8,7 +8,7 @@ export default function HeroSection() {
         <main>
           <div className="l dn">
             <div className="afg">
-              <div className="fy vy auc avu axf cym dwm dxq">
+              <div className="fy vy auc dwm">
                 <div className="fy vt ack dlx dnq dqi dsb">
                   <div className="l vo dqk dqs edc">
                     <h1 className="ayl azr azt azw baw dac">

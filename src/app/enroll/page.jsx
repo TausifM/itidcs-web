@@ -3,48 +3,7 @@ import { useState } from "react";
 import Image from "next/image";
 import SEOHead from "../component/SEOHead";
 import Link from "next/link";
-
-const coursesData = [
-  {
-    id: 1,
-    title: "Full Stack Web Development",
-    image: "https://res.cloudinary.com/plot-app-say-no-broker/image/upload/v1746501838/itidcs-web-images/jiuysrvzqzbaylwrnt3o.webp",
-    description:
-      "Learn front-end and back-end development with hands-on projects.",
-    category: "Web Development",
-  },
-  {
-    id: 2,
-    title: "Data Science & Machine Learning",
-    image: "https://res.cloudinary.com/plot-app-say-no-broker/image/upload/v1746502077/itidcs-web-images/rcudkrvgty7dpthqrg30.webp",
-    description:
-      "Master data analysis, visualization, and machine learning techniques.",
-    category: "Data Science",
-  },
-  {
-    id: 3,
-    title: "UI/UX Design Fundamentals",
-    image: "https://res.cloudinary.com/plot-app-say-no-broker/image/upload/v1746502077/itidcs-web-images/asrmxwqupclkqvqrsjxr.webp",
-    description:
-      "Understand design principles, tools, and user-centric processes.",
-    category: "Design",
-  },
-  {
-    id: 4,
-    title: "Cybersecurity Essentials",
-    image: "https://res.cloudinary.com/plot-app-say-no-broker/image/upload/v1746502076/itidcs-web-images/bnte32sey97snldaq0yh.webp",
-    description:
-      "Protect systems, networks, and data with cybersecurity practices.",
-    category: "Security",
-  },
-  {
-    id: 5,
-    title: "Mobile App Development",
-    image: "https://res.cloudinary.com/plot-app-say-no-broker/image/upload/v1746502075/itidcs-web-images/p7hdrrcvzs27rdtztzks.webp",
-    description: "Build responsive apps using Flutter and React Native.",
-    category: "Mobile",
-  },
-];
+import coursesData from "../data/coursesData";
 
 export default function CoursesPage() {
   const [search, setSearch] = useState("");
@@ -82,7 +41,7 @@ export default function CoursesPage() {
     }
   };
 
-  const categories = ["All", ...new Set(coursesData.map((c) => c.category))];
+  const categories = ["All", ...new Set(coursesData?.map((c) => c.category))];
 
   return (
     <>

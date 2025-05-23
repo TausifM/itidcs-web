@@ -1,185 +1,17 @@
 "use client";
+
+import { useState, useEffect } from "react";
 import Image from "next/image";
-import { useState, useEffect, use } from "react";
+import { useParams } from "next/navigation";
+import coursesData from "../../data/coursesData"; // adjust path as needed
+import TrainingHero from "@/app/component/training-hero";
+import CourseCurriculum from "@/app/component/curriculum-data";
+import Link from "next/link";
 
-const coursesData = [
-  {
-    id: 1,
-    title: "Full Stack Web Development",
-    image: "https://res.cloudinary.com/plot-app-say-no-broker/image/upload/v1746501838/itidcs-web-images/jiuysrvzqzbaylwrnt3o.webp",
-    description:
-      "Learn front-end and back-end development with hands-on projects.",
-    price: "₹59,999",
-    offerPrice: "₹19,999", // Discounted price
-    offerTag: "Limited Time Offer - 50% Off!",
-    content: [
-      "HTML, CSS, JavaScript",
-      "React, Node.js, Express",
-      "MongoDB, Databases",
-      "API Development",
-      "Deployment",
-    ],
-  },
-  {
-    id: 2,
-    title: "Data Science & Machine Learning",
-    image: "https://res.cloudinary.com/plot-app-say-no-broker/image/upload/v1746502077/itidcs-web-images/rcudkrvgty7dpthqrg30.webp",
-    description:
-      "Master data analysis, visualization, and machine learning techniques.",
-    price: "₹24,999",
-    offerPrice: "₹12,499", // Discounted price
-    offerTag: "Limited Time Offer - 50% Off!",
-
-    content: [
-      "Python & Libraries (Pandas, Numpy)",
-      "Data Visualization (Matplotlib, Seaborn)",
-      "Machine Learning Algorithms",
-      "Deep Learning & Neural Networks",
-      "Model Deployment",
-    ],
-  },
-  {
-    id: 3,
-    title: "UI/UX Design Fundamentals",
-    image: "https://res.cloudinary.com/plot-app-say-no-broker/image/upload/v1746502077/itidcs-web-images/asrmxwqupclkqvqrsjxr.webp",
-    description:
-      "Understand design principles, tools, and user-centric processes.",
-    price: "₹14,999",
-    offerPrice: "₹7,499", // Discounted price
-    offerTag: "Limited Time Offer - 50% Off!",
-    content: [
-      "Design Thinking",
-      "Wireframing & Prototyping",
-      "User Research",
-      "Interaction Design",
-      "Usability Testing",
-    ],
-  },
-  {
-    id: 4,
-    title: "Cybersecurity Essentials",
-    image: "https://res.cloudinary.com/plot-app-say-no-broker/image/upload/v1746502076/itidcs-web-images/bnte32sey97snldaq0yh.webp",
-    description:
-      "Protect systems, networks, and data with cybersecurity practices.",
-    price: "₹19,999",
-    offerPrice: "₹9,999", // Discounted price
-    offerTag: "Limited Time Offer - 50% Off!",
-    content: [
-      "Network Security",
-      "Cryptography",
-      "Ethical Hacking",
-      "Penetration Testing",
-      "Incident Response",
-    ],
-  },
-  {
-    id: 5,
-    title: "Mobile App Development",
-    image: "https://res.cloudinary.com/plot-app-say-no-broker/image/upload/v1746502075/itidcs-web-images/p7hdrrcvzs27rdtztzks.webp",
-    description: "Build responsive apps using React Native and Backend APIs.",
-    price: "₹49,999",
-    offerPrice: "₹17,999", // Discounted price
-    offerTag: "Limited Time Offer - 50% Off!",
-    content: [
-      "React Native Basics",
-      "State Management (Redux)",
-      "APIs & Data Fetching",
-      "Mobile UI/UX Design",
-      "Publishing Apps",
-    ],
-  },
-  {
-    id: 6,
-    title: "Cloud Computing & DevOps",
-    image: "/images/cloud-computing.png",
-    description:
-      "Learn cloud platforms and DevOps practices to build scalable systems.",
-    price: "₹24,999",
-    offerPrice: "₹12,499", // Discounted price
-    offerTag: "Limited Time Offer - 50% Off!",
-
-    content: [
-      "Cloud Providers (AWS, Azure, Google Cloud)",
-      "CI/CD Pipelines",
-      "Infrastructure as Code",
-      "Containerization with Docker",
-      "Kubernetes & Orchestration",
-    ],
-  },
-  {
-    id: 7,
-    title: "Game Development with Unity",
-    image: "/images/unity-game-dev.png",
-    description:
-      "Learn how to create 2D and 3D games using Unity engine and C#.",
-    price: "₹29,999",
-    offerPrice: "₹15,999", // Discounted price
-    offerTag: "Limited Time Offer - 50% Off!",
-    content: [
-      "Introduction to Unity",
-      "C# Programming for Game Dev",
-      "2D Game Development",
-      "3D Game Development",
-      "Physics, AI, and Animation",
-    ],
-  },
-  {
-    id: 8,
-    title: "Digital Marketing & SEO",
-    image: "/images/digital-marketing.png",
-    description:
-      "Master the strategies for online marketing, SEO, and social media.",
-    price: "₹14,999",
-    offerPrice: "₹7,499", // Discounted price
-    offerTag: "Limited Time Offer - 50% Off!",
-    content: [
-      "Search Engine Optimization (SEO)",
-      "Content Marketing",
-      "Google Analytics & Ads",
-      "Social Media Marketing",
-      "Email Marketing & Campaigns",
-    ],
-  },
-  {
-    id: 9,
-    title: "Blockchain and Cryptocurrency",
-    image: "/images/blockchain.png",
-    description:
-      "Understand the fundamentals of blockchain technology and cryptocurrency.",
-    price: "₹19,999",
-    offerPrice: "₹9,999", // Discounted price
-    offerTag: "Limited Time Offer - 50% Off!",
-    content: [
-      "Blockchain Basics",
-      "Smart Contracts",
-      "Cryptocurrency & Bitcoin",
-      "Ethereum & DeFi",
-      "Building Blockchain Apps",
-    ],
-  },
-  {
-    id: 10,
-    title: "Artificial Intelligence & Deep Learning",
-    image: "/images/ai-deep-learning.png",
-    description:
-      "Dive into the world of AI and deep learning with hands-on projects.",
-    price: "₹44,999",
-    offerPrice: "₹17,499", // Discounted price
-    offerTag: "Limited Time Offer - 50% Off!",
-    content: [
-      "Introduction to AI",
-      "Supervised & Unsupervised Learning",
-      "Neural Networks & Deep Learning",
-      "Natural Language Processing (NLP)",
-      "AI in Real-World Applications",
-    ],
-  },
-];
-
-export default function CourseDetailsPage({ params }) {
-  const { id } = use(params);
+export default function CourseDetailsPage() {
+  const { id } = useParams();
   const [course, setCourse] = useState(null);
-  console.log(id);
+
   useEffect(() => {
     if (id) {
       const foundCourse = coursesData.find(
@@ -194,17 +26,34 @@ export default function CourseDetailsPage({ params }) {
   }
 
   return (
-    <div className="l dn aoc axf cyi min-h-screen p-8 bg-gradient-to-r from-blue-50 to-blue-100">
-      <div className="max-w-7xl mx-auto py-8 px-6 lg:px-8 rounded-3xl bg-white shadow-lg">
+    <div className="l dn aoc axf cyi min-h-screen bg-gradient-to-r from-blue-50 to-blue-100 sm:px-4 lg:p-6">
+      <div className="max-w-7xl mx-auto py-8 lg:px-8 rounded-3xl bg-white shadow-lg">
+            {/* Breadcrumbs */}
+    <nav className="text-sm text-gray-600 mb-6" aria-label="Breadcrumb">
+      <ol className="list-reset flex items-center space-x-2">
+        <li>
+          <Link href="/" className="hover:underline text-blue-700">Home</Link>
+          <span className="mx-1">/</span>
+        </li>
+        <li>
+          <Link href="/enroll" className="hover:underline text-blue-700">Courses</Link>
+          <span className="mx-1">/</span>
+        </li>
+        <li className="text-gray-800 font-semibold truncate max-w-[180px] sm:max-w-none">
+          {course.title}
+        </li>
+      </ol>
+    </nav>
         {/* Course Header */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-extrabold  text-fuchsia-950">
-          {course.title}</h1>
+          <h1 className="text-4xl font-extrabold text-fuchsia-950">
+            {course.title}
+          </h1>
           <p className="mt-4 text-lg">{course.description}</p>
         </div>
 
         {/* Course Image */}
-        <div className="flex justify-center mb-12">
+        {/* <div className="flex justify-center mb-12">
           <Image
             src={course.image}
             alt={course.title}
@@ -212,8 +61,15 @@ export default function CourseDetailsPage({ params }) {
             height={300}
             className="rounded-lg shadow-lg max-w-full h-72 object-cover"
           />
-        </div>
-        <div className="text-center mb-8">
+        </div> */}
+        <TrainingHero
+          imgSrc={course.image}
+          category={course.category}
+          title={course.title}
+        />
+
+        {/* Pricing & Offer */}
+        {/* <div className="text-center mb-8">
           <p className="text-xl font-semibold text-gray-800">
             {course.offerTag}
           </p>
@@ -228,37 +84,23 @@ export default function CourseDetailsPage({ params }) {
           <p className="mt-2 text-xl font-semibold text-yellow-500">
             Hurry! Limited seats available.
           </p>
-        </div>
-        {/* Course Content List */}
-        <div className="mb-12 text-center">
-          <h2 className="text-3xl font-semibold">Course Content</h2>
-          <p className="mt-4 text-lg text-gray-700">
-            Dive deep into the following topics:
-          </p>
-          {/* Make the bullet points in same alignment or line as the text */}
-          <ul className="list-disc list-inside mt-4 text-lg text-gray-700">
-            {course.content.map((item, idx) => (
-              <li key={idx}>{item}</li>
-            ))}
-          </ul>
-        </div>
-
+        </div> */}
+        <CourseCurriculum title={course.title} />
         {/* Enroll Section */}
-        <div className="flex justify-center align-middle items-center">
+        <div className="flex flex-col items-center justify-center text-center px-4 py-6">
           <a
             href="https://docs.google.com/forms/d/e/1FAIpQLSflmV56d0cYZcW4q5tVbuOfQQ7Qb_YKbYrqm4AEnTCjbzTeKA/viewform"
             target="_blank"
             rel="noopener noreferrer"
+            className="w-full sm:w-auto"
           >
-            <button className="bg-blue-800 hover:bg-blue-900 text-white
-            text-lg px-6 py-3 rounded-md transition duration-300 shadow-lg animate-pulse">
+            <button className="bg-blue-800 hover:bg-blue-900 w-full sm:w-80 text-white text-base sm:text-lg px-6 py-3 rounded-md transition duration-300 shadow-lg animate-pulse">
               Enroll Now
             </button>
-            <p className="text-red-600 font-medium mt-2">
-              🔥 Offer ends soon — Secure your seat now!
-            </p>
           </a>
-        
+          <p className="text-red-600 font-medium mt-3 text-sm sm:text-base">
+            🔥 Offer ends soon — Secure your seat now!
+          </p>
         </div>
       </div>
     </div>

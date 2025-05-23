@@ -31,13 +31,13 @@ export default function MainSection() {
               <h2 className="text-base/7 font-semibold text-indigo-600">
                 Call to action
               </h2>
-              <p className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">
-                Ready to take the next step?
-              </p>
-              <p className="mt-6 text-lg/8 text-gray-600">
-                Don&apos;t wait to level up your skills or bring your digital vision
-                to life. Partner with ITIDCS and unlock new
-                opportunities today!
+              <h1 className="text-4xl font-extrabold mb-6">
+                Ready to take the next step with?
+              </h1>
+              <p className="mt-6 text-lg/8 text-gray-600 font-bold">
+               ITIDCS India’s Leading and Trusted IT Training Institute Offering Classroom & Online Training
+               As well as IT Consulting Services making Mobile Apps, Websites, and Software, 
+               Development for Startups and Enterprises.
               </p>
               <dl className="mt-10 max-w-xl space-y-8 text-base/7 text-gray-600 lg:max-w-none">
                 {features.map((feature) => (
