@@ -53,13 +53,11 @@ export default function PromoModal({ show, onClose }) {
             // }}
           >
             <Link
-             href="https://docs.google.com/forms/d/e/1FAIpQLSflmV56d0cYZcW4q5tVbuOfQQ7Qb_YKbYrqm4AEnTCjbzTeKA/viewform"
-             className="text-white hover:text-blue-950 transition font-medium"
-             target="_blank"
-           >
-                    Enroll Now →
-           </Link>
-     
+              href='/enroll'
+              className="text-white hover:text-blue-950 transition font-medium"
+            >
+              Enroll Now →
+            </Link>
           </button>
         </div>
       </div>
