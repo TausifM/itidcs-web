@@ -55,7 +55,7 @@ export default function SEOHead({
               name: "ITIDCS",
               logo: {
                 "@type": "ImageObject",
-                url: "https://itidcs.vercel.app/itidcs-logo.png",
+                url: image,
               },
             },
           }),

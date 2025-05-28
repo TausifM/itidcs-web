@@ -379,19 +379,100 @@ export const curriculumData = [
       { section: "Analytics & Reporting", tag: "Analytics", duration: "1 Week", topics: ["Google Analytics","Reporting Dashboards","KPIs"] }
     ]
   },
-  {
-    courseId: 10,
-    title: "Artificial Intelligence & Deep Learning",
-    roadmap: [
-      { section: "AI Foundations", tag: "AI", duration: "1 Week", topics: ["History of AI","Problem Solving","Search Algorithms"] },
-      { section: "Machine Learning Basics", tag: "ML", duration: "2 Weeks", topics: ["Supervised vs Unsupervised","Regression & Classification","Model Validation"] },
-      { section: "Neural Networks", tag: "DL", duration: "2 Weeks", topics: ["Perceptron","Backpropagation","Activation Functions"] },
-      { section: "Deep Learning Frameworks", tag: "DL", duration: "2 Weeks", topics: ["TensorFlow","Keras","PyTorch Basics"] },
-      { section: "Computer Vision", tag: "CV", duration: "1.5 Weeks", topics: ["CNNs","Image Classification","Object Detection"] },
-      { section: "Natural Language Processing", tag: "NLP", duration: "1.5 Weeks", topics: ["Text Preprocessing","Word Embeddings","Transformer Models"] },
-      { section: "Model Deployment & MLOps", tag: "MLOps", duration: "1 Week", topics: ["Dockerizing Models","API Development","Monitoring"] }
-    ]
-  }
+{
+  courseId: 10,
+  title: "Artificial Intelligence: Foundations to Applications",
+  roadmap: [
+    {
+      section: "Introduction to AI & its Applications",
+      tag: "AI",
+      duration: "1 Week",
+      topics: [
+        "What is AI?",
+        "History and Evolution of AI",
+        "Real-world AI Applications",
+        "Ethics & Bias in AI"
+      ]
+    },
+    {
+      section: "Problem Solving & Search in AI",
+      tag: "AI",
+      duration: "1 Week",
+      topics: [
+        "Intelligent Agents",
+        "State-space Search",
+        "Uninformed Search (BFS, DFS)",
+        "Informed Search (A*, Greedy)"
+      ]
+    },
+    {
+      section: "Knowledge Representation & Reasoning",
+      tag: "AI",
+      duration: "1 Week",
+      topics: [
+        "Propositional & First Order Logic",
+        "Inference Techniques",
+        "Ontologies",
+        "Constraint Satisfaction Problems"
+      ]
+    },
+    {
+      section: "Machine Learning Essentials for AI",
+      tag: "ML",
+      duration: "2 Weeks",
+      topics: [
+        "Supervised vs Unsupervised Learning",
+        "Regression and Classification",
+        "Model Evaluation & Validation",
+        "Scikit-learn Basics"
+      ]
+    },
+    {
+      section: "Planning & Decision Making",
+      tag: "AI",
+      duration: "1 Week",
+      topics: [
+        "Goal-based Agents",
+        "Planning Algorithms",
+        "Game Playing & Minimax",
+        "Markov Decision Processes (MDP)"
+      ]
+    },
+    {
+      section: "Natural Language Processing Basics",
+      tag: "NLP",
+      duration: "1 Week",
+      topics: [
+        "Text Preprocessing",
+        "Named Entity Recognition",
+        "Basic Chatbots",
+        "Using pre-trained NLP models"
+      ]
+    },
+    {
+      section: "Intro to Deep Learning (Optional)",
+      tag: "DL",
+      duration: "1 Week",
+      topics: [
+        "What is a Neural Network?",
+        "Perceptrons and Backpropagation",
+        "Real-world Examples using Keras"
+      ]
+    },
+    {
+      section: "AI in the Real World & Tools",
+      tag: "Tools",
+      duration: "1 Week",
+      topics: [
+        "Using APIs (OpenAI, Hugging Face)",
+        "Deploying AI Models with Flask",
+        "Intro to AI in Cloud (Google AI/ML, Azure)",
+        "Version Control (Git/GitHub)"
+      ]
+    }
+  ]
+}
+
 ];
 
 export default curriculumData;
