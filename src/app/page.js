@@ -1,6 +1,7 @@
 "use client";
 import { useRef, useEffect, useState } from "react";
 import Head from "next/head";
+import dynamic from "next/dynamic";
 import HeroSection from "./component/test";
 import MainSection from "./component/mainsection";
 import CTASection from "./component/ctasection";
@@ -11,13 +12,21 @@ import Testimonials from "./component/testimonials";
 import Contact from "./contact/page";
 import Modal from "./component/promotionModal";
 import BadgeModal from "./component/BadgeModal";
-import TrainingLandingPage from "./component/it-training";
 import CourseCarousel from "./component/course-carousel";
+
+const TrainingLandingPage = dynamic(
+  () => import("./component/it-training"),
+  { ssr: false }
+);
 
 export default function Home() {
   const mainRef = useRef(null);
   const [showModal, setShowModal] = useState(false);
   const [triggerCount, setTriggerCount] = useState(0);
+
+  // For BadgeModal control
+ const [badgeCount, setBadgeCount] = useState(0);
+const [showBadge, setShowBadge] = useState(true);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -38,6 +47,16 @@ export default function Home() {
     };
   }, [triggerCount]);
 
+
+useEffect(() => {
+  if (badgeCount >= 1) {
+    setShowBadge(false);
+  }
+}, [badgeCount]);
+
+const handleBadgeClose = () => {
+  setBadgeCount((prev) => prev + 1);
+};
   return (
     <>
       <Head>
@@ -61,7 +80,7 @@ export default function Home() {
       <Contact />
 
       <Modal show={showModal} onClose={() => setShowModal(false)} />
-      <BadgeModal />
+      <BadgeModal show={showBadge} onClose={handleBadgeClose} />
     </>
   );
 }

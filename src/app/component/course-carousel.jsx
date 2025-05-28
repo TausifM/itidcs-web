@@ -42,7 +42,11 @@ export default function CourseCarousel() {
   };
 
   return (
-    <section className="bg-neutral-900 py-12 sm:m-4 overflow-hidden">
+    <section className="py-10 bg-gradient-to-r from-blue-50 to-blue-100">
+      <h2 className="text-3xl font-bold text-center mb-8">
+        Explore Our Courses
+      </h2>
+
       <div className="relative max-w-7xl mx-auto px-4">
         {/* Left Arrow */}
         <button
@@ -62,15 +66,17 @@ export default function CourseCarousel() {
           }}
         >
           {/* Duplicate the courses for infinite scroll effect */}
-          {[...coursesData, ...coursesData].map((course, idx) => (
-            <div
-              key={`${course.id}-${idx}`}
-              className="flex-shrink-0 scroll-snap-align-start bg-white rounded-xl shadow-lg border border-gray-200 p-5 relative flex flex-col justify-between w-[90vw] sm:w-[80vw] md:w-[400px]"
-            >
-              <span className="absolute top-4 right-4 bg-red-100 text-red-600 text-xs px-2 py-1 rounded-md border border-red-400 font-semibold">
-                {Math.floor(Math.random() * 5) + 1} seats left
-              </span>
-              <TimerCard />
+          {[...coursesData, ...coursesData].map((course, idx) => {
+            const seatsLeft = (idx % coursesData.length) % 5 + 1;
+           return (
+             <div
+               key={`${course.id}-${idx}`}
+               className="flex-shrink-0 scroll-snap-align-start bg-white rounded-xl shadow-lg border border-gray-200 p-5 relative flex flex-col justify-between w-[90vw] sm:w-[80vw] md:w-[400px]"
+             >
+               <span className="absolute top-4 right-4 bg-red-100 text-red-600 text-xs px-2 py-1 rounded-md border border-red-400 font-semibold">
+                 + {seatsLeft} seats left +{" "}
+               </span>
+               <TimerCard />
 
               <Image
                 src={course.image}
@@ -83,9 +89,7 @@ export default function CourseCarousel() {
               <h3 className="text-xl sm:text-2xl font-bold mb-1">
                 {course.title}
               </h3>
-              <p className="text-sm text-gray-700 mb-3">
-                {course.description}
-              </p>
+              <p className="text-sm text-gray-700 mb-3">{course.description}</p>
 
               <div className="flex items-center gap-2 mb-3">
                 <span className="text-green-600 font-bold text-lg">
@@ -118,7 +122,8 @@ export default function CourseCarousel() {
                 </Link>
               </div>
             </div>
-          ))}
+          );
+        })}
         </div>
 
         {/* Right Arrow */}

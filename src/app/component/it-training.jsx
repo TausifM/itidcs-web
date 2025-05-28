@@ -1,33 +1,64 @@
 "use client";
-
-import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function TrainingLandingPage() {
-  const [form, setForm] = useState({ name: "", email: "", mobile: "" });
+ // ─── State Hooks (always in same order) ────────────────────────────────
+  const [formData, setFormData] = useState({ name: "", email: "", mobile: "" });
+  const [errors, setErrors]       = useState({ email: false, mobile: false });
+  const [isFormValid, setFormValid] = useState(false);
+  const [showToast, setShowToast] = useState(false);
+  const [hasMounted, setHasMounted] = useState(false);
 
+  // ─── Validation Helpers ────────────────────────────────────────────────
+  const validateEmail  = (e) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);
+  const validateMobile = (m) => /^[6-9]\d{9}$/.test(m);
+
+  // ─── Effects (also always in same order) ───────────────────────────────
+  // 1) Mount guard
+  useEffect(() => { setHasMounted(true) }, []);
+
+  // 2) Validate on every formData change
+  useEffect(() => {
+    const emailValid  = validateEmail(formData.email);
+    const mobileValid = validateMobile(formData.mobile);
+    const allFilled   = Object.values(formData).every((v) => v.trim());
+
+    setErrors({
+      email: formData.email && !emailValid,
+      mobile: formData.mobile && !mobileValid,
+    });
+    setFormValid(allFilled && emailValid && mobileValid);
+  }, [formData]);
+
+  // ─── Handlers ──────────────────────────────────────────────────────────
   const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData((f) => ({ ...f, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert("Thank you! Our team will contact you shortly.");
+    const payload = new FormData();
+    Object.entries(formData).forEach(([k, v]) => payload.append(k, v));
+
+    try {
+      const res = await fetch(
+        "https://formsubmit.co/ajax/innovativeitdcorporation@gmail.com",
+        { method: "POST", headers: { Accept: "application/json" }, body: payload }
+      );
+      if (!res.ok) throw new Error();
+      setShowToast(true);
+      setFormData({ name: "", email: "", mobile: "" });
+      setTimeout(() => setShowToast(false), 5000);
+    } catch {
+      alert("Submission failed. Please try again.");
+    }
   };
 
+  // ─── Don’t render anything until after hydration ───────────────────────
+  if (!hasMounted) return null;
   return (
-    <div className="min-h-screen bg-white text-gray-800">
-      {/* Header */}
-      {/* <header className="flex justify-between items-center px-6 py-4 shadow">
-        <div className="text-2xl font-bold text-green-700">
-          SkillBuilder Pro
-        </div>
-        <button className="bg-lime-500 hover:bg-lime-600 text-white px-4 py-2 rounded">
-          Get Free Counseling
-        </button>
-      </header> */}
-
-      {/* Hero Section */}
+ <div className="min-h-screen bg-white text-gray-800">
       <main className="flex flex-col lg:flex-row justify-between items-center px-8 py-16 max-w-7xl mx-auto">
         {/* Left Content */}
         <div className="max-w-xl">
@@ -58,46 +89,80 @@ export default function TrainingLandingPage() {
           <h2 className="text-xl font-bold mb-4">
             Get Free Counseling, Enroll Now!
           </h2>
-            <p className="text-sm mb-4 text-gray-600">
+          <p className="text-sm mb-4 text-gray-600">
             Fill out the form below and our team will get in touch with you
             shortly.
-            </p>
+          </p>
+
+          {/* Mobile */}
           <input
-            type="text"
+            type="tel"
             name="mobile"
             placeholder="Enter Mobile Number"
             maxLength={10}
-            value={form.mobile}
+            value={formData.mobile}
             onChange={handleChange}
-            className="w-full p-3 mb-4 border rounded"
+            className={`w-full p-3 mb-1 border rounded ${
+              errors.mobile ? "border-red-500" : ""
+            }`}
             required
           />
+          {errors.mobile && (
+            <p className="text-red-500 text-xs mb-3">
+              Please enter a valid 10-digit mobile number.
+            </p>
+          )}
+
+          {/* Name */}
           <input
             type="text"
             name="name"
             placeholder="Your Full Name"
-            value={form.name}
+            value={formData.name}
             onChange={handleChange}
             className="w-full p-3 mb-4 border rounded"
             required
           />
+
+          {/* Email */}
           <input
             type="email"
             name="email"
             placeholder="Your Email Address"
-            value={form.email}
+            value={formData.email}
             onChange={handleChange}
-            className="w-full p-3 mb-4 border rounded"
+            className={`w-full p-3 mb-1 border rounded ${
+              errors.email ? "border-red-500" : ""
+            }`}
             required
           />
+          {errors.email && (
+            <p className="text-red-500 text-xs mb-3">
+              Please enter a valid email address.
+            </p>
+          )}
+
           <button
             type="submit"
-            className="w-full bg-lime-600 hover:bg-lime-700 text-white py-3 rounded font-semibold transition"
+            disabled={!isFormValid}
+            className={`w-full py-3 mt-2 rounded font-semibold transition ${
+              isFormValid
+                ? "bg-lime-600 hover:bg-lime-700 text-white"
+                : "bg-lime-700 text-red-100 cursor-not-allowed"
+            }`}
           >
             Submit ✉️
           </button>
         </form>
       </main>
+
+      {/* Toast */}
+      {showToast && (
+        <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-lime-600 text-white px-6 py-3 rounded shadow-lg z-50">
+          Thank you! Our team will contact you shortly.
+        </div>
+      )}
+   
 
       {/* Partners */}
       <section className="bg-gray-50 py-10 overflow-hidden">
