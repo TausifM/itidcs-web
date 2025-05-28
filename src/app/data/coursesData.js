@@ -29,7 +29,7 @@ const coursesData = [
   },
     {
     id: 10,
-    title: "Artificial Intelligence & Deep Learning",
+    title: "Artificial Intelligence: Foundations to Applications",
     image: "https://res.cloudinary.com/plot-app-say-no-broker/image/upload/v1748028443/ai_rhrali.png",
     description:
       "Dive into the world of AI and deep learning with hands-on projects.",

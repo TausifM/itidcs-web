@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import { useParams } from "next/navigation";
 import coursesData from "../../data/coursesData"; // adjust path as needed
 import TrainingHero from "@/app/component/training-hero";
