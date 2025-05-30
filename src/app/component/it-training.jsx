@@ -1,27 +1,30 @@
 "use client";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 export default function TrainingLandingPage() {
- // ─── State Hooks (always in same order) ────────────────────────────────
+  // ─── State Hooks (always in same order) ────────────────────────────────
   const [formData, setFormData] = useState({ name: "", email: "", mobile: "" });
-  const [errors, setErrors]       = useState({ email: false, mobile: false });
+  const [errors, setErrors] = useState({ email: false, mobile: false });
   const [isFormValid, setFormValid] = useState(false);
   const [showToast, setShowToast] = useState(false);
   const [hasMounted, setHasMounted] = useState(false);
 
   // ─── Validation Helpers ────────────────────────────────────────────────
-  const validateEmail  = (e) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);
+  const validateEmail = (e) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);
   const validateMobile = (m) => /^[6-9]\d{9}$/.test(m);
 
   // ─── Effects (also always in same order) ───────────────────────────────
   // 1) Mount guard
-  useEffect(() => { setHasMounted(true) }, []);
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
 
   // 2) Validate on every formData change
   useEffect(() => {
-    const emailValid  = validateEmail(formData.email);
+    const emailValid = validateEmail(formData.email);
     const mobileValid = validateMobile(formData.mobile);
-    const allFilled   = Object.values(formData).every((v) => v.trim());
+    const allFilled = Object.values(formData).every((v) => v.trim());
 
     setErrors({
       email: formData.email && !emailValid,
@@ -44,7 +47,11 @@ export default function TrainingLandingPage() {
     try {
       const res = await fetch(
         "https://formsubmit.co/ajax/innovativeitdcorporation@gmail.com",
-        { method: "POST", headers: { Accept: "application/json" }, body: payload }
+        {
+          method: "POST",
+          headers: { Accept: "application/json" },
+          body: payload,
+        }
       );
       if (!res.ok) throw new Error();
       setShowToast(true);
@@ -58,7 +65,7 @@ export default function TrainingLandingPage() {
   // ─── Don’t render anything until after hydration ───────────────────────
   if (!hasMounted) return null;
   return (
- <div className="min-h-screen bg-white text-gray-800">
+    <div className="min-h-screen bg-white text-gray-800">
       <main className="flex flex-col lg:flex-row justify-between items-center px-8 py-16 max-w-7xl mx-auto">
         {/* Left Content */}
         <div className="max-w-xl">
@@ -76,9 +83,18 @@ export default function TrainingLandingPage() {
             you through hands-on projects, ensuring you are job-ready upon
             completion.
           </p>
-          <button className="bg-lime-500 hover:bg-lime-600 text-white px-5 py-3 rounded font-semibold shadow">
-            Download Program Details 📄
-          </button>
+
+          <Link
+            href="https://www.canva.com/design/DAGnxYI4ZuE/tP83oxzkUeVCxxoyJagu4w/view?utm_content=DAGnxYI4ZuE&utm_campaign=share_your_design&utm_medium=link2&utm_source=shareyourdesignpanel#22"
+            className="inline-block px-5 py-3 bg-lime-500 hover:bg-lime-600 text-white rounded font-semibold shadow transition mb-4"
+            aria-label="Download Course Brochure"
+            title="Download Course Brochure"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ textDecoration: "none" }}
+          >
+             Download Program Details 📄
+          </Link>
         </div>
 
         {/* Form */}
@@ -162,7 +178,6 @@ export default function TrainingLandingPage() {
           Thank you! Our team will contact you shortly.
         </div>
       )}
-   
 
       {/* Partners */}
       <section className="bg-gray-50 py-10 overflow-hidden">

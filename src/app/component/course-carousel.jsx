@@ -112,9 +112,17 @@ export default function CourseCarousel() {
               </div>
 
               <div className="flex flex-col gap-2">
-                {/* <button className="w-full border border-gray-300 rounded-md py-2 text-sm font-medium hover:bg-gray-100">
+                <Link
+                  href='https://www.canva.com/design/DAGnxYI4ZuE/tP83oxzkUeVCxxoyJagu4w/view?utm_content=DAGnxYI4ZuE&utm_campaign=share_your_design&utm_medium=link2&utm_source=shareyourdesignpanel#22'
+                  className="inline-block px-4 py-2 bg-lime-500 hover:bg-lime-600 text-white rounded  transition"
+                  aria-label="Download Course Brochure"
+                  title="Download Course Brochure"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ textDecoration: "none" }}
+                >
                   Download Brochure
-                </button> */}
+                </Link>
                 <Link href={`/enroll/${course.id}`}>
                   <button className="w-full bg-lime-500 hover:bg-lime-600 text-white rounded-md py-2 text-sm font-medium">
                     Know More

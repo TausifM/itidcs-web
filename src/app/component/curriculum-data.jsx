@@ -37,9 +37,17 @@ export default function CourseCurriculum({ title, data = curriculumData }) {
             <div className="text-sm">Live Session Hours</div>
           </div>
         </div>
-        {/* <button className="mt-6 bg-lime-400 text-black px-4 py-2 rounded-md font-semibold hover:bg-lime-500 transition">
-          📥 Download Brochure
-        </button> */}
+            <Link
+                href="https://www.canva.com/design/DAGnxYI4ZuE/tP83oxzkUeVCxxoyJagu4w/view?utm_content=DAGnxYI4ZuE&utm_campaign=share_your_design&utm_medium=link2&utm_source=shareyourdesignpanel#22"
+                className="inline-block px-4 py-2 bg-lime-500 hover:bg-lime-600 text-white rounded  transition"
+                aria-label="Download Course Brochure"
+                title="Download Course Brochure"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ textDecoration: "none" }}
+            >
+                  Download PDF
+            </Link>
       </aside>
 
       {/* Curriculum Timeline */}

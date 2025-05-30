@@ -5,6 +5,10 @@ import Link from "next/link";
 export default function PromoModal({ show, onClose }) {
   useEffect(() => {
     document.body.style.overflow = show ? "hidden" : "auto";
+    return () => {
+      // Cleanup when component unmounts
+      document.body.style.overflow = "auto";
+    };
   }, [show]);
 
   if (!show) return null;
@@ -17,15 +21,19 @@ export default function PromoModal({ show, onClose }) {
             🚀 Join Our Latest Web Development Class!
           </h2>
           <p className="text-sm text-gray-600 mt-1">
-            Elevate your skills with our hands-on, expert-led training program at <strong>ITIDCS</strong>.
+            Elevate your skills with our hands-on, expert-led training program
+            at <strong>ITIDCS</strong>.
           </p>
         </div>
 
         <div className="mb-4">
-          <h3 className="text-lg font-semibold text-gray-800">About the Class</h3>
+          <h3 className="text-lg font-semibold text-gray-800">
+            About the Class
+          </h3>
           <p className="text-sm text-gray-600 mt-1">
-            Learn modern web development including HTML, CSS, JavaScript, React, Git, and deployment.
-            Ideal for beginners and those looking to upskill in a practical, project-based format.
+            Learn modern web development including HTML, CSS, JavaScript, React,
+            Git, and deployment. Ideal for beginners and those looking to
+            upskill in a practical, project-based format.
           </p>
         </div>
 
@@ -46,19 +54,14 @@ export default function PromoModal({ show, onClose }) {
           >
             Maybe Later
           </button>
-          <button
-            className="px-5 py-2 text-sm bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
-            // onClick={() => {
-            //   window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLSflmV56d0cYZcW4q5tVbuOfQQ7Qb_YKbYrqm4AEnTCjbzTeKA/viewform"; // /enroll // or a real route
-            // }}
-          >
-            <Link
-              href='/enroll'
-              className="text-white hover:text-blue-950 transition font-medium"
+          <Link href="/enroll">
+            <button
+              className="px-5 py-2 text-sm bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
+              onClick={onClose}
             >
               Enroll Now →
-            </Link>
-          </button>
+            </button>
+          </Link>
         </div>
       </div>
     </div>
