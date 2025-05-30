@@ -62,7 +62,10 @@ export default function NewsLetter() {
               </li>
               <li className="mt-2">
                 <span className="block font-semibold text-white">Office 2:</span>
-                Siraspeth, Near Anand Budh Vihar, Nagpur
+                Siraspeth, Near Anand Budh Vihar, and Plot No. 04, Suraj Nagar, Jafar Nagar,
+                <br />
+                <br />
+                Gorewada Ring Road, Beside Palloti Church, Nagpur, Maharashtra 440015
               </li>
             </ul>
           </div>

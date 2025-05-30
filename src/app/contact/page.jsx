@@ -141,6 +141,16 @@ export default function Contact() {
                   <br />
                   Nagpur, 440041{" "}
                 </dd>
+                <dd
+                  className="bvw"
+                >
+                  Plot No. 04, Suraj Nagar, Jafar Nagar,
+                  <br />
+                  Gorewada Ring Road, Beside Palloti Church,
+                  <br />
+                  Nagpur, Maharashtra 440015
+                </dd>
+
               </div>
               <div className="la ace">
                 <dt className="wt">
@@ -163,8 +173,8 @@ export default function Contact() {
                   </svg>
                 </dt>
                 <dd>
-                  <a href="tel:+919975767561" className="bvw">
-                    +91 9975767561
+                  <a href="tel:+917709382305" className="text-green-500 hover:text-green-700 transition">
+                    +91 7709 38 2305
                   </a>
                 </dd>
               </div>
@@ -191,7 +201,8 @@ export default function Contact() {
                 <dd>
                   <a
                     href="mailto:innovativeitdcorporation@gmail.com"
-                    className="bvw"
+                    className="text-blue-500 hover:text-blue-700 transition"
+                    rel="noopener noreferrer"
                   >
                     innovativeitdcorporation@gmail.com
                   </a>

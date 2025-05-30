@@ -1,5 +1,7 @@
 import { useState } from "react";
 import curriculumData from "../data/curriculumData";
+import Link from "next/link";
+import AnimatedNumber from "./animatedNumber";
 
 export default function CourseCurriculum({ title, data = curriculumData }) {
   const course = data.find((c) => c.title === title);
@@ -25,15 +27,21 @@ export default function CourseCurriculum({ title, data = curriculumData }) {
         </p>
         <div className="space-y-4">
           <div className="bg-white text-black rounded-lg px-4 py-3 flex items-center gap-4">
-            <div className="text-2xl font-bold">30+</div>
+            <div className="text-2xl font-bold">
+              <AnimatedNumber target={30} />
+            </div>
             <div className="text-sm">Case Studies & Projects</div>
           </div>
           <div className="bg-white text-black rounded-lg px-4 py-3 flex items-center gap-4">
-            <div className="text-2xl font-bold">10+</div>
+            <div className="text-2xl font-bold">
+              <AnimatedNumber target={10} />
+            </div>
             <div className="text-sm">Languages & Tools</div>
           </div>
           <div className="bg-white text-black rounded-lg px-4 py-3 flex items-center gap-4">
-            <div className="text-2xl font-bold">280+</div>
+            <div className="text-2xl font-bold">
+              <AnimatedNumber target={280} />
+            </div>
             <div className="text-sm">Live Session Hours</div>
           </div>
         </div>

@@ -11,7 +11,7 @@ export default function HeroSection() {
               <div className="fy vy auc dwm">
                 <div className="fy vt ack dlx dnq dqi dsb">
                   <div className="l vo dqk dqs edc">
-                    <h1 className="ayl azr azt azw baw dac">
+                    <h1 className="text-3xl font-extrabold text-fuchsia-950 sm:text-5xl md:text-6xl lg:text-7xl">
                       {/* Your Gateway to Success in IT & Digital Innovation! */}
                       Learn. Build. Grow - The Innovative Way.
                     </h1>

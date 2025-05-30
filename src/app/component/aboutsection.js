@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from 'next/image';
+import AnimatedNumber from "./animatedNumber";
 
 const links = [
   { name: "Open roles", href: "/jobs" },
@@ -8,10 +9,14 @@ const links = [
   // { name: "Meet our leadership", href: "/leadership" },
 ];
 const stats = [
-  { name: "Offices worldwide", value: "12" },
-  { name: "Full-time colleagues", value: "300+" },
-  { name: "Hours per week", value: "40" },
-  { name: "Paid time off", value: "Unlimited" },
+  { name: "Employees", value: 100 },
+  { name: "Projects", value: 300 },
+  { name: "Clients", value: 50 },
+  { name: "Countries", value: 10},
+  { name: "Techologies", value: 50 },
+  { name: "Years in business", value: 5 },
+  { name: "Awards", value: 2 },
+  { name: "Partners", value: 30 },
 ];
 
 export default function AboutSection() {
@@ -77,7 +82,7 @@ export default function AboutSection() {
               <div key={stat.name} className="flex flex-col-reverse gap-1">
                 <dt className="text-base/7 text-gray-300">{stat.name}</dt>
                 <dd className="text-4xl font-semibold tracking-tight text-white">
-                  {stat.value}
+                  <AnimatedNumber target={stat.value} />
                 </dd>
               </div>
             ))}

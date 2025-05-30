@@ -87,7 +87,7 @@ export default function CourseDetailsPage() {
         <CourseCurriculum title={course.title} />
         {/* Enroll Section */}
         <div className="flex flex-col items-center justify-center text-center px-4 py-6">
-          <a
+          <Link
             href="https://docs.google.com/forms/d/e/1FAIpQLSflmV56d0cYZcW4q5tVbuOfQQ7Qb_YKbYrqm4AEnTCjbzTeKA/viewform"
             target="_blank"
             rel="noopener noreferrer"
@@ -96,7 +96,7 @@ export default function CourseDetailsPage() {
             <button className="bg-blue-800 hover:bg-blue-900 w-full sm:w-80 text-white text-base sm:text-lg px-6 py-3 rounded-md transition duration-300 shadow-lg animate-pulse">
               Enroll Now
             </button>
-          </a>
+          </Link>
           <p className="text-red-600 font-medium mt-3 text-sm sm:text-base">
             🔥 Offer ends soon — Secure your seat now!
           </p>
