@@ -3,24 +3,26 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 
 export default function TrainingLandingPage() {
-  // ─── State Hooks (always in same order) ────────────────────────────────
+   // ─── State Hooks ───────────────────────────────────────
   const [formData, setFormData] = useState({ name: "", email: "", mobile: "" });
   const [errors, setErrors] = useState({ email: false, mobile: false });
   const [isFormValid, setFormValid] = useState(false);
   const [showToast, setShowToast] = useState(false);
   const [hasMounted, setHasMounted] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
 
-  // ─── Validation Helpers ────────────────────────────────────────────────
+  const brochureLink =
+    "https://www.canva.com/design/DAGnxYI4ZuE/tP83oxzkUeVCxxoyJagu4w/view?utm_content=DAGnxYI4ZuE&utm_campaign=share_your_design&utm_medium=link2&utm_source=shareyourdesignpanel#22";
+
+  // ─── Validation Helpers ────────────────────────────────
   const validateEmail = (e) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);
   const validateMobile = (m) => /^[6-9]\d{9}$/.test(m);
 
-  // ─── Effects (also always in same order) ───────────────────────────────
-  // 1) Mount guard
+  // ─── Effects ───────────────────────────────────────────
   useEffect(() => {
     setHasMounted(true);
   }, []);
 
-  // 2) Validate on every formData change
   useEffect(() => {
     const emailValid = validateEmail(formData.email);
     const mobileValid = validateMobile(formData.mobile);
@@ -33,7 +35,7 @@ export default function TrainingLandingPage() {
     setFormValid(allFilled && emailValid && mobileValid);
   }, [formData]);
 
-  // ─── Handlers ──────────────────────────────────────────────────────────
+  // ─── Handlers ──────────────────────────────────────────
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((f) => ({ ...f, [name]: value }));
@@ -41,6 +43,7 @@ export default function TrainingLandingPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     const payload = new FormData();
     Object.entries(formData).forEach(([k, v]) => payload.append(k, v));
 
@@ -56,13 +59,18 @@ export default function TrainingLandingPage() {
       if (!res.ok) throw new Error();
       setShowToast(true);
       setFormData({ name: "", email: "", mobile: "" });
+      setModalOpen(false);
+
       setTimeout(() => setShowToast(false), 5000);
+      // send user to brochure link after 5 seconds
+      await new Promise((resolve) => setTimeout(resolve, 5000));
+      window.open(brochureLink, "_blank");
     } catch {
       alert("Submission failed. Please try again.");
     }
   };
 
-  // ─── Don’t render anything until after hydration ───────────────────────
+  // ─── Render ────────────────────────────────────────────
   if (!hasMounted) return null;
   return (
     <div className="min-h-screen bg-white text-gray-800">
@@ -82,20 +90,100 @@ export default function TrainingLandingPage() {
             need to excel in the IT industry. Our expert instructors will guide
             you through hands-on projects, ensuring you are job-ready upon
             completion.
+            <br />
+            <br />
+            Whether you prefer in-person classes or online learning, we have
+            options to suit your schedule. Our courses cover the latest
+            technologies and tools, including AI, cloud computing, and more.
+            <br />
           </p>
 
-          <Link
-            href="https://www.canva.com/design/DAGnxYI4ZuE/tP83oxzkUeVCxxoyJagu4w/view?utm_content=DAGnxYI4ZuE&utm_campaign=share_your_design&utm_medium=link2&utm_source=shareyourdesignpanel#22"
-            className="inline-block px-5 py-3 bg-lime-500 hover:bg-lime-600 text-white rounded font-semibold shadow transition mb-4"
-            aria-label="Download Course Brochure"
-            title="Download Course Brochure"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ textDecoration: "none" }}
-          >
-             Download Program Details 📄
-          </Link>
+          <div className="flex flex-col gap-2">
+        <button
+          onClick={() => setModalOpen(true)}
+         className="inline-block px-5 py-3 bg-lime-500 hover:bg-lime-600 text-white rounded font-semibold shadow transition mb-4"
+          aria-label="Download Course Brochure"
+        >
+          Download Brochure 📄
+        </button>
+      </div>
         </div>
+
+      {modalOpen && (
+        <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white p-6 rounded-lg w-full max-w-md shadow-xl">
+            <h2 className="text-lg font-bold mb-4">Sign Up to Download</h2>
+            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+              <input
+                type="text"
+                name="name"
+                placeholder="Full Name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+                className="border px-3 py-2 rounded"
+              />
+              {
+                errors.name && (
+                <p className="text-red-500 text-xs">
+                  Please enter your full name.
+                </p>
+                )
+              }
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                className={`border px-3 py-2 rounded ${
+                  errors.email ? "border-red-500" : ""
+                }`}
+              />
+              {errors.email && (
+                <p className="text-red-500 text-xs">
+                  Please enter a valid email address.
+                </p>
+              )}
+              <input
+                type="tel"
+                name="mobile"
+                placeholder="Mobile Number"
+                value={formData.mobile}
+                onChange={handleChange}
+                required
+                className={`border px-3 py-2 rounded ${
+                  errors.mobile ? "border-red-500" : ""
+                }`}
+              />
+              {errors.mobile && (
+                <p className="text-red-500 text-xs">
+                  Please enter a valid 10-digit mobile number.
+                </p>
+              )}
+
+              {/* Submit Button */}
+              <button
+                type="submit"
+                disabled={!isFormValid}
+                className={`bg-lime-600 hover:bg-lime-700 text-white rounded-md py-2 text-sm font-medium ${
+                  !isFormValid ? "opacity-50 cursor-not-allowed" : ""
+                }`}
+              >
+                Submit & Download
+              </button>
+              <button
+                type="button"
+                onClick={() => setModalOpen(false)}
+                className="text-gray-500 text-sm hover:underline"
+              >
+                Cancel
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
 
         {/* Form */}
         <form

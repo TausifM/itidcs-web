@@ -54,7 +54,7 @@ export default function CourseCurriculum({ title, data = curriculumData }) {
                 rel="noopener noreferrer"
                 style={{ textDecoration: "none" }}
             >
-                  Download PDF
+                  Download Program Details 📄
             </Link>
       </aside>
 

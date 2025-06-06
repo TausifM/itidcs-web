@@ -5,6 +5,7 @@ import TimerCard from "./timer-card";
 import Link from "next/link";
 
 export default function CourseCarousel() {
+  
   useEffect(() => {
     const carousel = document.getElementById("carousel");
 
