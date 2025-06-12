@@ -28,19 +28,19 @@ export default function CourseCurriculum({ title, data = curriculumData }) {
         <div className="space-y-4">
           <div className="bg-white text-black rounded-lg px-4 py-3 flex items-center gap-4">
             <div className="text-2xl font-bold">
-              <AnimatedNumber target={30} />
+              <AnimatedNumber target={30} duration={1000} step={1} />
             </div>
             <div className="text-sm">Case Studies & Projects</div>
           </div>
           <div className="bg-white text-black rounded-lg px-4 py-3 flex items-center gap-4">
             <div className="text-2xl font-bold">
-              <AnimatedNumber target={10} />
+              <AnimatedNumber target={10} duration={1000} step={1} />
             </div>
             <div className="text-sm">Languages & Tools</div>
           </div>
           <div className="bg-white text-black rounded-lg px-4 py-3 flex items-center gap-4">
             <div className="text-2xl font-bold">
-              <AnimatedNumber target={280} />
+              <AnimatedNumber target={280} duration={1000} step={1} />
             </div>
             <div className="text-sm">Live Session Hours</div>
           </div>

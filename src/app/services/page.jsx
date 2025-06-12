@@ -8,6 +8,19 @@ export default function ServicesPage() {
      <SEOHead
         title="Our Services - ITIDCS"
         description="Explore ITIDCS services including web development, digital marketing, UI/UX design, and cloud solutions."
+        keywords="ITIDCS, services, web development, digital marketing, UI/UX design, cloud solutions, software development, IT consulting"
+        url="https://itidcs.com/services"
+        image="https://res.cloudinary.com/plot-app-say-no-broker/image/upload/v1748028445/digital-mrketing_gol9wz.png"
+        twitterCard="summary_large_image"
+        ogType="website"
+        ogImage="https://res.cloudinary.com/plot-app-say-no-broker/image/upload/v1748028445/digital-mrketing_gol9wz.png"
+        ogUrl="https://itidcs.com/services"
+        twitterSite="@itidcs"
+        twitterCreator="@itidcs"
+        twitterImage="https://res.cloudinary.com/plot-app-say-no-broker/image/upload/v1748028445/digital-mrketing_gol9wz.png"
+        twitterTitle="Our Services - ITIDCS"
+        twitterDescription="Explore ITIDCS services including web development, digital marketing, UI/UX design, and cloud solutions."
+        twitterKeywords="ITIDCS, services, web development, digital marketing, UI/UX design, cloud solutions, software development, IT consulting"
       />
      <div className="overflow-hidden bg-white py-6 sm:py-8">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">

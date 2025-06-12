@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import Link from "next/link";
+import BrochureModal from "./BrochureModal";
 
 export default function TrainingLandingPage() {
    // ─── State Hooks ───────────────────────────────────────
@@ -61,9 +61,9 @@ export default function TrainingLandingPage() {
       setFormData({ name: "", email: "", mobile: "" });
       setModalOpen(false);
 
-      setTimeout(() => setShowToast(false), 5000);
-      // send user to brochure link after 5 seconds
-      await new Promise((resolve) => setTimeout(resolve, 5000));
+      setTimeout(() => setShowToast(false), 3000);
+      // send user to brochure link after 3 seconds
+      await new Promise((resolve) => setTimeout(resolve, 3000));
       window.open(brochureLink, "_blank");
     } catch {
       alert("Submission failed. Please try again.");
@@ -109,82 +109,7 @@ export default function TrainingLandingPage() {
       </div>
         </div>
 
-      {modalOpen && (
-        <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white p-6 rounded-lg w-full max-w-md shadow-xl">
-            <h2 className="text-lg font-bold mb-4">Sign Up to Download</h2>
-            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-              <input
-                type="text"
-                name="name"
-                placeholder="Full Name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                className="border px-3 py-2 rounded"
-              />
-              {
-                errors.name && (
-                <p className="text-red-500 text-xs">
-                  Please enter your full name.
-                </p>
-                )
-              }
-              <input
-                type="email"
-                name="email"
-                placeholder="Email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                className={`border px-3 py-2 rounded ${
-                  errors.email ? "border-red-500" : ""
-                }`}
-              />
-              {errors.email && (
-                <p className="text-red-500 text-xs">
-                  Please enter a valid email address.
-                </p>
-              )}
-              <input
-                type="tel"
-                name="mobile"
-                placeholder="Mobile Number"
-                value={formData.mobile}
-                onChange={handleChange}
-                required
-                className={`border px-3 py-2 rounded ${
-                  errors.mobile ? "border-red-500" : ""
-                }`}
-              />
-              {errors.mobile && (
-                <p className="text-red-500 text-xs">
-                  Please enter a valid 10-digit mobile number.
-                </p>
-              )}
-
-              {/* Submit Button */}
-              <button
-                type="submit"
-                disabled={!isFormValid}
-                className={`bg-lime-600 hover:bg-lime-700 text-white rounded-md py-2 text-sm font-medium ${
-                  !isFormValid ? "opacity-50 cursor-not-allowed" : ""
-                }`}
-              >
-                Submit & Download
-              </button>
-              <button
-                type="button"
-                onClick={() => setModalOpen(false)}
-                className="text-gray-500 text-sm hover:underline"
-              >
-                Cancel
-              </button>
-            </form>
-          </div>
-        </div>
-      )}
-
+   <BrochureModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
         {/* Form */}
         <form
           onSubmit={handleSubmit}

@@ -5,34 +5,30 @@ import TimerCard from "./timer-card";
 import Link from "next/link";
 
 export default function CourseCarousel() {
-  
   useEffect(() => {
     const carousel = document.getElementById("carousel");
-
     if (!carousel) return;
 
-    let scrollAmount = 0;
-    const scrollStep = 520;
+    let animationFrameId;
 
-    const autoScroll = () => {
+    const scrollSpeed = 0.5; // Adjust for desired speed
+
+    const smoothScroll = () => {
       if (!carousel) return;
 
-      // Scroll by step
-      carousel.scrollBy({ left: scrollStep, behavior: "smooth" });
-      scrollAmount += scrollStep;
+      carousel.scrollLeft += scrollSpeed;
 
-      // If scrolled to the end (approx), reset instantly to the start
-      if (scrollAmount >= carousel.scrollWidth / 2) {
-        setTimeout(() => {
-          carousel.scrollLeft = 0;
-          scrollAmount = 0;
-        }, 500); // Give time for last scroll to finish
+      // Reset scroll to start when passed halfway
+      if (carousel.scrollLeft >= carousel.scrollWidth / 2) {
+        carousel.scrollLeft = 0;
       }
+
+      animationFrameId = requestAnimationFrame(smoothScroll);
     };
 
-    const interval = setInterval(autoScroll, 3000);
+    animationFrameId = requestAnimationFrame(smoothScroll);
 
-    return () => clearInterval(interval);
+    return () => cancelAnimationFrame(animationFrameId);
   }, []);
 
   const scroll = (direction) => {
@@ -44,9 +40,7 @@ export default function CourseCarousel() {
 
   return (
     <section className="py-10 bg-gradient-to-r from-blue-50 to-blue-100">
-      <h2 className="text-3xl font-bold text-center mb-8">
-        Explore Our Courses
-      </h2>
+      <h2 className="text-3xl font-bold text-center mb-8">Explore Our Courses</h2>
 
       <div className="relative max-w-7xl mx-auto px-4">
         {/* Left Arrow */}
@@ -60,79 +54,75 @@ export default function CourseCarousel() {
         {/* Carousel */}
         <div
           id="carousel"
-          className="flex overflow-x-auto gap-6 px-2 md:px-10 no-scrollbar scroll-smooth"
+          className="flex overflow-x-auto gap-6 px-2 md:px-10 no-scrollbar"
           style={{
-            scrollSnapType: "x mandatory",
+            scrollSnapType: "none",
             WebkitOverflowScrolling: "touch",
+            scrollBehavior: "auto",
           }}
         >
-          {/* Duplicate the courses for infinite scroll effect */}
-          {[...coursesData, ...coursesData].map((course, idx) => {
+          {/* Tripled for ultra-smooth loop */}
+          {[...coursesData, ...coursesData, ...coursesData].map((course, idx) => {
             const seatsLeft = (idx % coursesData.length) % 5 + 1;
-           return (
-             <div
-               key={`${course.id}-${idx}`}
-               className="flex-shrink-0 scroll-snap-align-start bg-white rounded-xl shadow-lg border border-gray-200 p-5 relative flex flex-col justify-between w-[90vw] sm:w-[80vw] md:w-[400px]"
-             >
-               <span className="absolute top-4 right-4 bg-red-100 text-red-600 text-xs px-2 py-1 rounded-md border border-red-400 font-semibold">
-                 + {seatsLeft} seats left +{" "}
-               </span>
-               <TimerCard />
-
-              <Image
-                src={course.image}
-                alt={course.title}
-                width={460}
-                height={260}
-                className="rounded-lg object-cover mb-4 w-full h-auto"
-              />
-
-              <h3 className="text-xl sm:text-2xl font-bold mb-1">
-                {course.title}
-              </h3>
-              <p className="text-sm text-gray-700 mb-3">{course.description}</p>
-
-              <div className="flex items-center gap-2 mb-3">
-                <span className="text-green-600 font-bold text-lg">
-                  {course.offerPrice}
+            return (
+              <div
+                key={`${course.id}-${idx}`}
+                className="flex-shrink-0 bg-white rounded-xl shadow-lg border border-gray-200 p-5 relative flex flex-col justify-between w-[90vw] sm:w-[80vw] md:w-[400px]"
+              >
+                <span className="absolute top-4 right-4 bg-red-100 text-red-600 text-xs px-2 py-1 rounded-md border border-red-400 font-semibold">
+                  + {seatsLeft} seats left +
                 </span>
-                <span className="line-through text-red-500 text-sm">
-                  {course.price}
-                </span>
-              </div>
+                <TimerCard />
 
-              <div className="flex flex-wrap gap-2 mb-4">
-                {course.content.slice(0, 3).map((item, i) => (
-                  <span
-                    key={i}
-                    className="bg-blue-100 text-blue-700 text-xs font-medium px-2 py-1 rounded"
+                <Image
+                  src={course.image}
+                  alt={course.title}
+                  width={460}
+                  height={260}
+                  className="rounded-lg object-cover mb-4 w-full h-auto"
+                />
+
+                <h3 className="text-xl sm:text-2xl font-bold mb-1">{course.title}</h3>
+                <p className="text-sm text-gray-700 mb-3">{course.description}</p>
+
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="text-green-600 font-bold text-lg">{course.offerPrice}</span>
+                  <span className="line-through text-red-500 text-sm">{course.price}</span>
+                </div>
+
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {course.content.slice(0, 3).map((item, i) => (
+                    <span
+                      key={i}
+                      className="bg-blue-100 text-blue-700 text-xs font-medium px-2 py-1 rounded"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="flex flex-col gap-2">
+                  <Link
+                    href="https://www.canva.com/design/DAGnxYI4ZuE/tP83oxzkUeVCxxoyJagu4w/view?utm_content=DAGnxYI4ZuE&utm_campaign=share_your_design&utm_medium=link2&utm_source=shareyourdesignpanel#22"
+                    className="text-indigo-700 hover:text-indigo-800
+                    font-medium text-sm mb-2 text-center bg-indigo-200 hover:bg-indigo-300 rounded-md px-4 py-2 transition duration-200"
+                    aria-label="Download Course Brochure"
+                    title="Download Course Brochure"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ textDecoration: "none" }}
                   >
-                    {item}
-                  </span>
-                ))}
+                    Download Brochure
+                  </Link>
+                  <Link href={`/enroll/${course.id}`}>
+                    <button className="w-full bg-lime-500 hover:bg-lime-600 text-white rounded-md py-2 text-sm font-medium">
+                      Know More
+                    </button>
+                  </Link>
+                </div>
               </div>
-
-              <div className="flex flex-col gap-2">
-                <Link
-                  href='https://www.canva.com/design/DAGnxYI4ZuE/tP83oxzkUeVCxxoyJagu4w/view?utm_content=DAGnxYI4ZuE&utm_campaign=share_your_design&utm_medium=link2&utm_source=shareyourdesignpanel#22'
-                  className="inline-block px-4 py-2 bg-lime-500 hover:bg-lime-600 text-white rounded  transition"
-                  aria-label="Download Course Brochure"
-                  title="Download Course Brochure"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ textDecoration: "none" }}
-                >
-                  Download Brochure
-                </Link>
-                <Link href={`/enroll/${course.id}`}>
-                  <button className="w-full bg-lime-500 hover:bg-lime-600 text-white rounded-md py-2 text-sm font-medium">
-                    Know More
-                  </button>
-                </Link>
-              </div>
-            </div>
-          );
-        })}
+            );
+          })}
         </div>
 
         {/* Right Arrow */}

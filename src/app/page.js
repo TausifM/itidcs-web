@@ -13,6 +13,8 @@ import Contact from "./contact/page";
 import Modal from "./component/promotionModal";
 import BadgeModal from "./component/BadgeModal";
 import CourseCarousel from "./component/course-carousel";
+import CelebrationBanner from "./component/CelebrationBannar";
+import ConfettiOverlay from "./component/ConfettiOverlay";
 
 const TrainingLandingPage = dynamic(
   () => import("./component/it-training"),
@@ -72,6 +74,8 @@ const handleBadgeClose = () => {
       </div>
       <TrainingLandingPage />
       <CourseCarousel />
+      <CelebrationBanner />
+      {/* <ConfettiOverlay /> */}
       <CTASection />
       <BentoGrid />
       <AboutSection />

@@ -2,11 +2,21 @@ import Link from "next/link";
 
 export default function NewsLetter() {
   return (
-    <footer className="relative isolate overflow-hidden bg-gray-900 text-gray-400 py-12">
+    <footer className="relative isolate overflow-hidden bg-gray-900 text-white py-16">
+  <div className="absolute inset-0 -z-10 transform-gpu overflow-hidden blur-3xl">
+    <div
+      style={{
+        clipPath:
+
+          'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
+      }}
+      className="aspect-[1155/678] w-[72.1875rem] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30"
+    />
+  </div>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
-            <h3 className="text-white text-lg font-semibold">ITIDCS</h3>
+            <h3 className="text-blue-500 text-lg font-bold">ITIDCS</h3>
             <p className="mt-2 text-sm">
               Innovating the future of IT solutions. Empowering businesses through digital transformation and tech excellence.
             </p>
@@ -26,7 +36,7 @@ export default function NewsLetter() {
             </form>
           </div>
           <div>
-            <h4 className="text-white font-semibold text-sm mb-3">Company</h4>
+            <h4 className="text-purple-500 font-semibold text-sm mb-3">Company</h4>
             <ul className="space-y-2 text-sm">
               <li><Link href="/about" className="hover:text-white transition">About Us</Link></li>
               <li><Link href="/jobs" className="hover:text-white transition">Careers</Link></li>
@@ -41,7 +51,7 @@ export default function NewsLetter() {
             </ul>
           </div>
           <div>
-            <h4 className="text-white font-semibold text-sm mb-3">Services</h4>
+            <h4 className="text-green-500 font-semibold text-sm mb-3">Services</h4>
             <ul className="space-y-2 text-sm">
               <li><Link href="/software-development" className="hover:text-white transition">Software Development</Link></li>
               <li><Link href="/ai-solutions" className="hover:text-white transition">AI Solutions</Link></li>
@@ -53,19 +63,25 @@ export default function NewsLetter() {
           <div>
                   {/* Contact Info */}
           <div>
-            <h4 className="text-white font-semibold text-sm mb-3">Contact</h4>
+            <h4 className="text-yellow-500 font-semibold text-sm mb-3">Contact Us</h4>
             <ul className="space-y-2 text-sm">
               <li>Email: <a href="mailto:innovativeitdcorporation@gmail.com" className="text-indigo-400 hover:text-white transition">innovativeitdcorporation@gmail.com</a></li>
-              <li className="mt-2">
+              {/* <li className="mt-2">
                 <span className="block font-semibold text-white">Office 1:</span>
                 Sanskriti Nagar, Near Bhakre Layout, Arvi<br />
-              </li>
+              </li> */}
               <li className="mt-2">
-                <span className="block font-semibold text-white">Office 2:</span>
-                Siraspeth, Near Anand Budh Vihar, and Plot No. 04, Suraj Nagar, Jafar Nagar,
+                <span className="block font-semibold text-white">Office :</span>
+                ITIDCS (Innovative Total IT Development and Corporation and Services Pvt. Ltd.)<br />
+                <Link href="tel:+917709382305" className="text-green-400 hover:text-white transition font-black">Call Now +91 77093 82305</Link>
                 <br />
                 <br />
-                Gorewada Ring Road, Beside Palloti Church, Nagpur, Maharashtra 440015
+                1st Floor, Plot No. 2,
+                <br />
+                Collaborative Workspace with Career Cloud,
+                Kabir Nagar Square, Nandanvan Main Rd, in front of Maruti Arcade, 
+                <br />
+                Near Dutta Mandir, Nandanvan, Nagpur, Maharashtra 440009
               </li>
             </ul>
           </div>

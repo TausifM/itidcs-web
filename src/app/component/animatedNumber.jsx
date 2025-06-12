@@ -1,48 +1,41 @@
 import { useEffect, useRef, useState } from "react";
 
-export default function AnimatedNumber({ target, duration = 2000 }) {
+export default function AnimatedNumber({ target = 100, duration = 2000 }) {
   const [count, setCount] = useState(0);
-  const [hasAnimated, setHasAnimated] = useState(false);
-  const elementRef = useRef(null);
+  const ref = useRef(null);
+  const hasAnimated = useRef(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !hasAnimated) {
-          animate();
-          setHasAnimated(true);
-          observer.disconnect();
+        if (entry.isIntersecting && !hasAnimated.current) {
+          animateCount();
+          hasAnimated.current = true;
         }
       },
-      {
-        threshold: 0.5, // trigger when 50% visible
-      }
+      { threshold: 0.5 }
     );
 
-    if (elementRef.current) {
-      observer.observe(elementRef.current);
-    }
-
+    if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
-  }, [target, hasAnimated]);
+  }, []);
 
-  const animate = () => {
-    let start = 0;
-    const increment = target / (duration / 30);
-    const timer = setInterval(() => {
-      start += increment;
-      if (start >= target) {
-        setCount(target);
-        clearInterval(timer);
-      } else {
-        setCount(Math.floor(start));
+  const animateCount = () => {
+    const increment = Math.max(1, Math.floor(target / (duration / 10)));
+    let current = 0;
+    const interval = setInterval(() => {
+      current += increment;
+      if (current >= target) {
+        current = target;
+        clearInterval(interval);
       }
-    }, 30);
+      setCount(current);
+    }, 10);
   };
 
   return (
-    <span ref={elementRef}>
-      {count}+
+    <span ref={ref} className="inline-block relative">
+      {count.toLocaleString()}+
     </span>
   );
 }

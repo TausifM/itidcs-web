@@ -82,7 +82,7 @@ export default function AboutSection() {
               <div key={stat.name} className="flex flex-col-reverse gap-1">
                 <dt className="text-base/7 text-gray-300">{stat.name}</dt>
                 <dd className="text-4xl font-semibold tracking-tight text-white">
-                  <AnimatedNumber target={stat.value} />
+                  <AnimatedNumber target={stat.value} duration={1000} step={1} />
                 </dd>
               </div>
             ))}
