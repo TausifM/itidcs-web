@@ -24,7 +24,7 @@ export const curriculumData = [
           "DOM Manipulation & Events",
           "Asynchronous JS (Promises, Async/Await)",
           "Fetch API & AJAX",
-          "Module Bundlers (Webpack)"
+          "Module Bundlers (Webpack)",
         ],
       },
       {
@@ -36,7 +36,7 @@ export const curriculumData = [
           "State Management with Redux",
           "React Hooks & Context API",
           "Routing with React Router",
-          "Performance Optimization"
+          "Performance Optimization",
         ],
       },
       {
@@ -48,7 +48,7 @@ export const curriculumData = [
           "Express.js Routing & Middleware",
           "RESTful API Design",
           "Authentication & Authorization (JWT)",
-          "Error Handling & Logging"
+          "Error Handling & Logging",
         ],
       },
       {
@@ -60,7 +60,7 @@ export const curriculumData = [
           "Joins, Indexes & Transactions",
           "MongoDB CRUD Operations",
           "Mongoose ODM & Schemas",
-          "Data Modeling Strategies"
+          "Data Modeling Strategies",
         ],
       },
       {
@@ -72,7 +72,7 @@ export const curriculumData = [
           "Containerization with Docker",
           "CI/CD Pipelines (GitHub Actions)",
           "Cloud Hosting (AWS/GCP/Azure)",
-          "Monitoring & Logging"
+          "Monitoring & Logging",
         ],
       },
       {
@@ -83,7 +83,7 @@ export const curriculumData = [
           "Unit Testing with Jest",
           "Integration Testing",
           "End-to-End Testing with Cypress",
-          "Test Coverage & CI Integration"
+          "Test Coverage & CI Integration",
         ],
       },
       {
@@ -94,9 +94,9 @@ export const curriculumData = [
           "Behavioural Interview Techniques",
           "Algorithms & Data Structures Review",
           "System Design Basics",
-          "Resume & Portfolio Building"
+          "Resume & Portfolio Building",
         ],
-      }
+      },
     ],
   },
   {
@@ -111,7 +111,7 @@ export const curriculumData = [
           "Python Basics & Data Structures",
           "NumPy & Pandas for Data Manipulation",
           "Data Cleaning & Preprocessing",
-          "Jupyter Notebooks & Visualization Basics"
+          "Jupyter Notebooks & Visualization Basics",
         ],
       },
       {
@@ -121,7 +121,7 @@ export const curriculumData = [
         topics: [
           "Matplotlib & Seaborn",
           "Plotly & Dashboards",
-          "Storytelling with Data"
+          "Storytelling with Data",
         ],
       },
       {
@@ -132,7 +132,7 @@ export const curriculumData = [
           "Descriptive Statistics",
           "Inferential Statistics",
           "Hypothesis Testing",
-          "Bayesian Methods"
+          "Bayesian Methods",
         ],
       },
       {
@@ -143,7 +143,7 @@ export const curriculumData = [
           "Supervised Learning Algorithms",
           "Unsupervised Learning Techniques",
           "Model Evaluation & Validation",
-          "Feature Engineering"
+          "Feature Engineering",
         ],
       },
       {
@@ -154,7 +154,7 @@ export const curriculumData = [
           "Neural Network Basics",
           "TensorFlow & Keras",
           "CNNs & RNNs",
-          "Transfer Learning"
+          "Transfer Learning",
         ],
       },
       {
@@ -164,7 +164,7 @@ export const curriculumData = [
         topics: [
           "Text Preprocessing",
           "Word Embeddings",
-          "Transformer Models (BERT)"
+          "Transformer Models (BERT)",
         ],
       },
       {
@@ -174,7 +174,7 @@ export const curriculumData = [
         topics: [
           "Flask/FastAPI Deployment",
           "Dockerizing Models",
-          "Cloud Deployment (AWS SageMaker)"
+          "Cloud Deployment (AWS SageMaker)",
         ],
       },
       {
@@ -184,9 +184,9 @@ export const curriculumData = [
         topics: [
           "Problem Statement & Dataset",
           "Model Development",
-          "Deployment & Presentation"
+          "Deployment & Presentation",
         ],
-      }
+      },
     ],
   },
   {
@@ -200,7 +200,7 @@ export const curriculumData = [
         topics: [
           "User Interviews & Personas",
           "Journey Mapping",
-          "Competitive Analysis"
+          "Competitive Analysis",
         ],
       },
       {
@@ -210,7 +210,7 @@ export const curriculumData = [
         topics: [
           "Lo-fi & Hi-fi Wireframes",
           "Figma/Sketch Tools",
-          "Interactive Prototypes"
+          "Interactive Prototypes",
         ],
       },
       {
@@ -220,37 +220,27 @@ export const curriculumData = [
         topics: [
           "Color Theory & Typography",
           "Layout & Grid Systems",
-          "Iconography"
+          "Iconography",
         ],
       },
       {
         section: "User Testing",
         tag: "UX",
         duration: "1 Week",
-        topics: [
-          "Usability Testing Methods",
-          "A/B Testing",
-          "Feedback Loop"
-        ],
+        topics: ["Usability Testing Methods", "A/B Testing", "Feedback Loop"],
       },
       {
         section: "Design Handoff & Collaboration",
         tag: "Process",
         duration: "1 Week",
-        topics: [
-          "Specs & Documentation",
-          "Developer Collaboration"
-        ],
+        topics: ["Specs & Documentation", "Developer Collaboration"],
       },
       {
         section: "Portfolio Project",
         tag: "Project",
         duration: "3 Weeks",
-        topics: [
-          "End-to-End Case Study",
-          "Interactive Prototype Demo"
-        ],
-      }
+        topics: ["End-to-End Case Study", "Interactive Prototype Demo"],
+      },
     ],
   },
   {
@@ -261,10 +251,7 @@ export const curriculumData = [
         section: "Network Fundamentals",
         tag: "Core",
         duration: "1.5 Weeks",
-        topics: [
-          "OSI Model & Protocols",
-          "TCP/IP & Subnetting"
-        ],
+        topics: ["OSI Model & Protocols", "TCP/IP & Subnetting"],
       },
       {
         section: "Ethical Hacking & Penetration Testing",
@@ -273,207 +260,451 @@ export const curriculumData = [
         topics: [
           "Reconnaissance Techniques",
           "Vulnerability Scanning",
-          "Exploitation & Post-Exploitation"
+          "Exploitation & Post-Exploitation",
         ],
       },
       {
         section: "Web App Security",
         tag: "Security",
         duration: "2 Weeks",
-        topics: [
-          "OWASP Top 10",
-          "Secure Coding Practices"
-        ],
+        topics: ["OWASP Top 10", "Secure Coding Practices"],
       },
       {
         section: "Cryptography Basics",
         tag: "Security",
         duration: "1 Week",
-        topics: [
-          "Symmetric vs Asymmetric",
-          "Hash Functions"
-        ],
+        topics: ["Symmetric vs Asymmetric", "Hash Functions"],
       },
       {
         section: "Incident Response & Forensics",
         tag: "Process",
         duration: "1.5 Weeks",
-        topics: [
-          "Log Analysis",
-          "Threat Hunting"
-        ],
+        topics: ["Log Analysis", "Threat Hunting"],
       },
       {
         section: "Compliance & Risk Management",
         tag: "Governance",
         duration: "1 Week",
-        topics: [
-          "ISO/IEC Standards",
-          "GDPR & HIPAA Overview"
-        ],
-      }
+        topics: ["ISO/IEC Standards", "GDPR & HIPAA Overview"],
+      },
     ],
   },
   {
     courseId: 5,
     title: "Mobile App Development",
     roadmap: [
-      { section: "React Native Fundamentals", tag: "Mobile", duration: "2 Weeks", topics: [
+      {
+        section: "React Native Fundamentals",
+        tag: "Mobile",
+        duration: "2 Weeks",
+        topics: [
           "JSX & Core Components",
           "Styling with StyleSheet",
           "Navigation (React Navigation)",
           "State & Props",
-          "Handling Gestures"
-      ]},
-      { section: "State Management & Backend Integration", tag: "Mobile", duration: "3 Weeks", topics: [
+          "Handling Gestures",
+        ],
+      },
+      {
+        section: "State Management & Backend Integration",
+        tag: "Mobile",
+        duration: "3 Weeks",
+        topics: [
           "Redux & Context API",
           "API Calls with Axios",
           "Real-time Data (WebSockets)",
           "Authentication Flows",
-          "Error Handling"
-      ]},
-      { section: "UI/UX Patterns", tag: "Mobile", duration: "1.5 Weeks", topics: [
+          "Error Handling",
+        ],
+      },
+      {
+        section: "UI/UX Patterns",
+        tag: "Mobile",
+        duration: "1.5 Weeks",
+        topics: [
           "Platform-specific Design (iOS/Android)",
           "Responsive Layouts",
-          "Animations & Transitions"
-      ]},
-      { section: "Native Modules & Performance", tag: "Mobile", duration: "1.5 Weeks", topics: [
+          "Animations & Transitions",
+        ],
+      },
+      {
+        section: "Native Modules & Performance",
+        tag: "Mobile",
+        duration: "1.5 Weeks",
+        topics: [
           "Integrating Native Libraries",
           "Performance Optimization",
-          "Profiling & Debugging"
-      ]},
-      { section: "Testing & Deployment", tag: "Mobile", duration: "1 Week", topics: [
+          "Profiling & Debugging",
+        ],
+      },
+      {
+        section: "Testing & Deployment",
+        tag: "Mobile",
+        duration: "1 Week",
+        topics: [
           "Unit & Integration Testing",
           "End-to-End Testing (Detox)",
-          "App Store & Play Store Deployment"
-      ]},
-      { section: "Capstone Project", tag: "Project", duration: "3 Weeks", topics: [
+          "App Store & Play Store Deployment",
+        ],
+      },
+      {
+        section: "Capstone Project",
+        tag: "Project",
+        duration: "3 Weeks",
+        topics: [
           "Full App Development",
           "CI/CD for Mobile Apps",
-          "User Analytics Integration"
-      ]}
-    ]
+          "User Analytics Integration",
+        ],
+      },
+    ],
   },
   {
     courseId: 6,
     title: "Cloud Computing & DevOps",
     roadmap: [
-      { section: "Cloud Foundations", tag: "Cloud", duration: "1.5 Weeks", topics: ["AWS Basics","Azure Fundamentals","GCP Overview"] },
-      { section: "Infrastructure as Code", tag: "DevOps", duration: "2 Weeks", topics: ["Terraform","CloudFormation","ARM Templates"] },
-      { section: "CI/CD Pipelines", tag: "DevOps", duration: "2 Weeks", topics: ["Jenkins","GitHub Actions","GitLab CI"] },
-      { section: "Containerization", tag: "DevOps", duration: "1.5 Weeks", topics: ["Docker Basics","Docker Compose","Image Best Practices"] },
-      { section: "Orchestration", tag: "DevOps", duration: "2 Weeks", topics: ["Kubernetes Architecture","Helm Charts","Service Mesh (Istio)"] },
-      { section: "Monitoring & Logging", tag: "DevOps", duration: "1 Week", topics: ["Prometheus & Grafana","ELK Stack","CloudWatch"] },
-      { section: "Security & Compliance", tag: "Security", duration: "1 Week", topics: ["IAM Best Practices","Network Security","Compliance (GDPR, HIPAA)"] }
-    ]
+      {
+        section: "Cloud Foundations",
+        tag: "Cloud",
+        duration: "1.5 Weeks",
+        topics: ["AWS Basics", "Azure Fundamentals", "GCP Overview"],
+      },
+      {
+        section: "Infrastructure as Code",
+        tag: "DevOps",
+        duration: "2 Weeks",
+        topics: ["Terraform", "CloudFormation", "ARM Templates"],
+      },
+      {
+        section: "CI/CD Pipelines",
+        tag: "DevOps",
+        duration: "2 Weeks",
+        topics: ["Jenkins", "GitHub Actions", "GitLab CI"],
+      },
+      {
+        section: "Containerization",
+        tag: "DevOps",
+        duration: "1.5 Weeks",
+        topics: ["Docker Basics", "Docker Compose", "Image Best Practices"],
+      },
+      {
+        section: "Orchestration",
+        tag: "DevOps",
+        duration: "2 Weeks",
+        topics: [
+          "Kubernetes Architecture",
+          "Helm Charts",
+          "Service Mesh (Istio)",
+        ],
+      },
+      {
+        section: "Monitoring & Logging",
+        tag: "DevOps",
+        duration: "1 Week",
+        topics: ["Prometheus & Grafana", "ELK Stack", "CloudWatch"],
+      },
+      {
+        section: "Security & Compliance",
+        tag: "Security",
+        duration: "1 Week",
+        topics: [
+          "IAM Best Practices",
+          "Network Security",
+          "Compliance (GDPR, HIPAA)",
+        ],
+      },
+    ],
   },
   {
     courseId: 8,
     title: "Digital Marketing & SEO",
     roadmap: [
-      { section: "SEO Fundamentals", tag: "SEO", duration: "1.5 Weeks", topics: ["Keyword Research","On-Page SEO","Technical SEO"] },
-      { section: "Content Marketing", tag: "Marketing", duration: "2 Weeks", topics: ["Content Strategy","Copywriting","Blogging Best Practices"] },
-      { section: "PPC & Ads", tag: "Ads", duration: "2 Weeks", topics: ["Google Ads","Facebook Ads","Retargeting"] },
-      { section: "Social Media Strategy", tag: "Social", duration: "1.5 Weeks", topics: ["Platform Selection","Community Management","Analytics"] },
-      { section: "Email Marketing", tag: "Email", duration: "1 Week", topics: ["Campaign Planning","Automation Tools","A/B Testing"] },
-      { section: "Analytics & Reporting", tag: "Analytics", duration: "1 Week", topics: ["Google Analytics","Reporting Dashboards","KPIs"] }
-    ]
+      {
+        section: "SEO Fundamentals",
+        tag: "SEO",
+        duration: "1.5 Weeks",
+        topics: ["Keyword Research", "On-Page SEO", "Technical SEO"],
+      },
+      {
+        section: "Content Marketing",
+        tag: "Marketing",
+        duration: "2 Weeks",
+        topics: ["Content Strategy", "Copywriting", "Blogging Best Practices"],
+      },
+      {
+        section: "PPC & Ads",
+        tag: "Ads",
+        duration: "2 Weeks",
+        topics: ["Google Ads", "Facebook Ads", "Retargeting"],
+      },
+      {
+        section: "Social Media Strategy",
+        tag: "Social",
+        duration: "1.5 Weeks",
+        topics: ["Platform Selection", "Community Management", "Analytics"],
+      },
+      {
+        section: "Email Marketing",
+        tag: "Email",
+        duration: "1 Week",
+        topics: ["Campaign Planning", "Automation Tools", "A/B Testing"],
+      },
+      {
+        section: "Analytics & Reporting",
+        tag: "Analytics",
+        duration: "1 Week",
+        topics: ["Google Analytics", "Reporting Dashboards", "KPIs"],
+      },
+    ],
   },
-{
-  courseId: 10,
-  title: "Artificial Intelligence: Foundations to Applications",
-  roadmap: [
-    {
-      section: "Introduction to AI & its Applications",
-      tag: "AI",
-      duration: "1 Week",
-      topics: [
-        "What is AI?",
-        "History and Evolution of AI",
-        "Real-world AI Applications",
-        "Ethics & Bias in AI"
-      ]
-    },
-    {
-      section: "Problem Solving & Search in AI",
-      tag: "AI",
-      duration: "1 Week",
-      topics: [
-        "Intelligent Agents",
-        "State-space Search",
-        "Uninformed Search (BFS, DFS)",
-        "Informed Search (A*, Greedy)"
-      ]
-    },
-    {
-      section: "Knowledge Representation & Reasoning",
-      tag: "AI",
-      duration: "1 Week",
-      topics: [
-        "Propositional & First Order Logic",
-        "Inference Techniques",
-        "Ontologies",
-        "Constraint Satisfaction Problems"
-      ]
-    },
-    {
-      section: "Machine Learning Essentials for AI",
-      tag: "ML",
-      duration: "2 Weeks",
-      topics: [
-        "Supervised vs Unsupervised Learning",
-        "Regression and Classification",
-        "Model Evaluation & Validation",
-        "Scikit-learn Basics"
-      ]
-    },
-    {
-      section: "Planning & Decision Making",
-      tag: "AI",
-      duration: "1 Week",
-      topics: [
-        "Goal-based Agents",
-        "Planning Algorithms",
-        "Game Playing & Minimax",
-        "Markov Decision Processes (MDP)"
-      ]
-    },
-    {
-      section: "Natural Language Processing Basics",
-      tag: "NLP",
-      duration: "1 Week",
-      topics: [
-        "Text Preprocessing",
-        "Named Entity Recognition",
-        "Basic Chatbots",
-        "Using pre-trained NLP models"
-      ]
-    },
-    {
-      section: "Intro to Deep Learning (Optional)",
-      tag: "DL",
-      duration: "1 Week",
-      topics: [
-        "What is a Neural Network?",
-        "Perceptrons and Backpropagation",
-        "Real-world Examples using Keras"
-      ]
-    },
-    {
-      section: "AI in the Real World & Tools",
-      tag: "Tools",
-      duration: "1 Week",
-      topics: [
-        "Using APIs (OpenAI, Hugging Face)",
-        "Deploying AI Models with Flask",
-        "Intro to AI in Cloud (Google AI/ML, Azure)",
-        "Version Control (Git/GitHub)"
-      ]
-    }
-  ]
-}
-
+  {
+    courseId: 10,
+    title:
+      "Artificial Intelligence: Foundations to Applications",
+    roadmap: [
+      {
+        section: "Introduction to AI",
+        tag: "AI",
+        duration: "1 Week",
+        topics: [
+          "What is AI?",
+          "History and Evolution of AI",
+          "Types of AI: Narrow vs General",
+          "Myths & Misconceptions about AI",
+        ],
+      },
+      {
+        section: "Real-world Applications & Ethics",
+        tag: "AI",
+        duration: "1 Week",
+        topics: [
+          "AI in Healthcare, Finance, Education",
+          "Everyday AI Examples (Google Assistant, etc.)",
+          "Bias in AI",
+          "Ethical Concerns in AI",
+        ],
+      },
+      {
+        section: "Getting Started with AI Tools",
+        tag: "Tools",
+        duration: "1 Week",
+        topics: [
+          "Using Google Teachable Machine",
+          "Simple AI with Scratch",
+          "Intro to Google Colab",
+          "Hands-on Demos",
+        ],
+      },
+      {
+        section: "Intelligent Agents & Environments",
+        tag: "AI",
+        duration: "1 Week",
+        topics: [
+          "Definition of Agents",
+          "Types of Environments",
+          "Reflex vs Goal-based Agents",
+          "Real-world Examples",
+        ],
+      },
+      {
+        section: "Search in AI (Uninformed)",
+        tag: "AI",
+        duration: "1 Week",
+        topics: [
+          "State-space Search",
+          "Breadth-First Search (BFS)",
+          "Depth-First Search (DFS)",
+          "Practical Examples",
+        ],
+      },
+      {
+        section: "Search in AI (Informed)",
+        tag: "AI",
+        duration: "1 Week",
+        topics: [
+          "What are Heuristics?",
+          "Greedy Search (Conceptual)",
+          "A* Algorithm (Basic Idea)",
+          "Search Use Cases",
+        ],
+      },
+      {
+        section: "Planning in AI",
+        tag: "AI",
+        duration: "1 Week",
+        topics: [
+          "Introduction to Planning",
+          "Goal-based Planning",
+          "Real-world Examples (delivery, games)",
+          "Simple Planning via Flowcharts",
+        ],
+      },
+      {
+        section: "Introduction to Machine Learning",
+        tag: "ML",
+        duration: "1 Week",
+        topics: [
+          "What is ML and how it's related to AI",
+          "Types of Learning: Supervised, Unsupervised",
+          "Use Cases of ML",
+          "ML in Real Life",
+        ],
+      },
+      {
+        section: "Supervised Learning Basics",
+        tag: "ML",
+        duration: "1 Week",
+        topics: [
+          "Regression vs Classification",
+          "Simple Examples (house price, email spam)",
+          "Visualizing ML Models",
+          "Model Training with Toy Datasets",
+        ],
+      },
+      {
+        section: "Unsupervised Learning Basics",
+        tag: "ML",
+        duration: "1 Week",
+        topics: [
+          "Clustering (K-Means Concept)",
+          "Association (Market Basket Analysis Idea)",
+          "Use Cases (Customer Segmentation)",
+          "Demo Using Visual Tools",
+        ],
+      },
+      {
+        section: "Model Evaluation Essentials",
+        tag: "ML",
+        duration: "1 Week",
+        topics: [
+          "Train/Test Split Concept",
+          "Accuracy, Precision, Recall (Basic)",
+          "Overfitting Explained Simply",
+          "Using Sklearn (Only Basic Functions)",
+        ],
+      },
+      {
+        section: "Intro to AI Projects & Demos",
+        tag: "Projects",
+        duration: "1 Week",
+        topics: [
+          "Build a Simple Chatbot (no code or using templates)",
+          "AI Image Classifier (Teachable Machine)",
+          "Voice Assistant Demo",
+          "Tips to Showcase Projects",
+        ],
+      },
+      {
+        section: "Interview Preparation – Part 1",
+        tag: "Interview",
+        duration: "1 Week",
+        topics: [
+          "Top 10 AI/ML Basic Interview Questions",
+          "How to Explain AI Projects",
+          "Common Terminologies",
+          "How to Talk About Learning Journey",
+        ],
+      },
+      {
+        section: "Interview Preparation – Part 2",
+        tag: "Interview",
+        duration: "1 Week",
+        topics: [
+          "Resume Building for AI Beginners",
+          "Portfolio Tips (GitHub, LinkedIn)",
+          "Mock Interview Practice",
+          "Soft Skills & Communication",
+        ],
+      },
+      {
+        section: "Interview Preparation – Part 3",
+        tag: "Interview",
+        duration: "1 Week",
+        topics: [
+          "MCQs and Quizzes on Basics",
+          "Practical Problem Discussions",
+          "Explain Your Code Sessions",
+          "Review of Common Mistakes",
+        ],
+      },
+      {
+        section: "Interview Preparation – Part 4",
+        tag: "Interview",
+        duration: "1 Week",
+        topics: [
+          "Final Mock Interview",
+          "Q&A Session / AMA",
+          "Checklist for Readiness",
+          "Tips for Ongoing Learning",
+        ],
+      },
+    ],
+  },
+  {
+    courseId: 11,
+    title: "Data Analytics & Visualization",
+    roadmap: [
+      {
+        section: "Data Analysis with Python",
+        tag: "Core",
+        duration: "2 Weeks",
+        topics: [
+          "Python Basics for Data Analysis",
+          "Pandas for Data Manipulation",
+          "Data Cleaning Techniques",
+        ],
+      },
+      {
+        section: "Data Visualization Techniques",
+        tag: "Visualization",
+        duration: "1.5 Weeks",
+        topics: [
+          "Matplotlib & Seaborn Basics",
+          "Interactive Visualizations with Plotly",
+          "Dashboard Creation with Dash",
+        ],
+      },
+      {
+        section: "SQL for Data Analytics",
+        tag: "Database",
+        duration: "2 Weeks",
+        topics: [
+          "SQL Queries & Joins",
+          "Aggregations & Grouping Data",
+          "Subqueries & Window Functions",
+        ],
+      },
+      {
+        section: "Business Intelligence Tools",
+        tag: "BI",
+        duration: "1.5 Weeks",
+        topics: [
+          "Introduction to Tableau/Power BI",
+          "Creating Interactive Dashboards",
+          "Data Storytelling Techniques",
+        ],
+      },
+      {
+        section: "Advanced Analytics Techniques",
+        tag: "Analytics",
+        duration: "2 Weeks",
+        topics: [
+          "Predictive Analytics Basics",
+          "Time Series Analysis with Python",
+          "A/B Testing Fundamentals",
+        ],
+      },
+      {
+        section: "Capstone Project in Data Analytics",
+        tag: "Project",
+        duration: "3 Weeks",
+        topics: [
+          "End-to-End Data Analysis Project",
+          "Presentation of Findings",
+        ],
+      },
+    ],
+  },
 ];
 
 export default curriculumData;
-

@@ -5,10 +5,8 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function TrainingHero({ imgSrc, category, title }) {
-  // Set your actual batch start datetime here:
-  // Start batch from 5th June 2025
-  const BATCH_START = new Date(2025, 5, 5, 10, 0, 0); // June 5, 2025, 10:00 AM
+export default function TrainingHero({ imgSrc, category, title, offerTag, price, offerPrice }) {
+  const BATCH_START = new Date(2025, 5, 25, 10, 0, 0); // June 25, 2025, 10:00 AM
   const [timeLeft, setTimeLeft] = useState(getDelta(BATCH_START));
 
   useEffect(() => {
@@ -27,7 +25,9 @@ export default function TrainingHero({ imgSrc, category, title }) {
     const s = Math.floor((diff % (1000 * 60)) / 1000);
     return { h, m, s };
   }
-
+  if (!imgSrc || !category || !title) {
+    return <div className="text-center text-red-500">Missing required props</div>;
+  }
   return (
     <section className="bg-gray-100 py-12 mx-2">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-8 sm:px-1 lg:px-2">
@@ -66,7 +66,21 @@ export default function TrainingHero({ imgSrc, category, title }) {
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 mb-6 text-center lg:text-left">
             Become An Expert {title} in Months
           </h2>
-
+          {/* Course Price */}
+          <div className="text-center lg:text-left mb-6">
+            <span className="line-through text-red-500 text-2xl sm:text-3xl mr-2 font-semibold">
+              {price || "80,999"}
+            </span>
+            <span className="text-2xl sm:text-3xl font-bold text-green-500">
+              {offerPrice || price || "40,999"}
+            </span>
+            <span className="text-yellow-500 text-sm ml-2 font-semibold">
+              {offerTag ? `(${offerTag})` : "Limited Time Offer!"}
+            </span>
+            {/* <p className="text-gray-600 text-sm mt-2">
+              {offerTag || "Limited time offer! Enroll now to secure your seat."}
+            </p> */}
+          </div>
           <ul className="space-y-4 mb-6">
             {[
               "Enroll once & get access to all courses.",

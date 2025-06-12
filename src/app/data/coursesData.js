@@ -68,7 +68,7 @@ const coursesData = [
     id: 11,
     title: "Data Analytics & Visualization",
     image:
-      "https://res.cloudinary.com/plot-app-say-no-broker/image/upload/v1746502077/itidcs-web-images/rcudkrvgty7dpthqrg30.webp",
+      "https://res.cloudinary.com/plot-app-say-no-broker/image/upload/v1749743695/data-analyst_t0njoy.jpg",
     description:
       "Learn to analyze and visualize data using Python and Tableau.",
     price: "₹124,999",

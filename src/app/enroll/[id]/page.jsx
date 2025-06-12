@@ -65,25 +65,11 @@ export default function CourseDetailsPage() {
           imgSrc={course.image}
           category={course.category}
           title={course.title}
+          offerTag={course.offerTag}
+          price={course.price}
+          offerPrice={course.offerPrice}
         />
 
-        {/* Pricing & Offer */}
-        {/* <div className="text-center mb-8">
-          <p className="text-xl font-semibold text-gray-800">
-            {course.offerTag}
-          </p>
-          <div className="text-2xl mt-2">
-            <span className="line-through font-bold text-red-600 mr-4">
-              {course.price}
-            </span>
-            <span className="font-bold text-green-800">
-              {course.offerPrice}
-            </span>
-          </div>
-          <p className="mt-2 text-xl font-semibold text-yellow-500">
-            Hurry! Limited seats available.
-          </p>
-        </div> */}
         <CourseCurriculum title={course.title} />
         {/* Enroll Section */}
         <div className="flex flex-col items-center justify-center text-center px-4 py-6">
