@@ -109,7 +109,7 @@ export default function TrainingLandingPage() {
       </div>
         </div>
 
-   <BrochureModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
+       <BrochureModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
         {/* Form */}
         <form
           onSubmit={handleSubmit}

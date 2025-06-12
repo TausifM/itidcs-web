@@ -7,7 +7,7 @@ const coursesData = [
     description:
       "Learn front-end and back-end development with hands-on projects.",
     price: "₹59,999",
-    offerPrice: "₹19,999",
+    offerPrice: "₹25,000",
     offerTag: "Limited Time Offer - 50% Off!",
     content: [
       "HTML, CSS, JavaScript",
@@ -34,7 +34,7 @@ const coursesData = [
     description:
       "Dive into the world of AI and deep learning with hands-on projects.",
     price: "₹144,999",
-    offerPrice: "₹25,499",
+    offerPrice: "₹45,000",
     offerTag: "Limited Time Offer - 50% Off!",
     content: [
       "Introduction to AI",
@@ -53,7 +53,7 @@ const coursesData = [
     description:
       "Master data analysis, visualization, and machine learning techniques.",
     price: "₹124,999",
-    offerPrice: "₹32,499",
+    offerPrice: "₹60,000",
     offerTag: "Limited Time Offer - 50% Off!",
     content: [
       "Python & Libraries (Pandas, Numpy)",
@@ -63,6 +63,25 @@ const coursesData = [
       "Model Deployment",
     ],
     category: "Data Science",
+  },
+  {
+    id: 11,
+    title: "Data Analytics & Visualization",
+    image:
+      "https://res.cloudinary.com/plot-app-say-no-broker/image/upload/v1746502077/itidcs-web-images/rcudkrvgty7dpthqrg30.webp",
+    description:
+      "Learn to analyze and visualize data using Python and Tableau.",
+    price: "₹124,999",
+    offerPrice: "₹45,000",
+    offerTag: "Limited Time Offer - 50% Off!",
+    content: [
+      "Python for Data Analysis",
+      "Data Visualization with Tableau",
+      "SQL for Data Retrieval",
+      "Data Cleaning & Preparation",
+      "Business Intelligence Tools",
+    ],
+    category: "Data Analytics",
   },
   {
     id: 3,
@@ -91,7 +110,7 @@ const coursesData = [
     description:
       "Protect systems, networks, and data with cybersecurity practices.",
     price: "₹119,999",
-    offerPrice: "₹19,999",
+    offerPrice: "₹25,999",
     offerTag: "Limited Time Offer - 50% Off!",
     content: [
       "Network Security",
@@ -109,7 +128,7 @@ const coursesData = [
       "https://res.cloudinary.com/plot-app-say-no-broker/image/upload/v1746502075/itidcs-web-images/p7hdrrcvzs27rdtztzks.webp",
     description: "Build responsive apps using React Native and Backend APIs.",
     price: "₹149,999",
-    offerPrice: "₹17,999",
+    offerPrice: "₹35,999",
     offerTag: "Limited Time Offer - 50% Off!",
     content: [
       "React Native Basics",
@@ -127,7 +146,7 @@ const coursesData = [
     description:
       "Learn cloud platforms and DevOps practices to build scalable systems.",
     price: "₹112,999",
-    offerPrice: "₹15,499",
+    offerPrice: "₹19,499",
     offerTag: "Limited Time Offer - 50% Off!",
     content: [
       "Cloud Providers (AWS, Azure, Google Cloud)",

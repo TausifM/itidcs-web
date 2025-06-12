@@ -14,7 +14,6 @@ import Modal from "./component/promotionModal";
 import BadgeModal from "./component/BadgeModal";
 import CourseCarousel from "./component/course-carousel";
 import CelebrationBanner from "./component/CelebrationBannar";
-import ConfettiOverlay from "./component/ConfettiOverlay";
 
 const TrainingLandingPage = dynamic(
   () => import("./component/it-training"),
@@ -75,7 +74,6 @@ const handleBadgeClose = () => {
       <TrainingLandingPage />
       <CourseCarousel />
       <CelebrationBanner />
-      {/* <ConfettiOverlay /> */}
       <CTASection />
       <BentoGrid />
       <AboutSection />

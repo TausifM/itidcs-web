@@ -1,11 +1,12 @@
 import { useState } from "react";
 import curriculumData from "../data/curriculumData";
-import Link from "next/link";
 import AnimatedNumber from "./animatedNumber";
+import BrochureModal from "./BrochureModal";
 
 export default function CourseCurriculum({ title, data = curriculumData }) {
   const course = data.find((c) => c.title === title);
   const [openIndex, setOpenIndex] = useState(null);
+  const [modalOpen, setModalOpen] = useState(false);
 
   if (!course)
     return <p className="text-red-600 font-semibold text-center">Course not found.</p>;
@@ -45,19 +46,16 @@ export default function CourseCurriculum({ title, data = curriculumData }) {
             <div className="text-sm">Live Session Hours</div>
           </div>
         </div>
-            <Link
-                href="https://www.canva.com/design/DAGnxYI4ZuE/tP83oxzkUeVCxxoyJagu4w/view?utm_content=DAGnxYI4ZuE&utm_campaign=share_your_design&utm_medium=link2&utm_source=shareyourdesignpanel#22"
+            <button
                 className="inline-block px-4 py-2 bg-lime-500 hover:bg-lime-600 text-white rounded  transition"
-                aria-label="Download Course Brochure"
-                title="Download Course Brochure"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ textDecoration: "none" }}
+                          onClick={() => setModalOpen(true)}
+                aria-label="Download Brochure"
+                title="Download Brochure"
             >
-                  Download Program Details 📄
-            </Link>
+              Download Program Details 📄
+            </button>
       </aside>
-
+        <BrochureModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
       {/* Curriculum Timeline */}
       <div className="space-y-6">
         <h1 className="text-2xl font-bold text-center md:text-left">

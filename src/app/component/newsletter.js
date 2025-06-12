@@ -38,26 +38,28 @@ export default function NewsLetter() {
           <div>
             <h4 className="text-purple-500 font-semibold text-sm mb-3">Company</h4>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/about" className="hover:text-white transition">About Us</Link></li>
-              <li><Link href="/jobs" className="hover:text-white transition">Careers</Link></li>
-              <li><Link href="/blogs" className="hover:text-white transition">Blog</Link></li>
-              <li><Link href="/contact" className="hover:text-white transition">Contact</Link></li>
-              <li><Link href="/services" className="hover:text-white transition">Services</Link></li>
-              <li><Link href="/privacy-policy" className="hover:text-white transition">Privacy Policy</Link></li>
-              <li><Link href="/terms" className="hover:text-white transition">Terms of Service</Link></li>
-              <li><Link href="/support" className="hover:text-white transition">Support</Link></li>
-              <li><Link href="/values" className="hover:text-white transition">Values</Link></li>
-              <li><Link href="/cancellation-refund" className="hover:text-white transition">Cancellation & Refund Policy</Link></li>
+              <li><Link href="/about" className="text-white hover:text-blue-400 transition">
+              About Us</Link></li>
+              <li><Link href="/jobs" className="text-white hover:text-blue-400 transition">Careers</Link></li>
+              <li><Link href="/blogs" className="text-white hover:text-blue-400 transition">Blog</Link></li>
+              <li><Link href="/contact" className="text-white hover:text-blue-400 transition">Contact</Link></li>
+              <li><Link href="/services" className="text-white hover:text-blue-400 transition">Services</Link></li>
+              <li><Link href="/privacy-policy" className="text-white hover:text-blue-400 transition">Privacy Policy</Link></li>
+              <li><Link href="/terms" className="text-white hover:text-blue-400 transition">Terms of Service</Link></li>
+              <li><Link href="/support" className="text-white hover:text-blue-400 transition">Support</Link></li>
+              <li><Link href="/values" className="text-white hover:text-blue-400 transition">Values</Link></li>
+              <li><Link href="/cancellation-refund" className="text-white hover:text-blue-400 transition">Cancellation & Refund Policy</Link></li>
             </ul>
           </div>
           <div>
             <h4 className="text-green-500 font-semibold text-sm mb-3">Services</h4>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/software-development" className="hover:text-white transition">Software Development</Link></li>
-              <li><Link href="/ai-solutions" className="hover:text-white transition">AI Solutions</Link></li>
-              <li><Link href="/cloud-solutions" className="hover:text-white transition">Cloud Solutions</Link></li>
-              <li><Link href="/it-consulting" className="hover:text-white transition">IT Consulting</Link></li>
-              <li><Link href="/cyber-security" className="hover:text-white transition">Cyber Security</Link></li>
+              <li><Link href="/software-development" className="text-white hover:text-green-400 transition">
+              Software Development</Link></li>
+              <li><Link href="/ai-solutions" className="text-white hover:text-green-400 transition">AI Solutions</Link></li>
+              <li><Link href="/cloud-solutions" className="text-white hover:text-green-400 transition">Cloud Solutions</Link></li>
+              <li><Link href="/it-consulting" className="text-white hover:text-green-400 transition">IT Consulting</Link></li>
+              <li><Link href="/cyber-security" className="text-white hover:text-green-400 transition">Cyber Security</Link></li>
             </ul>
           </div>
           <div>
@@ -89,7 +91,12 @@ export default function NewsLetter() {
           
           </div>
         </div>
-        <div className="mt-12 border-t border-white/10 pt-8 text-sm text-center text-gray-500">
+        <div className="mt-12 border-t border-white/10
+        pt-8 text-sm text-center text-white">
+          <p className="mb-2">
+            Follow us on: @itidcs_sheikh
+          </p>
+
           &copy; {new Date().getFullYear()} ITIDCS. All rights reserved.
           <div aria-hidden="true" className="absolute top-0 left-1/2 -z-10 -translate-x-1/2 blur-3xl xl:-top-6">
           <div
