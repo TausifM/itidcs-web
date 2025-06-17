@@ -2,6 +2,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "./component/header";
 import NewsLetter from "./component/newsletter";
+import GoogleAnalytics from "./component/GoogleAnalytics";
+import RouteChangeTracker from "./component/RouteChangeTracker";
 
 const inter = Inter({ subsets: ["latin"], display: 'swap' });
 
@@ -50,6 +52,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
+        <GoogleAnalytics />
+        <RouteChangeTracker />
         <Header />
         <div id="app" style={{ marginTop: '12px' }}>
           {children}
