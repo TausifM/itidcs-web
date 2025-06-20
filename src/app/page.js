@@ -14,6 +14,7 @@ import Modal from "./component/promotionModal";
 import BadgeModal from "./component/BadgeModal";
 import CourseCarousel from "./component/course-carousel";
 import CelebrationBanner from "./component/CelebrationBannar";
+import SEOHead from "./component/SEOHead";
 
 const TrainingLandingPage = dynamic(
   () => import("./component/it-training"),
@@ -60,12 +61,11 @@ const handleBadgeClose = () => {
 };
   return (
     <>
-      <Head>
-        <meta
-          name="google-site-verification"
-          content="6kVFdmL0NC0JuYelngHfHel3A-W0O00u03zsJ070_2A"
-        />
-      </Head>
+       <SEOHead
+        title="ITIDCS – AI, Full Stack & Job-Ready Tech Courses"
+        description="Launch your career with ITIDCS. Learn AI, Full Stack, Web Development & more with 100% job support. Enroll now and access expert-led training."
+        image="https://res.cloudinary.com/plot-app-say-no-broker/image/upload/v1750403047/students-coding_xqptov.png"
+      />
 
       <HeroSection />
       <div ref={mainRef}>

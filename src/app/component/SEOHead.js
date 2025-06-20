@@ -16,6 +16,10 @@ export default function SEOHead({
 
   return (
     <Head>
+      <meta
+        name="google-site-verification"
+        content="6kVFdmL0NC0JuYelngHfHel3A-W0O00u03zsJ070_2A"
+      />
       <title>{title}</title>
       <meta name="apple-mobile-web-app-title" content="ITIDCS – Learn Web, AI, Design & More" />
       <meta name="description" content={description} />
