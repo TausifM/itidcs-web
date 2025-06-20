@@ -21,6 +21,33 @@ const TrainingLandingPage = dynamic(
   { ssr: false }
 );
 
+// ✅ STATIC METADATA EXPORT (used for OG/Twitter/etc.)
+export const metadata = {
+  title: "ITIDCS – Learn Web, AI, Design & More",
+  description: "Empowering you to launch your tech career with AI, Web Dev, and more.",
+  openGraph: {
+    title: "ITIDCS – Learn Web, AI, Design & More",
+    description: "Empowering you to launch your tech career with AI, Web Dev, and more.",
+    url: "https://itidcs.vercel.app",
+    siteName: "ITIDCS",
+    images: [
+      {
+        url: "https://res.cloudinary.com/plot-app-say-no-broker/image/upload/v1750403047/students-coding_xqptov.png",
+        width: 1200,
+        height: 630,
+        alt: "ITIDCS Logo",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ITIDCS – Learn Web, AI, Design & More",
+    description: "Explore ITIDCS services and get certified.",
+    images: ["https://res.cloudinary.com/plot-app-say-no-broker/image/upload/v1750403047/students-coding_xqptov.png"],
+    site: "@itidcs",
+  },
+};
 export default function Home() {
   const mainRef = useRef(null);
   const [showModal, setShowModal] = useState(false);
