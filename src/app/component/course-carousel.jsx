@@ -116,12 +116,12 @@ export default function CourseCarousel() {
                   </div>
 
                   <div className="flex flex-col gap-2">
-                    <button
+                    {/* <button
                       className="text-indigo-700 hover:text-indigo-800 font-medium text-sm mb-2 text-center bg-indigo-200 hover:bg-indigo-300 rounded-md px-4 py-2 transition duration-200"
                       onClick={() => setModalOpen(true)}
                     >
                       Download Brochure 📄
-                    </button>
+                    </button> */}
 
                     <Link href={`/enroll/${course.id}`}>
                       <button className="w-full bg-lime-500 hover:bg-lime-600 text-white rounded-md py-2 text-sm font-medium">

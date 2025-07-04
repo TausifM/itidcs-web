@@ -29,16 +29,10 @@ export default function TrainingHero({ imgSrc, category, title, offerTag, price,
     return <div className="text-center text-red-500">Missing required props</div>;
   }
   return (
-    <section className="bg-gray-100 py-12 mx-2">
+    <section className="bg-gray-100 p-2">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-8 sm:px-1 lg:px-2">
-        {/* Left side */}
         <div className="w-full lg:w-1/2 bg-white rounded-xl shadow overflow-hidden sm:m-2">
-          {/* Image + overlay container */}
-          {/* Top badges inside image */}
           <div className="top-4 left-4 flex gap-2 justify-between">
-            <span className="bg-white text-sm font-medium px-3 py-1 shadow">
-              Hinglish
-            </span>
             <span className="bg-white text-sm font-medium px-3 py-1 shadow">
               {category}
             </span>
@@ -46,8 +40,6 @@ export default function TrainingHero({ imgSrc, category, title, offerTag, price,
               🔥 Filling Fast
             </div>
           </div>
-
-          {/* Filling fast ribbon inside image */}
 
           <div className="relative">
             {/* Trainer image */}
@@ -62,25 +54,25 @@ export default function TrainingHero({ imgSrc, category, title, offerTag, price,
         </div>
 
         {/* Right side */}
-        <div className="w-full lg:w-1/2 bg-white rounded-xl p-6 sm:p-8 shadow">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 mb-6 text-center lg:text-left">
+        <div className="w-full lg:w-1/2 bg-white rounded-xl p-2 sm:p-2 shadow">
+          <h2 className="text-xl sm:text-lg lg:text-4xl font-bold text-gray-800 mb-6 text-center">
             Become An Expert {title} in Months
           </h2>
           {/* Course Price */}
-          <div className="text-center lg:text-left mb-6">
+          <div className="text-center mb-2">
             <span className="line-through text-red-500 text-2xl sm:text-3xl mr-2 font-semibold">
               {price || "80,999"}
             </span>
             <span className="text-2xl sm:text-3xl font-bold text-green-500">
               {offerPrice || price || "40,999"}
             </span>
-            <span className="text-yellow-500 text-sm ml-2 font-semibold">
-              {offerTag ? `(${offerTag})` : "Limited Time Offer!"}
-            </span>
             {/* <p className="text-gray-600 text-sm mt-2">
               {offerTag || "Limited time offer! Enroll now to secure your seat."}
             </p> */}
           </div>
+             <span className="text-yellow-500 font-semibold mb-4 block text-center text-2xl sm:text-lg">
+              {offerTag ? `${offerTag}` : "Limited Time Offer!"}
+            </span>
           <ul className="space-y-4 mb-6">
             {[
               "Enroll once & get access to all courses.",
