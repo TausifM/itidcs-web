@@ -87,16 +87,21 @@ export default function NewsLetter() {
               </li>
             </ul>
           </div>
-          
-          
           </div>
         </div>
         <div className="mt-12 border-t border-white/10
         pt-8 text-sm text-center text-white">
           <p className="mb-2">
-            Follow us on: @itidcs_sheikh
+            Follow us on social media:
           </p>
-
+          <Link href='https://www.instagram.com/itidcs_official/?e=ac6ef409-4a26-45b1-8340-5552d06c75ab&g=5'
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-400 hover:text-blue-300 transition">
+          <p className="mb-2">
+           @itidcs_sheikh
+          </p>
+          </Link>
           &copy; {new Date().getFullYear()} ITIDCS. All rights reserved.
           <div aria-hidden="true" className="absolute top-0 left-1/2 -z-10 -translate-x-1/2 blur-3xl xl:-top-6">
           <div

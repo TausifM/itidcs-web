@@ -1,6 +1,7 @@
 // pages/badge.jsx
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function BadgePage() {
   return (
@@ -59,14 +60,14 @@ export default function BadgePage() {
           <p style={styles.description}>
             Show off your achievement by sharing it on social media.
           </p>
-          <a
+          <Link
             href="https://itidcs.vercel.app"
             target="_blank"
             rel="noopener noreferrer"
             style={styles.button}
           >
             Visit ITIDCS Website →
-          </a>
+          </Link>
         </div>
       </main>
     </>

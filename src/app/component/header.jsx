@@ -1,135 +1,88 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
   return (
-    <header className="j y au dv">
-      <nav aria-label="Global" className="fy la vy aaz abe atn dwm">
-        <div className="la dqo">
-          {/* <a href="#" className="fe ath"> */}
-          <Link href="/" className="fe ath amg agd atj">
-            {/* <span className="i">Your Company</span> */}
-            <Image
-              src="/logo.png"
-              alt="Logo"
-              width={40}
-              height={40}
-              className="pt vn"
-            />
-          </Link>
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur-lg border-b border-gray-200 shadow-sm">
+      <nav className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+        {/* Logo */}
+        <Link href="/" className="flex items-center space-x-2 bg-indigo-600 backdrop-blur-xl p-2 rounded-lg shadow-md transition hover:shadow-lg">
+          <Image src="/logo.png" alt="ITIDCS Logo" width={60} height={42} />
+        </Link>
+
+        {/* Desktop Menu */}
+        <div className="hidden lg:flex items-center space-x-8 font-medium text-sm">
+          <Link href="/" className="hover:text-blue-600 transition">Home</Link>
+          <Link href="/services" className="hover:text-blue-600 transition">Services</Link>
+          <Link href="/enroll" className="hover:text-blue-600 transition">Courses</Link>
+          <Link href="/blogs" className="hover:text-blue-600 transition">Blogs</Link>
+          <Link href="/jobs" className="hover:text-blue-600 transition">Jobs</Link>
+          <Link href="/about" className="hover:text-blue-600 transition">About</Link>
+          <Link href="/contact" className="hover:text-blue-600 transition">Contact</Link>
         </div>
 
-        <div className="la dns">
-          <button
-            type="button"
-            className="fg lg aaz abf agd atj bau"
-            onClick={() => setMenuOpen(!menuOpen)}
-          >
-            <span className="i">Open main menu</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              aria-hidden="true"
-              className="on"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-              />
-            </svg>
-          </button>
-        </div>
-
-        <div className="ld dnq dst hidden lg:flex space-x-6">
-          <Link href="/" className="aze azr baw hover:text-blue-600">
-            Home
-          </Link>
-          <Link href="/services" className="aze azr baw hover:text-blue-600">
-            Services
-          </Link>
-          <Link href="/enroll" className="aze azr baw hover:text-blue-600">
-            Courses
-          </Link>
-          <Link href="/jobs" className="aze azr baw hover:text-blue-600">
-            Jobs
-          </Link>
-          <Link href="/blogs" className="aze azr baw hover:text-blue-600">
-            Blogs
-          </Link>
-          <Link href="/about" className="aze azr baw hover:text-blue-600">
-            About
-          </Link>
-          <Link href="/contact" className="aze azr baw hover:text-blue-600">
-            Contact
-          </Link>
-        </div>
-
-        <div className="ld dnq dqo dsh hidden lg:flex">
-          <Link href="/login" className="aze azr baw hover:text-blue-600">
-            Log in <span aria-hidden="true">→</span>
-          </Link>
-        </div>
-      </nav>
-
-      {mounted && menuOpen && (
-        <div className="lg:hidden px-4 py-4 space-y-2 bg-white shadow-md">
-          <Link href="/" className="block text-gray-700 hover:text-blue-600">
-            Home
-          </Link>
-          <Link
-            href="/services"
-            className="block text-gray-700 hover:text-blue-600"
-          >
-            Services
-          </Link>
-          <Link
-            href="/enroll"
-            className="block text-gray-700 hover:text-blue-600"
-          >
-            Courses
-          </Link>
-          <Link
-            href="/blogs"
-            className="block text-gray-700 hover:text-blue-600"
-          >
-            Blogs
-          </Link>
-          <Link href="/jobs" className="block text-gray-700 hover:text-blue-600">
-            Jobs
-          </Link>
-          <Link
-            href="/about"
-            className="block text-gray-700 hover:text-blue-600"
-          >
-            About
-          </Link>
-          <Link
-            href="/contact"
-            className="block text-gray-700 hover:text-blue-600"
-          >
-            Contact
-          </Link>
+        {/* Login Button */}
+        <div className="hidden lg:block">
           <Link
             href="/login"
-            className="block text-gray-700 hover:text-blue-600"
+            className="px-4 py-2 rounded-lg bg-blue-600 text-white text-sm hover:bg-blue-700 transition"
           >
             Log in →
           </Link>
         </div>
-      )}
+
+        {/* Mobile Hamburger */}
+        <button
+          type="button"
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="lg:hidden flex flex-col justify-center items-center space-y-[4px] w-10 h-10"
+          aria-label="Toggle menu"
+        >
+          <span
+            className={`h-[2px] w-6 bg-gray-800 transition-transform duration-300 ${
+              menuOpen ? "rotate-45 translate-y-[7px]" : ""
+            }`}
+          ></span>
+          <span
+            className={`h-[2px] w-6 bg-gray-800 transition-all duration-300 ${
+              menuOpen ? "opacity-0" : ""
+            }`}
+          ></span>
+          <span
+            className={`h-[2px] w-6 bg-gray-800 transition-transform duration-300 ${
+              menuOpen ? "-rotate-45 -translate-y-[7px]" : ""
+            }`}
+          ></span>
+        </button>
+      </nav>
+
+      {/* Mobile Dropdown Menu */}
+      <div
+        className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+          menuOpen ? "max-h-[500px]" : "max-h-0"
+        }`}
+      >
+        <div className="flex flex-col px-6 pb-6 pt-2 space-y-4 bg-white/80 backdrop-blur-xl border-t border-gray-200 rounded-b-xl shadow-md text-sm font-medium">
+          <Link href="/" className="hover:text-blue-600 transition">Home</Link>
+          <Link href="/services" className="hover:text-blue-600 transition">Services</Link>
+          <Link href="/enroll" className="hover:text-blue-600 transition">Courses</Link>
+          <Link href="/blogs" className="hover:text-blue-600 transition">Blogs</Link>
+          <Link href="/jobs" className="hover:text-blue-600 transition">Jobs</Link>
+          <Link href="/about" className="hover:text-blue-600 transition">About</Link>
+          <Link href="/contact" className="hover:text-blue-600 transition">Contact</Link>
+          <Link
+            href="/login"
+            className="text-center mt-2 bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition"
+          >
+            Log in →
+          </Link>
+        </div>
+      </div>
     </header>
   );
 }

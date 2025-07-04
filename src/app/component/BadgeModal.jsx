@@ -47,7 +47,9 @@ export default function BadgeModal({ show, onClose }) {
 
          <h2 style={styles.heading}>ITIDCS PVT LTD</h2>
         <p style={styles.subHeading}>You earned the Successful Career Starter badge!</p>
-        <button style={styles.signInBtn}>Sign in to claim your badge</button>
+        <Link href="/signup" style={{ textDecoration: "none" }}>
+          <button style={styles.signInBtn}>Sign in to claim your badge</button>
+        </Link>
 
         <div style={styles.shareIcons}>
             <p style={{ marginRight: "10px" }}>Share your badge:</p>
