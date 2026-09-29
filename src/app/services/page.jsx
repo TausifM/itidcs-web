@@ -1,6 +1,7 @@
 import Link from "next/link";
 import SEOHead from "../component/SEOHead";
 import ServicesScene from "../component/services-scene";
+import ProjectFlowScene from "../component/ProjectFlowScene";
 
 const offerings = [
   {
@@ -110,13 +111,41 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="sr-process">
-        <div className="sr-process-heading"><p className="sr-section-kicker">HOW WE WORK</p><h2>Clear steps.<br /><em>Real progress.</em></h2><p>Good work starts by understanding the people, goals, and constraints behind the project.</p></div>
-        <div className="sr-process-steps">
-          <article><span>01 / DISCOVER</span><h3>Get the picture.</h3><p>We listen, ask useful questions, and agree on the outcome that matters.</p></article>
-          <article><span>02 / DESIGN + BUILD</span><h3>Make it tangible.</h3><p>We shape the experience and develop in visible, reviewable steps.</p></article>
-          <article><span>03 / LAUNCH + LEARN</span><h3>Keep improving.</h3><p>We prepare for launch, share knowledge, and help you plan what comes next.</p></article>
+      <section className="sr-project-flow" aria-labelledby="sr-project-flow-title">
+        <div className="sr-project-flow-heading">
+          <div><p className="sr-section-kicker">FROM FIRST IDEA TO LIVE PRODUCT</p><h2 id="sr-project-flow-title">A clear path from<br /><em>concept to launch.</em></h2></div>
+          <p>Bring us a challenge, a sketch, or an early idea. We shape it with you, build it through a thoughtful software lifecycle, and help you move it into the world.</p>
         </div>
+
+        <div className="project-journey-panel">
+          <div className="project-journey-copy">
+            <p className="project-journey-eyebrow"><span>01</span> THE START</p>
+            <h3>Bring the challenge.<br /><em>We&apos;ll shape the idea.</em></h3>
+            <p>Tell us what your customers or team need. We&apos;ll help turn the first conversation into a clear product direction.</p>
+            <div className="project-journey-types-label">WHAT WE CAN BUILD</div>
+            <div className="project-flow-types"><span>Websites</span><span>Mobile apps</span><span>AI products</span><span>SaaS</span><span>CRM</span></div>
+            <Link href="/contact" className="project-flow-start">Start a conversation <span aria-hidden="true">↗</span></Link>
+          </div>
+          <div className="project-journey-visual" aria-hidden="true">
+            <ProjectFlowScene />
+            <span className="project-journey-interaction"><i aria-hidden="true">↔</i><span className="project-journey-interaction-desktop">DRAG TO EXPLORE</span><span className="project-journey-interaction-mobile">SWIPE TO EXPLORE</span></span>
+            <span className="project-journey-stage project-journey-stage-client"><b>01</b> CLIENT IDEA</span>
+            <span className="project-journey-stage project-journey-stage-process"><b>02</b> BUILD TOGETHER</span>
+            <span className="project-journey-stage project-journey-stage-product"><b>03</b> PRODUCT LIVE</span>
+          </div>
+        </div>
+
+        <div className="project-lifecycle">
+          <div className="project-lifecycle-heading"><div><p className="sr-section-kicker">THE SOFTWARE DEVELOPMENT LIFECYCLE</p><h3>Thoughtful at every <em>stage.</em></h3></div><span>02 <i>—</i> 06</span></div>
+          <ol className="project-lifecycle-steps" aria-label="Project development stages">
+            <li><span>02</span><div><small>DISCOVER</small><h4>Set the direction</h4><p>Goals, users, scope</p></div></li>
+            <li><span>03</span><div><small>DESIGN</small><h4>Plan the experience</h4><p>UX, architecture, roadmap</p></div></li>
+            <li><span>04</span><div><small>DEVELOP</small><h4>Build in the open</h4><p>Working software, reviews</p></div></li>
+            <li><span>05</span><div><small>TEST & SECURE</small><h4>Prove it works</h4><p>Quality, access, performance</p></div></li>
+            <li><span>06</span><div><small>LAUNCH & SUPPORT</small><h4>Learn and improve</h4><p>Release, feedback, growth</p></div></li>
+          </ol>
+        </div>
+        <div className="project-flow-delivery"><span className="project-flow-delivery-dot" /><div><strong>One partner from first sketch to finished product.</strong><p>Clear communication, visible progress, and a product built for the people who will use it.</p></div><Link href="/contact">Let&apos;s build it <span aria-hidden="true">↗</span></Link></div>
       </section>
 
       <section className="sr-learning">
