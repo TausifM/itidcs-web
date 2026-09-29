@@ -76,7 +76,7 @@ export default function Contact() {
               </a>
               <div className="contact-detail contact-address">
                 <span className="contact-detail-icon" aria-hidden="true">⌖</span>
-                <span><small>Find us</small><strong>IT Park, Nagpur<br />Maharashtra, India</strong></span>
+                <span><small>Find us</small><strong>1st Floor, Plot No. 2,<br />Collaborative Workspace with Career Cloud,<br />Kabir Nagar Square, Nandanwan Main Rd,<br />In front of Maruti Arcade, near Dutta Mandir,<br />Nandanwan, Nagpur, Maharashtra 440009</strong></span>
               </div>
             </div>
 
