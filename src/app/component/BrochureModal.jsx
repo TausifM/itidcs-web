@@ -82,26 +82,27 @@ export default function BrochureModal({ isOpen, onClose }) {
 
   return (
     <>
-      <div className="fixed inset-0 z-50 bg-gray-800/20 backdrop-blur-sm flex items-center justify-center p-4 transition-opacity duration-300">
-        <div className="bg-white/90 dark:bg-zinc-900/90 text-zinc-800 dark:text-white rounded-2xl w-full max-w-md shadow-2xl p-8 relative border border-zinc-300 dark:border-zinc-700 animate-fadeInUp">
+      <div className="brochure-modal-backdrop" onMouseDown={(event) => event.target === event.currentTarget && onClose()}>
+        <div className="brochure-modal" role="dialog" aria-modal="true" aria-labelledby="brochure-modal-title" aria-describedby="brochure-modal-description">
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 text-zinc-500 hover:text-red-500 text-2xl"
+            className="brochure-modal-close"
             aria-label="Close Modal"
           >
             &times;
           </button>
 
-          <div className="text-center mb-6">
-            <h2 className="text-2xl font-bold tracking-tight">
+          <div className="brochure-modal-heading">
+            <span className="brochure-modal-kicker">COURSE GUIDE</span>
+            <h2 id="brochure-modal-title">
               🚀 Get Our Brochure Instantly!
             </h2>
-            <p className="text-zinc-500 dark:text-zinc-400 text-sm mt-2">
+            <p id="brochure-modal-description">
               Just a few details and we’ll send it right over.
             </p>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-5">
+          <form onSubmit={handleSubmit} className="brochure-modal-form">
             <input
               type="text"
               name="name"
@@ -109,7 +110,7 @@ export default function BrochureModal({ isOpen, onClose }) {
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 border border-zinc-300 dark:border-zinc-700 rounded-lg bg-white/70 dark:bg-zinc-800 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-lime-500"
+              className="brochure-modal-input"
             />
 
             <input
@@ -119,11 +120,11 @@ export default function BrochureModal({ isOpen, onClose }) {
               value={formData.email}
               onChange={handleChange}
               required
-              className={`w-full px-4 py-3 border ${
+              className={`brochure-modal-input ${
                 errors.email
-                  ? "border-red-500"
-                  : "border-zinc-300 dark:border-zinc-700"
-              } rounded-lg bg-white/70 dark:bg-zinc-800 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-lime-500`}
+                  ? "is-invalid"
+                  : ""
+              }`}
             />
 
             <input
@@ -133,40 +134,23 @@ export default function BrochureModal({ isOpen, onClose }) {
               value={formData.mobile}
               onChange={handleChange}
               required
-              className={`w-full px-4 py-3 border ${
+              className={`brochure-modal-input ${
                 errors.mobile
-                  ? "border-red-500"
-                  : "border-zinc-300 dark:border-zinc-700"
-              } rounded-lg bg-white/70 dark:bg-zinc-800 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-lime-500`}
+                  ? "is-invalid"
+                  : ""
+              }`}
             />
 
             <button
               type="submit"
               disabled={!formValid || submitting}
-              className={`w-full py-3 rounded-lg text-white text-lg font-semibold tracking-wide transition-all duration-300 bg-gradient-to-r from-lime-500 to-emerald-500 hover:from-lime-600 hover:to-emerald-600 shadow-lg ${
-                !formValid || submitting ? "opacity-50 cursor-not-allowed" : ""
-              }`}
+              className="brochure-modal-submit"
             >
               {submitting ? "Submitting..." : "Download Now"}
             </button>
           </form>
         </div>
 
-        <style jsx>{`
-          @keyframes fadeInUp {
-            from {
-              opacity: 0;
-              transform: translateY(20px);
-            }
-            to {
-              opacity: 1;
-              transform: translateY(0);
-            }
-          }
-          .animate-fadeInUp {
-            animation: fadeInUp 0.5s ease-out;
-          }
-        `}</style>
       </div>
 
       {showToast && (

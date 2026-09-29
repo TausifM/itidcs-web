@@ -62,8 +62,9 @@ export default function NewsLetter() {
 
           <div className="footer-contact-column">
             <h3>Come say hello</h3>
-            <p><strong>Arvi</strong><br />Sanskriti Nagar, Near Bhakre Layout</p>
-            <p><strong>Nagpur</strong><br />Siraspeth, Near Anand Budh Vihar</p>
+            <p><strong>Nagpur</strong><br />IT Park, Nagpur, Maharashtra, India</p>
+            <p><strong>Phone</strong><br /><a href="tel:+917709382305">+91 7709382305</a></p>
+            <p><strong>Email</strong><br /><a href="mailto:innovativeitdcorporation@gmail.com"><span className="footer-email-link">innovativeitdcorporation@gmail.com</span></a></p>
             <Link href="/contact" className="footer-contact-link">Contact our team <span aria-hidden="true">↗</span></Link>
           </div>
         </div>

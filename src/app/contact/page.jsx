@@ -76,7 +76,7 @@ export default function Contact() {
               </a>
               <div className="contact-detail contact-address">
                 <span className="contact-detail-icon" aria-hidden="true">⌖</span>
-                <span><small>Find us</small><strong>Siraspeth, Nagpur<br />Maharashtra, India</strong></span>
+                <span><small>Find us</small><strong>IT Park, Nagpur<br />Maharashtra, India</strong></span>
               </div>
             </div>
 

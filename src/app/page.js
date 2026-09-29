@@ -1,24 +1,18 @@
 "use client";
 import { useRef, useEffect, useState } from "react";
-import dynamic from "next/dynamic";
+import TrainingLandingPage from "./component/it-training";
 import HeroSection from "./component/test";
 import MainSection from "./component/mainsection";
 import CTASection from "./component/ctasection";
 import BentoGrid from "./component/bentogrid";
 import AboutSection from "./component/aboutsection";
-import Stats from "./component/stats";
-import Testimonials from "./component/testimonials";
+import HomeApproach from "./component/testimonials";
 import Contact from "./contact/page";
 import Modal from "./component/promotionModal";
 import BadgeModal from "./component/BadgeModal";
 import CourseCarousel from "./component/course-carousel";
 import CelebrationBanner from "./component/CelebrationBannar";
 import SEOHead from "./component/SEOHead";
-
-const TrainingLandingPage = dynamic(
-  () => import("./component/it-training"),
-  { ssr: false }
-);
 
 export default function Home() {
   const mainRef = useRef(null);
@@ -76,8 +70,7 @@ const handleBadgeClose = () => {
       <CTASection />
       <BentoGrid />
       <AboutSection />
-      <Stats />
-      <Testimonials />
+      <HomeApproach />
       <Contact />
 
       <Modal show={showModal} onClose={() => setShowModal(false)} />
