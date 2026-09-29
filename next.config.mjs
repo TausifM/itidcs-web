@@ -59,6 +59,18 @@ const nextConfig = (phase) => ({
                 port: "",
                 pathname: "/**",
             },
+            {
+                protocol: "https",
+                hostname: "itidcs.vercel.app",
+                port: "",
+                pathname: "/**",
+            },
+            {
+                protocol: "https",
+                hostname: "itidcs.com",
+                port: "",
+                pathname: "/**",
+            },
         ],
       },
 });

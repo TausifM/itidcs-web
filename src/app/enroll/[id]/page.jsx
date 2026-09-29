@@ -176,10 +176,10 @@ const coursesData = [
   },
 ];
 
-export default function CourseDetailsPage({ params }) {
-  const { id } = use(params);
+export default function CourseDetailsPage() {
+  const { id } = useParams();
   const [course, setCourse] = useState(null);
-  console.log(id);
+
   useEffect(() => {
     if (id) {
       const foundCourse = coursesData.find(
@@ -190,7 +190,11 @@ export default function CourseDetailsPage({ params }) {
   }, [id]);
 
   if (!course) {
-    return <div>Course not found.</div>;
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 via-purple-100 to-blue-50 text-xl font-semibold text-gray-600">
+        Course not found.
+      </div>
+    );
   }
 
   return (
@@ -203,64 +207,34 @@ export default function CourseDetailsPage({ params }) {
           <p className="mt-4 text-lg">{course.description}</p>
         </div>
 
-        {/* Course Image */}
-        <div className="flex justify-center mb-12">
-          <Image
-            src={course.image}
-            alt={course.title}
-            width={500}
-            height={300}
-            className="rounded-lg shadow-lg max-w-full h-72 object-cover"
+          <TrainingHero
+            imgSrc={course.image}
+            category={course.category}
+            title={course.title}
+            offerTag={course.offerTag}
+            price={course.price}
+            offerPrice={course.offerPrice}
           />
-        </div>
-        <div className="text-center mb-8">
-          <p className="text-xl font-semibold text-gray-800">
-            {course.offerTag}
-          </p>
-          <div className="text-2xl mt-2">
-            <span className="line-through font-bold text-red-600 mr-4">
-              {course.price}
-            </span>
-            <span className="font-bold text-green-800">
-              {course.offerPrice}
-            </span>
-          </div>
-          <p className="mt-2 text-xl font-semibold text-yellow-500">
-            Hurry! Limited seats available.
-          </p>
-        </div>
-        {/* Course Content List */}
-        <div className="mb-12 text-center">
-          <h2 className="text-3xl font-semibold">Course Content</h2>
-          <p className="mt-4 text-lg text-gray-700">
-            Dive deep into the following topics:
-          </p>
-          {/* Make the bullet points in same alignment or line as the text */}
-          <ul className="list-disc list-inside mt-4 text-lg text-gray-700">
-            {course.content.map((item, idx) => (
-              <li key={idx}>{item}</li>
-            ))}
-          </ul>
-        </div>
 
-        {/* Enroll Section */}
-        <div className="flex justify-center align-middle items-center">
-          <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSflmV56d0cYZcW4q5tVbuOfQQ7Qb_YKbYrqm4AEnTCjbzTeKA/viewform"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <button className="bg-blue-800 hover:bg-blue-900 text-white
-            text-lg px-6 py-3 rounded-md transition duration-300 shadow-lg animate-pulse">
-              Enroll Now
-            </button>
-            <p className="text-red-600 font-medium mt-2">
+          <CourseCurriculum title={course.title} />
+
+          {/* Enroll Section */}
+          <div className="flex flex-col items-center justify-center text-center px-4 py-10">
+            <Link
+              href="https://docs.google.com/forms/d/e/1FAIpQLSflmV56d0cYZcW4q5tVbuOfQQ7Qb_YKbYrqm4AEnTCjbzTeKA/viewform"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto"
+            >
+              <button className="w-full sm:w-72 px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-purple-700 hover:to-indigo-700 text-white font-semibold text-lg rounded-xl transition-all shadow-lg animate-bounce-sm">
+                Enroll Now
+              </button>
+            </Link>
+            <p className="text-red-600 font-medium mt-4 text-sm sm:text-base max-w-xs sm:max-w-md text-center">
               🔥 Offer ends soon — Secure your seat now!
             </p>
-          </a>
-        
+          </div>
         </div>
-      </div>
     </main>
   );
 }

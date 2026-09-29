@@ -1,0 +1,26 @@
+.animated-number-wrapper {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  height: 1.5em; /* adjust as needed */
+}
+
+.animated-number {
+  display: inline-block;
+  animation: slide-up 0.3s ease-in-out;
+  will-change: transform;
+  position: absolute;
+  left: 0;
+  width: 100%;
+}
+
+@keyframes slide-up {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}

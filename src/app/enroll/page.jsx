@@ -82,13 +82,14 @@ export default function CoursesPage() {
     }
   };
 
-  const categories = ["All", ...new Set(coursesData.map((c) => c.category))];
+  const categories = ["All", ...new Set(coursesData?.map((c) => c.category))];
 
   return (
     <>
       <SEOHead
         title="Explore Courses - ITIDCS"
         description="Browse our professional IT and development courses. Learn skills that matter."
+        image="https://res.cloudinary.com/plot-app-say-no-broker/image/upload/v1748028443/ai_rhrali.png"
       />
 
       <main className="courses-page">

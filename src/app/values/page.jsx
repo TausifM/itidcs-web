@@ -204,7 +204,7 @@ const ValuesandIntership = () => {
             </div>
           </dl>
         </div>
-        <div className="ho vt">
+        <div className="ho vt" id="internship">
           <div className="max-w-3xl">
           <div className="mt-2 h-2 w-24 mb-8 bg-indigo-600 rounded"></div>
             <h1 className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
