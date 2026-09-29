@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { useRef, useEffect, useState } from "react";
 import TrainingLandingPage from "./component/it-training";
 import HeroSection from "./component/test";
@@ -17,18 +17,30 @@ import SEOHead from "./component/SEOHead";
 export default function Home() {
   const mainRef = useRef(null);
   const [showModal, setShowModal] = useState(false);
-  const [triggerCount, setTriggerCount] = useState(0);
-
-  // For BadgeModal control
- const [badgeCount, setBadgeCount] = useState(0);
-const [showBadge, setShowBadge] = useState(true);
+  const [showBadge, setShowBadge] = useState(false);
+  const [badgeResolved, setBadgeResolved] = useState(false);
 
   useEffect(() => {
+    const badgeSeen = localStorage.getItem("itidcs-home-badge-modal-seen");
+    if (badgeSeen) {
+      setBadgeResolved(true);
+      return;
+    }
+
+    localStorage.setItem("itidcs-home-badge-modal-seen", "true");
+    setShowBadge(true);
+  }, []);
+
+  useEffect(() => {
+    if (!badgeResolved) return undefined;
+    if (localStorage.getItem("itidcs-home-promo-modal-seen")) return undefined;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && triggerCount < 3) {
+        if (entry.isIntersecting) {
+          localStorage.setItem("itidcs-home-promo-modal-seen", "true");
           setShowModal(true);
-          setTriggerCount((prev) => prev + 1);
+          observer.disconnect();
         }
       },
       { threshold: 0.5 }
@@ -38,24 +50,18 @@ const [showBadge, setShowBadge] = useState(true);
     if (current) observer.observe(current);
 
     return () => {
-      if (current) observer.unobserve(current);
+      observer.disconnect();
     };
-  }, [triggerCount]);
-
-
-useEffect(() => {
-  if (badgeCount >= 1) {
-    setShowBadge(false);
-  }
-}, [badgeCount]);
+  }, [badgeResolved]);
 
 const handleBadgeClose = () => {
-  setBadgeCount((prev) => prev + 1);
+  setShowBadge(false);
+  setBadgeResolved(true);
 };
   return (
     <>
        <SEOHead
-        title="ITIDCS – AI, Full Stack & Job-Ready Tech Courses"
+        title="ITIDCS â€“ AI, Full Stack & Job-Ready Tech Courses"
         description="Launch your career with ITIDCS. Learn AI, Full Stack, Web Development & more with 100% job support. Enroll now and access expert-led training."
         image="https://res.cloudinary.com/plot-app-say-no-broker/image/upload/v1750403047/students-coding_xqptov.png"
       />
