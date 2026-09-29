@@ -1,109 +1,84 @@
-"use client";
-
-import React from "react";
+import Link from "next/link";
 import SEOHead from "../component/SEOHead";
+
+const supportEmail = "innovativeitdcorporation@gmail.com";
+const supportPhone = "+91 7709382305";
+const officeAddress = "1st Floor, Plot No. 2, Collaborative Workspace with Career Cloud, Kabir Nagar Square, Nandanwan Main Rd, in front of Maruti Arcade, near Dutta Mandir, Nandanwan, Nagpur, Maharashtra 440009";
+const mapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(officeAddress)}`;
 
 export default function SupportPage() {
   return (
-    <>
-      <SEOHead
-        title="Customer Support | ITIDCS"
-        description="Need help? Our support team is here to assist you with any inquiries, technical issues, or service requests."
-        canonical="https://itidcs.vercel.app/support"
-      />
-      <div className="support-page min-h-screen text-white p-6">
-        <div className="max-w-5xl mx-auto text-center py-16">
-          <h1 className="text-4xl font-bold mb-4">Customer Support</h1>
-          <p className="text-lg text-gray-300 mb-10">
-            Need help? Our support team is here to assist you with any
-            inquiries, technical issues, or service requests.
-          </p>
-
-          {/* Contact Info */}
-          <div className="grid gap-6 md:grid-cols-2 text-left mb-16">
-            <div className="bg-gray-800 p-6 rounded-lg shadow-md">
-              <h2 className="text-xl font-semibold mb-2">Email Support</h2>
-              <p className="text-gray-400 mb-2">
-                For general inquiries and help:
-              </p>
-              <a
-                href="mailto:innovativeitdcorporation@gmail.com"
-                className="text-blue-400 hover:underline"
-              >
-                Support Email: innovativeitdcorporation@gmail.com
-                
-              </a>
-            </div>
-
-            <div className="bg-gray-800 p-6 rounded-lg shadow-md">
-              <h2 className="text-xl font-semibold mb-2">Call Us</h2>
-              <p className="text-gray-400 mb-2">
-                We're available 10am–6pm IST, Monday–Friday:
-              </p>
-              <p className="text-blue-400">+91-87888 41823</p>
-            </div>
+    <main className="support-page-rebuild">
+      <SEOHead title="Support | ITIDCS" description="Contact ITIDCS for help with courses, digital products, and service enquiries. Find our email, phone, office address, and support form." canonical="https://itidcs.vercel.app/support" />
+      <div className="support-shell">
+        <section className="support-heading">
+          <div>
+            <p className="support-kicker"><span /> HERE TO HELP</p>
+            <h1>How can we<br /><em>help you?</em></h1>
           </div>
+          <p>Questions about a course, a digital product, or a project? Reach our team using the option that works best for you.</p>
+        </section>
 
-          {/* Contact Form */}
-          <div className="bg-gray-800 p-8 rounded-lg shadow-lg text-left">
-            <h2 className="text-2xl font-semibold mb-4">Send Us a Message</h2>
-            <form
-              action="https://formsubmit.co/your-email@itidcs.com"
-              method="POST"
-              className="space-y-4"
-            >
-              <input type="hidden" name="_captcha" value="false" />
-              <input
-                type="text"
-                name="name"
-                placeholder="Your Name"
-                required
-                className="w-full p-3 rounded-md bg-gray-700 text-white"
-              />
-              <input
-                type="email"
-                name="email"
-                placeholder="Your Email"
-                required
-                className="w-full p-3 rounded-md bg-gray-700 text-white"
-              />
-              <textarea
-                name="message"
-                placeholder="Your Message"
-                rows="5"
-                required
-                className="w-full p-3 rounded-md bg-gray-700 text-white"
-              ></textarea>
-              <button
-                type="submit"
-                className="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-md text-white font-semibold transition"
-              >
-                Submit
-              </button>
+        <section className="support-contact-grid" aria-label="ITIDCS support contact details">
+          <article className="support-info-card">
+            <span className="support-card-icon" aria-hidden="true">@</span>
+            <p className="support-card-label">EMAIL SUPPORT</p>
+            <h2>Send us a note</h2>
+            <p>For course questions, technical help, or general enquiries.</p>
+            <a href={`mailto:${supportEmail}`}>{supportEmail}<span aria-hidden="true">↗</span></a>
+          </article>
+          <article className="support-info-card">
+            <span className="support-card-icon support-card-icon-green" aria-hidden="true">☎</span>
+            <p className="support-card-label">CALL OUR TEAM</p>
+            <h2>Speak with us</h2>
+            <p>Monday to Friday, 10:00 AM–6:00 PM IST.</p>
+            <a href="tel:+919975767561">{supportPhone}<span aria-hidden="true">↗</span></a>
+          </article>
+          <article className="support-info-card support-address-card">
+            <span className="support-card-icon support-card-icon-orange" aria-hidden="true">⌖</span>
+            <p className="support-card-label">VISIT ITIDCS</p>
+            <h2>Our office</h2>
+            <p>{officeAddress}</p>
+            <a href={mapsLink} target="_blank" rel="noreferrer">Open in Google Maps<span aria-hidden="true">↗</span></a>
+          </article>
+        </section>
+
+        <section className="support-lower-grid">
+          <div className="support-form-card">
+            <p className="support-kicker">SEND A MESSAGE</p>
+            <h2>Tell us what you need.</h2>
+            <p className="support-form-intro">Share a few details and our team will get back to you by email.</p>
+            <form action={`https://formsubmit.co/${supportEmail}`} method="POST" className="support-form">
+              <input type="hidden" name="_subject" value="New support request from ITIDCS website" />
+              <label htmlFor="support-name">Your name</label>
+              <input id="support-name" name="name" type="text" autoComplete="name" placeholder="Enter your name" required />
+              <label htmlFor="support-email">Email address</label>
+              <input id="support-email" name="email" type="email" autoComplete="email" placeholder="you@example.com" required />
+              <label htmlFor="support-topic">What can we help with?</label>
+              <select id="support-topic" name="topic" defaultValue="" required>
+                <option value="" disabled>Select a topic</option>
+                <option>Course or learning support</option>
+                <option>Website or app support</option>
+                <option>Project enquiry</option>
+                <option>Something else</option>
+              </select>
+              <label htmlFor="support-message">Message</label>
+              <textarea id="support-message" name="message" rows={5} placeholder="Add the details that will help us assist you" required />
+              <button type="submit">Send support request <span aria-hidden="true">↗</span></button>
+              <small>We aim to reply within two business days.</small>
             </form>
           </div>
 
-          {/* FAQs (Optional) */}
-          <div className="mt-20 text-left">
-            <h2 className="text-2xl font-bold mb-4">
-              Frequently Asked Questions
-            </h2>
-            <ul className="space-y-4 text-gray-300">
-              <li>
-                <strong>Q: How long does it take to get a response?</strong>
-                <br />
-                A: We usually respond within 48 hours during business days.
-              </li>
-              <li>
-                <strong>Q: Can I get support for my course or app?</strong>
-                <br />
-                A: Yes! Reach out using the form above, and our team will assist
-                you.
-              </li>
-            </ul>
-          </div>
-        </div>
+          <aside className="support-faq-card">
+            <p className="support-kicker">QUICK ANSWERS</p>
+            <h2>Before you reach out</h2>
+            <details open><summary>When should I expect a reply?</summary><p>We aim to respond within two business days. Include the email address linked to your course or service so we can find the right details.</p></details>
+            <details><summary>What should I include in a technical request?</summary><p>Tell us what you were trying to do, what happened, and which device or browser you used. Please do not send passwords or payment card details.</p></details>
+            <details><summary>Can I ask about a new project here?</summary><p>Yes. Choose “Project enquiry” in the form or <Link href="/contact">contact our team</Link> to talk about a website, mobile app, or AI solution.</p></details>
+            <div className="support-faq-note"><span aria-hidden="true">i</span><p>For urgent account or payment concerns, email us directly so we can route your request to the right team.</p></div>
+          </aside>
+        </section>
       </div>
-    </>
+    </main>
   );
 }

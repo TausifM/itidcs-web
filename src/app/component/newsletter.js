@@ -6,7 +6,6 @@ import ThreeBackdrop from "./threebackdrop";
 
 const companyLinks = [
   ["About ITIDCS", "/about"],
-  ["Careers", "/carriers"],
   ["Our values", "/values"],
   ["Leadership", "/leadership"],
 ];
@@ -63,7 +62,7 @@ export default function NewsLetter() {
           <div className="footer-contact-column">
             <h3>Come say hello</h3>
             <p><strong>Visit us</strong><br />1st Floor, Plot No. 2,<br />Collaborative Workspace with Career Cloud,<br />Kabir Nagar Square, Nandanwan Main Rd,<br />In front of Maruti Arcade, near Dutta Mandir,<br />Nandanwan, Nagpur, Maharashtra 440009</p>
-            <p><strong>Phone</strong><br /><a href="tel:+917709382305">+91 7709382305</a></p>
+                        <p><strong>Phone</strong><br /><a href="tel:+917709382305">+91 7709382305</a></p>
             <p><strong>Email</strong><br /><a href="mailto:innovativeitdcorporation@gmail.com"><span className="footer-email-link">innovativeitdcorporation@gmail.com</span></a></p>
             <Link href="/contact" className="footer-contact-link">Contact our team <span aria-hidden="true">↗</span></Link>
           </div>

@@ -1,314 +1,47 @@
-import Image from 'next/image';
+import Image from "next/image";
+import Link from "next/link";
+import SEOHead from "../component/SEOHead";
 
-const ValuesandIntership = () => {
+const values = [
+  { number: "01", title: "Useful innovation", text: "We choose technology for the problem it solves, and make new ideas practical for the people who use them." },
+  { number: "02", title: "Integrity", text: "We communicate clearly, protect trust, and take responsibility for the work we deliver." },
+  { number: "03", title: "Shared ownership", text: "We listen to clients, learners, and teammates, then work together toward outcomes everyone understands." },
+  { number: "04", title: "Craft and quality", text: "We care about the details: accessible experiences, thoughtful engineering, and work that is ready for real use." },
+  { number: "05", title: "Keep learning", text: "Technology changes. We stay curious, share what we learn, and improve our approach with every project." },
+];
+
+export default function ValuesPage() {
   return (
-    <main className="values-page bg-white py-16 sm:py-24 lg:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="max-w-3xl">
-          <p className="text-base font-semibold text-indigo-600">Values & internship program</p>
-          <h1 className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-            Our values & internship program
-          </h1>
-          <p className="mt-6 text-lg leading-8 text-gray-600">
-            Our Values & Internship Program At Innovative Total IT Development
-            Corporation and Services (ITIDCS), we are driven by a purpose: to
-            build technology that empowers people, businesses, and communities.
-            Whether you’re looking to grow your career or just starting out, we
-            offer an inclusive, supportive environment where innovation thrives.
-          </p>
-        </div>
-
-        <section className="mt-16 grid grid-cols-1 gap-12 lg:grid-cols-2">
-          <div>
-            <h2 className="text-2xl font-semibold text-gray-900">
-              Our core values
-            </h2>
-            {/* <p className="mt-4 text-gray-600">
-              Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus
-              enim. Mattis mauris semper sed amet vitae sed turpis id.
-            </p>
-            <p className="mt-4 text-gray-600">
-              Et vitae blandit facilisi magna lacus commodo. Vitae sapien duis
-              odio id et. Id blandit molestie auctor fermentum dignissim.
-            </p> */}
-            <ul role="list" className="hm wk acs bat">
-              <li className="la acd">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  aria-hidden="true"
-                  data-slot="icon"
-                  className="hd om wt bbl"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"
-                    clipRule="evenodd"
-                  ></path>
-                </svg>
-                <span>
-                  <strong className="azr baw">Innovation.</strong>
-                  We constantly explore new technologies, tools, and ideas to
-                  solve complex problems and deliver next-generation solutions.
-                </span>
-              </li>
-              <li className="la acd">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  aria-hidden="true"
-                  data-slot="icon"
-                  className="hd om wt bbl"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"
-                    clipRule="evenodd"
-                  ></path>
-                </svg>
-                <span>
-                  <strong className="azr baw">Integrity.</strong> We are honest,
-                  transparent, and ethical in everything we do. Trust is the
-                  foundation of our relationships—with clients, partners, and
-                  each other.
-                </span>
-              </li>
-              <li className="la acd">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  aria-hidden="true"
-                  data-slot="icon"
-                  className="hd om wt bbl"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"
-                    clipRule="evenodd"
-                  ></path>
-                </svg>
-                <span>
-                  <strong className="azr baw">Collaboration.</strong> We believe
-                  great work is never done alone. We foster a culture of
-                  teamwork, where everyone’s input is valued and respected.
-                </span>
-              </li>
-              <li className="la acd">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  aria-hidden="true"
-                  data-slot="icon"
-                  className="hd om wt bbl"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"
-                    clipRule="evenodd"
-                  ></path>
-                </svg>
-                <span>
-                  <strong className="azr baw">Excellence.</strong> We set high
-                  standards for ourselves and take pride in exceeding
-                  expectations. Quality is not optional—it’s who we are.
-                </span>
-              </li>
-              <li className="la acd">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  aria-hidden="true"
-                  data-slot="icon"
-                  className="hd om wt bbl"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"
-                    clipRule="evenodd"
-                  ></path>
-                </svg>
-                <span>
-                  <strong className="azr baw">Customer-Centricity.</strong> Our
-                  solutions begin and end with our customers. We focus on
-                  solving real challenges with meaningful, tailored technology.
-                </span>
-              </li>
-            </ul>
+    <main className="values-page-rebuild">
+      <SEOHead title="Our Values | ITIDCS" description="The principles behind how ITIDCS designs digital products, delivers technology services, and teaches practical skills." />
+      <div className="values-shell">
+        <section className="values-hero">
+          <div className="values-hero-copy">
+            <p className="values-kicker"><span /> HOW WE WORK</p>
+            <h1>Good work starts<br />with <em>good principles.</em></h1>
+            <p>We build websites, mobile apps, and AI experiences, and teach practical technology skills. These values shape how we make decisions, collaborate, and deliver.</p>
+            <div className="values-actions"><Link href="/services" className="values-primary">Explore our work <span aria-hidden="true">↗</span></Link><Link href="/contact" className="values-secondary">Talk with our team</Link></div>
           </div>
-
-          <div className="grid grid-cols-2 gap-4">
-            <Image
-              alt="Team collaborating on a digital project"
-              src="/images/team-collaboration.jpg"
-              className="rounded-lg object-cover w-full h-full"
-              width={560}
-              height={560}
-            />
-            <Image
-              alt="A team sharing ideas in a modern workspace"
-              src="/images/team-workspace.jpg"
-              className="rounded-lg object-cover w-full h-full"
-              width={560}
-              height={560}
-
-            />
-            <Image
-              alt="A team working together around a laptop"
-              src="/images/technology-work.jpg"
-              className="rounded-lg object-cover w-full h-full"
-              width={560}
-              height={560}
-            />
-            <Image
-              alt="A designer exploring a digital interface"
-              src="/images/creative-design.jpg"
-              className="rounded-lg object-cover w-full h-full"
-              width={560}
-              height={560}
-            />
+          <div className="values-hero-art">
+            <Image src="/images/team-collaboration.jpg" alt="Colleagues collaborating on a digital project" fill priority sizes="(max-width: 760px) 100vw, 48vw" />
+            <div className="values-art-caption"><span>ITIDCS / OUR APPROACH</span><strong>Build with purpose.<br />Learn as we go.</strong></div>
           </div>
         </section>
 
-        <div className="cim dkm">
-          <p className="ayy azr bas">The numbers</p>
-          <hr className="hk ahn aic" />
-          <dl className="hk lc aah ach adg csu">
-            <div className="la aas ade ahs ahy aic awu">
-              <dt className="aze bat">Raised</dt>
-              <dd className="eb aym azr azt">
-                $<span>0.5</span>M
-              </dd>
-            </div>
-            <div className="la aas ade ahs ahy aic awu">
-              <dt className="aze bat">Companies</dt>
-              <dd className="eb aym azr azt">
-                <span>1</span>K
-              </dd>
-            </div>
-            <div className="la aas ade cjp cjq cjr cjt">
-              <dt className="aze bat">Deals Closed</dt>
-              <dd className="eb aym azr azt">
-                <span>0.2</span>M
-              </dd>
-            </div>
-            <div className="la aas ade">
-              <dt className="aze bat">Leads Generated</dt>
-              <dd className="eb aym azr azt">
-                <span>5</span>M
-              </dd>
-            </div>
-          </dl>
-        </div>
-        <div className="ho vt" id="internship">
-          <div className="max-w-3xl">
-          <div className="mt-2 h-2 w-24 mb-8 bg-indigo-600 rounded"></div>
-            <h1 className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-              Internship Program
-            </h1>
-            <p className="mt-6 text-lg leading-8 text-gray-600">
-              Our internship program is crafted to provide aspiring
-              professionals with real-world experience in the fast-paced world
-              of IT and software development.
-            </p>
-            <p className="mt-6 text-lg leading-8 text-gray-600">
-              As an intern at ITIDCS, you will:
-            </p>
+        <section className="values-principles" aria-labelledby="values-principles-title">
+          <div className="values-section-heading"><p className="values-kicker">WHAT GUIDES US</p><h2 id="values-principles-title">Principles you can<br /><em>see in the work.</em></h2><p>Values matter when they show up in everyday choices: what we build, how we communicate, and how we keep improving.</p></div>
+          <div className="values-grid">
+            {values.map((value) => <article className="values-card" key={value.number}><span>{value.number}</span><div><h3>{value.title}</h3><p>{value.text}</p></div></article>)}
           </div>
-          <ul role="list" className="hm wk acs bat">
-            <li className="la acd">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                aria-hidden="true"
-                data-slot="icon"
-                className="hd om wt bbl"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"
-                  clipRule="evenodd"
-                ></path>
-              </svg>
-                <strong className="azr baw">Work on real projects alongside experienced mentors.</strong>
-            </li>
-            <li className="la acd">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                aria-hidden="true"
-                data-slot="icon"
-                className="hd om wt bbl"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"
-                  clipRule="evenodd"
-                ></path>
-              </svg>
-                <strong className="azr baw">Gain exposure to professional tools, workflows, and team dynamics.</strong>
-            </li>
-            <li className="la acd">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                aria-hidden="true"
-                data-slot="icon"
-                className="hd om wt bbl"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"
-                  clipRule="evenodd"
-                ></path>
-              </svg>
-                <strong className="azr baw">Participate in brainstorming sessions, code reviews, and client discussions.</strong>
-            </li>
-            <li className="la acd">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                aria-hidden="true"
-                data-slot="icon"
-                className="hd om wt bbl"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"
-                  clipRule="evenodd"
-                ></path>
-              </svg>
-                <strong className="azr baw">Receive structured feedback and guidance throughout your journey.</strong>
-            </li>
-            <li className="la acd">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                aria-hidden="true"
-                data-slot="icon"
-                className="hd om wt bbl"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"
-                  clipRule="evenodd"
-                ></path>
-              </svg>
-                <strong className="azr baw">Earn a certificate of completion, recommendation letter, and for top performers—potential job offers.</strong>
-            </li>
-          </ul>
-        </div>
+        </section>
+
+        <section className="values-commitment">
+          <p className="values-kicker">OUR COMMITMENT</p>
+          <h2>Clear conversations.<br /><em>Thoughtful delivery.</em></h2>
+          <p>We start by understanding the goal, share progress as we build, and make the next steps clear. Whether you are planning a product or developing new skills, we want the experience to be useful from the first conversation onward.</p>
+          <Link href="/contact" className="values-primary">Start a conversation <span aria-hidden="true">↗</span></Link>
+        </section>
       </div>
     </main>
   );
-};
-export default ValuesandIntership;
+}

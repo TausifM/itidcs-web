@@ -9,7 +9,6 @@ const primaryLinks = [
   ["Home", "/", "home"],
   ["Services", "/services", "services"],
   ["Courses", "/enroll", "courses"],
-  ["Careers", "/jobs", "careers"],
   ["Journal", "/blogs", "journal"],
   ["About", "/about", "about"],
 ];

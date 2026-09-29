@@ -1,10 +1,7 @@
-"use client";
+﻿"use client";
 
 import { useEffect } from "react";
 import Link from "next/link";
-
-const enrollmentUrl =
-  "https://docs.google.com/forms/d/e/1FAIpQLSflmV56d0cYZcW4q5tVbuOfQQ7Qb_YKbYrqm4AEnTCjbzTeKA/viewform";
 
 export default function PromoModal({ show, onClose }) {
   useEffect(() => {
@@ -33,32 +30,32 @@ export default function PromoModal({ show, onClose }) {
           <div className="promo-modal-orbit promo-modal-orbit-two" />
           <div className="promo-modal-pass">
             <span className="promo-modal-pass-mark">IT</span>
-            <span className="promo-modal-pass-label">ITIDCS / 2026</span>
-            <strong>WEB<br />LAB</strong>
-            <span className="promo-modal-pass-footer">PROJECT BASED · LIVE MENTORSHIP</span>
+            <span className="promo-modal-pass-label">ITIDCS / SERVICES</span>
+            <strong>WEB<br />AI<br />APPS</strong>
+            <span className="promo-modal-pass-footer">DESIGN | DEVELOPMENT | LEARNING</span>
           </div>
-          <span className="promo-modal-float-chip promo-modal-float-chip-one">React + JS</span>
-          <span className="promo-modal-float-chip promo-modal-float-chip-two">01 / 04</span>
+          <span className="promo-modal-float-chip promo-modal-float-chip-one">Digital products</span>
+          <span className="promo-modal-float-chip promo-modal-float-chip-two">AI + mobile</span>
         </div>
 
         <div className="promo-modal-content">
           <div className="promo-modal-header">
             <div>
-              <p className="promo-modal-kicker"><span /> Limited cohort · Enrolling now</p>
-              <h2 id="promo-modal-title">Build your next<br /><em>level.</em></h2>
+              <p className="promo-modal-kicker"><span /> WHAT ITIDCS DOES</p>
+              <h2 id="promo-modal-title">Ideas into<br /><em>real products.</em></h2>
             </div>
-            <button className="promo-modal-close" type="button" onClick={onClose} aria-label="Close enrollment offer"><span aria-hidden="true">×</span></button>
+            <button className="promo-modal-close" type="button" onClick={onClose} aria-label="Close services overview"><span aria-hidden="true">Ã—</span></button>
           </div>
-          <p id="promo-modal-description" className="promo-modal-intro">A practical web development lab for people ready to turn ideas into polished, deployable products.</p>
-          <div className="promo-modal-meta" aria-label="Course details">
-            <span><strong>06</strong> weeks</span><span><strong>Live</strong> mentor-led</span><span><strong>01</strong> portfolio project</span>
+          <p id="promo-modal-description" className="promo-modal-intro">We design and build websites, mobile apps, and useful AI experiences, and teach practical technology skills.</p>
+          <div className="promo-modal-meta" aria-label="Our services">
+            <span><strong>Web</strong> platforms</span><span><strong>Mobile</strong> apps</span><span><strong>AI</strong> solutions</span>
           </div>
-          <div className="promo-modal-benefits"><span>HTML · CSS · JavaScript</span><span>React · Git · Deploy</span><span>Certificate included</span></div>
+          <div className="promo-modal-benefits"><span>Custom websites and software</span><span>AI apps and automation</span><span>Practical learning paths</span></div>
           <div className="promo-modal-actions">
-            <Link className="promo-modal-primary" href={enrollmentUrl} target="_blank" rel="noreferrer">Reserve your seat <span aria-hidden="true">↗</span></Link>
-            <button className="promo-modal-secondary" type="button" onClick={onClose}>Maybe later</button>
+            <Link className="promo-modal-primary" href="/services">Explore our services <span aria-hidden="true">&#8599;</span></Link>
+            <Link className="promo-modal-secondary" href="/contact">Discuss your idea</Link>
           </div>
-          <p className="promo-modal-note">Small cohort · Personal feedback · Beginner friendly</p>
+          <p className="promo-modal-note">From the first conversation through launch and learning.</p>
         </div>
       </section>
     </div>
