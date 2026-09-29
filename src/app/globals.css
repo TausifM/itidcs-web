@@ -416,6 +416,12 @@ img { image-rendering: auto; }
   .footer-newsletter-index { right: 18px; bottom: 14px; }
   .footer-main { grid-template-columns: 1fr 1fr; gap: 30px 18px; padding: 42px 5px 34px; }
   .footer-brand-column, .footer-contact-column { grid-column: 1 / -1; }
+  .contact-address { grid-template-columns: 36px minmax(0,1fr); align-items: start; gap: 10px; padding: 14px 12px; }
+  .contact-address .contact-detail-icon { width: 36px; height: 36px; }
+  .contact-address > span:last-child { min-width: 0; }
+  .contact-address strong { font-size: .74rem; line-height: 1.55; overflow-wrap: anywhere; }
+  .footer-contact-column { min-width: 0; }
+  .footer-contact-column p { max-width: 100%; overflow-wrap: anywhere; }
   .footer-bottom { align-items: flex-start; flex-direction: column; padding-inline: 5px; }
   .site-nav { width: min(100% - 36px, 1380px); min-height: 66px; }
   .site-header { position: sticky; }
