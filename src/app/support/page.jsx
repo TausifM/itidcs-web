@@ -11,7 +11,7 @@ export default function SupportPage() {
         description="Need help? Our support team is here to assist you with any inquiries, technical issues, or service requests."
         canonical="https://itidcs.vercel.app/support"
       />
-      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-slate-800 to-black text-white p-6">
+      <div className="support-page min-h-screen text-white p-6">
         <div className="max-w-5xl mx-auto text-center py-16">
           <h1 className="text-4xl font-bold mb-4">Customer Support</h1>
           <p className="text-lg text-gray-300 mb-10">

@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 const ValuesandIntership = () => {
   return (
-    <div className="bg-white py-16 sm:py-24 lg:py-32">
+    <main className="values-page bg-white py-16 sm:py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="max-w-3xl">
           <p className="text-base font-semibold text-indigo-600">Values & internship program</p>
@@ -143,30 +143,30 @@ const ValuesandIntership = () => {
 
           <div className="grid grid-cols-2 gap-4">
             <Image
-              alt=""
-              src="https://images.unsplash.com/photo-1590650516494-0c8e4a4dd67e?&auto=format&fit=crop&crop=center&w=560&h=560&q=90"
+              alt="Team collaborating on a digital project"
+              src="/images/team-collaboration.jpg"
               className="rounded-lg object-cover w-full h-full"
               width={560}
               height={560}
             />
             <Image
-              alt=""
-              src="https://images.unsplash.com/photo-1557804506-669a67965ba0?&auto=format&fit=crop&crop=left&w=560&h=560&q=90"
+              alt="A team sharing ideas in a modern workspace"
+              src="/images/team-workspace.jpg"
               className="rounded-lg object-cover w-full h-full"
               width={560}
               height={560}
 
             />
             <Image
-              alt=""
-              src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?&auto=format&fit=crop&crop=left&w=560&h=560&q=90"
+              alt="A team working together around a laptop"
+              src="/images/technology-work.jpg"
               className="rounded-lg object-cover w-full h-full"
               width={560}
               height={560}
             />
             <Image
-              alt=""
-              src="https://images.unsplash.com/photo-1598257006458-087169a1f08d?&auto=format&fit=crop&crop=center&w=560&h=560&q=90"
+              alt="A designer exploring a digital interface"
+              src="/images/creative-design.jpg"
               className="rounded-lg object-cover w-full h-full"
               width={560}
               height={560}
@@ -308,7 +308,7 @@ const ValuesandIntership = () => {
           </ul>
         </div>
       </div>
-    </div>
+    </main>
   );
 };
 export default ValuesandIntership;

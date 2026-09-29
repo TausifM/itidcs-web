@@ -8,7 +8,7 @@ const coursesData = [
   {
     id: 1,
     title: "Full Stack Web Development",
-    image: "https://res.cloudinary.com/plot-app-say-no-broker/image/upload/v1746501838/itidcs-web-images/jiuysrvzqzbaylwrnt3o.webp",
+    image: "/images/technology-work.jpg",
     description:
       "Learn front-end and back-end development with hands-on projects.",
     category: "Web Development",
@@ -16,7 +16,7 @@ const coursesData = [
   {
     id: 2,
     title: "Data Science & Machine Learning",
-    image: "https://res.cloudinary.com/plot-app-say-no-broker/image/upload/v1746502077/itidcs-web-images/rcudkrvgty7dpthqrg30.webp",
+    image: "/images/digital-workspace.jpg",
     description:
       "Master data analysis, visualization, and machine learning techniques.",
     category: "Data Science",
@@ -24,7 +24,7 @@ const coursesData = [
   {
     id: 3,
     title: "UI/UX Design Fundamentals",
-    image: "https://res.cloudinary.com/plot-app-say-no-broker/image/upload/v1746502077/itidcs-web-images/asrmxwqupclkqvqrsjxr.webp",
+    image: "/images/creative-design.jpg",
     description:
       "Understand design principles, tools, and user-centric processes.",
     category: "Design",
@@ -32,7 +32,7 @@ const coursesData = [
   {
     id: 4,
     title: "Cybersecurity Essentials",
-    image: "https://res.cloudinary.com/plot-app-say-no-broker/image/upload/v1746502076/itidcs-web-images/bnte32sey97snldaq0yh.webp",
+    image: "/images/software-development.jpg",
     description:
       "Protect systems, networks, and data with cybersecurity practices.",
     category: "Security",
@@ -40,7 +40,7 @@ const coursesData = [
   {
     id: 5,
     title: "Mobile App Development",
-    image: "https://res.cloudinary.com/plot-app-say-no-broker/image/upload/v1746502075/itidcs-web-images/p7hdrrcvzs27rdtztzks.webp",
+    image: "/images/team-workspace.jpg",
     description: "Build responsive apps using Flutter and React Native.",
     category: "Mobile",
   },
@@ -91,8 +91,8 @@ export default function CoursesPage() {
         description="Browse our professional IT and development courses. Learn skills that matter."
       />
 
-      {/* Navigation Bar */}
-      <nav className="bg-white shadow-md sticky top-0 pt-18 w-full">
+      <main className="courses-page">
+      <nav className="courses-toolbar">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center justify-between py-4 gap-4">
             {/* Search Bar */}
@@ -129,11 +129,11 @@ export default function CoursesPage() {
       </nav>
 
       {/* Courses Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-6">
+      <div className="courses-grid">
         {filteredCourses.map((course) => (
           <div
             key={course.id}
-            className="bg-white shadow rounded-lg overflow-hidden hover:shadow-lg transition"
+            className="course-card"
           >
             <Image
               src={course.image}
@@ -146,18 +146,15 @@ export default function CoursesPage() {
               <h2 className="text-xl font-semibold">{course.title}</h2>
               <p className="text-gray-600 text-sm mt-2">{course.description}</p>
               <div className="mt-4 flex justify-center">
-              <Link
-                href={`/enroll/${course.id}`}  // Dynamically links to course details page
-              >
-                <button className="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700">
-                  View Details
-                </button>
+              <Link className="course-button" href={`/enroll/${course.id}`}>
+                View Details <span aria-hidden="true">↗</span>
               </Link>
               </div>
             </div>
           </div>
         ))}
       </div>
+      </main>
     </>
   );
 }

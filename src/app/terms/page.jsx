@@ -11,7 +11,7 @@ export default function Terms() {
         canonical="https://itidcs.vercel.app/terms"
         type="article"
       />
-      <div className="max-w-4xl mx-auto px-4 py-10">
+      <div className="legal-page max-w-4xl mx-auto px-4 py-10">
         <h1 className="text-3xl font-bold mb-6 text-gradient bg-gradient-to-r from-blue-500 to-indigo-600 text-transparent bg-clip-text">
           Terms & Conditions – ITIDCS
         </h1>

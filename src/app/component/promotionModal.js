@@ -2,67 +2,65 @@
 
 import { useEffect } from "react";
 import Link from "next/link";
+
+const enrollmentUrl =
+  "https://docs.google.com/forms/d/e/1FAIpQLSflmV56d0cYZcW4q5tVbuOfQQ7Qb_YKbYrqm4AEnTCjbzTeKA/viewform";
+
 export default function PromoModal({ show, onClose }) {
   useEffect(() => {
-    document.body.style.overflow = show ? "hidden" : "auto";
-  }, [show]);
+    if (!show) return undefined;
+    const previousOverflow = document.body.style.overflow;
+    const handleKeyDown = (event) => { if (event.key === "Escape") onClose?.(); };
+    document.body.style.overflow = "hidden";
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [show, onClose]);
 
   if (!show) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4">
-      <div className="bg-white shadow-xl rounded-2xl p-8 w-full max-w-2xl relative">
-        <div className="mb-6">
-          <h2 className="text-2xl font-bold text-blue-700">
-            🚀 Join Our Latest Web Development Class!
-          </h2>
-          <p className="text-sm text-gray-600 mt-1">
-            Elevate your skills with our hands-on, expert-led training program at <strong>ITIDCS</strong>.
-          </p>
+    <div className="promo-modal-backdrop" role="presentation" onMouseDown={(event) => {
+      if (event.target === event.currentTarget) onClose?.();
+    }}>
+      <section className="promo-modal" role="dialog" aria-modal="true" aria-labelledby="promo-modal-title" aria-describedby="promo-modal-description">
+        <div className="promo-modal-art" aria-hidden="true">
+          <div className="promo-modal-glow promo-modal-glow-one" />
+          <div className="promo-modal-glow promo-modal-glow-two" />
+          <div className="promo-modal-orbit promo-modal-orbit-one" />
+          <div className="promo-modal-orbit promo-modal-orbit-two" />
+          <div className="promo-modal-pass">
+            <span className="promo-modal-pass-mark">IT</span>
+            <span className="promo-modal-pass-label">ITIDCS / 2026</span>
+            <strong>WEB<br />LAB</strong>
+            <span className="promo-modal-pass-footer">PROJECT BASED · LIVE MENTORSHIP</span>
+          </div>
+          <span className="promo-modal-float-chip promo-modal-float-chip-one">React + JS</span>
+          <span className="promo-modal-float-chip promo-modal-float-chip-two">01 / 04</span>
         </div>
 
-        <div className="mb-4">
-          <h3 className="text-lg font-semibold text-gray-800">About the Class</h3>
-          <p className="text-sm text-gray-600 mt-1">
-            Learn modern web development including HTML, CSS, JavaScript, React, Git, and deployment.
-            Ideal for beginners and those looking to upskill in a practical, project-based format.
-          </p>
+        <div className="promo-modal-content">
+          <div className="promo-modal-header">
+            <div>
+              <p className="promo-modal-kicker"><span /> Limited cohort · Enrolling now</p>
+              <h2 id="promo-modal-title">Build your next<br /><em>level.</em></h2>
+            </div>
+            <button className="promo-modal-close" type="button" onClick={onClose} aria-label="Close enrollment offer"><span aria-hidden="true">×</span></button>
+          </div>
+          <p id="promo-modal-description" className="promo-modal-intro">A practical web development lab for people ready to turn ideas into polished, deployable products.</p>
+          <div className="promo-modal-meta" aria-label="Course details">
+            <span><strong>06</strong> weeks</span><span><strong>Live</strong> mentor-led</span><span><strong>01</strong> portfolio project</span>
+          </div>
+          <div className="promo-modal-benefits"><span>HTML · CSS · JavaScript</span><span>React · Git · Deploy</span><span>Certificate included</span></div>
+          <div className="promo-modal-actions">
+            <Link className="promo-modal-primary" href={enrollmentUrl} target="_blank" rel="noreferrer">Reserve your seat <span aria-hidden="true">↗</span></Link>
+            <button className="promo-modal-secondary" type="button" onClick={onClose}>Maybe later</button>
+          </div>
+          <p className="promo-modal-note">Small cohort · Personal feedback · Beginner friendly</p>
         </div>
-
-        <div className="mb-4">
-          <h3 className="text-lg font-semibold text-gray-800">Benefits</h3>
-          <ul className="list-disc list-inside text-sm text-gray-600 mt-1 space-y-1">
-            <li>✅ Real-world projects</li>
-            <li>✅ Dedicated mentorship</li>
-            <li>✅ Resume & job preparation</li>
-            <li>✅ Certificate of completion</li>
-          </ul>
-        </div>
-
-        <div className="mt-6 flex justify-end space-x-3">
-          <button
-            className="px-5 py-2 text-sm bg-gray-200 rounded-md hover:bg-gray-300 transition"
-            onClick={onClose}
-          >
-            Maybe Later
-          </button>
-          <button
-            className="px-5 py-2 text-sm bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
-            // onClick={() => {
-            //   window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLSflmV56d0cYZcW4q5tVbuOfQQ7Qb_YKbYrqm4AEnTCjbzTeKA/viewform"; // /enroll // or a real route
-            // }}
-          >
-            <Link
-             href="https://docs.google.com/forms/d/e/1FAIpQLSflmV56d0cYZcW4q5tVbuOfQQ7Qb_YKbYrqm4AEnTCjbzTeKA/viewform"
-             className="text-white hover:text-blue-950 transition font-medium"
-             target="_blank"
-           >
-                    Enroll Now →
-           </Link>
-     
-          </button>
-        </div>
-      </div>
+      </section>
     </div>
   );
 }

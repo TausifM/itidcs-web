@@ -1,135 +1,76 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import Image from "next/image";
+import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import BrandMark from "./brandmark";
+
+const primaryLinks = [
+  ["Home", "/", "home"],
+  ["Services", "/services", "services"],
+  ["Courses", "/enroll", "courses"],
+  ["Careers", "/jobs", "careers"],
+  ["Journal", "/blogs", "journal"],
+  ["About", "/about", "about"],
+];
+
+const moreLinks = [
+  ["Contact", "/contact"],
+  ["Support", "/support"],
+  ["Our values", "/values"],
+];
+
+function NavIcon({ name }) {
+  const shared = { fill: "none", stroke: "currentColor", strokeWidth: 1.7, strokeLinecap: "round", strokeLinejoin: "round" };
+  const paths = {
+    home: <><path d="m3 10 9-7 9 7" /><path d="M5 9v11h14V9M9 20v-6h6v6" /></>,
+    services: <><rect x="3" y="4" width="18" height="16" rx="3" /><path d="M8 9h8M8 13h5" /></>,
+    courses: <><path d="m3 8 9-5 9 5-9 5-9-5Z" /><path d="M6 10v5c2 3 10 3 12 0v-5M21 8v7" /></>,
+    careers: <><rect x="3" y="7" width="18" height="13" rx="2" /><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18M10 12v2h4v-2" /></>,
+    journal: <><path d="M6 4h12a2 2 0 0 1 2 2v15H8a3 3 0 0 1-3-3V6a2 2 0 0 1 2-2Z" /><path d="M8 8h8M8 12h8M8 16h5" /></>,
+    more: <><circle cx="5" cy="12" r="1" /><circle cx="12" cy="12" r="1" /><circle cx="19" cy="12" r="1" /></>,
+  };
+  return <svg aria-hidden="true" viewBox="0 0 24 24" className="mobile-nav-icon" {...shared}>{paths[name]}</svg>;
+}
 
 export default function Header() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const [moreOpen, setMoreOpen] = useState(false);
+  const pathname = usePathname();
+  const isActive = (href) => href === "/" ? pathname === "/" : pathname.startsWith(href);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
   return (
-    <header className="j y au dv">
-      <nav aria-label="Global" className="fy la vy aaz abe atn dwm">
-        <div className="la dqo">
-          {/* <a href="#" className="fe ath"> */}
-          <Link href="/" className="fe ath amg agd atj">
-            {/* <span className="i">Your Company</span> */}
-            <Image
-              src="/logo.png"
-              alt="Logo"
-              width={40}
-              height={40}
-              className="pt vn"
-            />
-          </Link>
-        </div>
+    <>
+      <header className="site-header">
+        <nav aria-label="Global" className="site-nav">
+          <Link href="/" className="site-brand" aria-label="ITIDCS home"><BrandMark /></Link>
+          <div className="site-nav-links">
+            {primaryLinks.map(([label, href]) => <Link key={href} href={href} aria-current={isActive(href) ? "page" : undefined}>{label}</Link>)}
+          </div>
+          <div className="site-nav-actions">
+            <Link href="/contact" className="nav-contact">Let&apos;s talk <span aria-hidden="true">↗</span></Link>
+          </div>
+        </nav>
+      </header>
 
-        <div className="la dns">
-          <button
-            type="button"
-            className="fg lg aaz abf agd atj bau"
-            onClick={() => setMenuOpen(!menuOpen)}
-          >
-            <span className="i">Open main menu</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              aria-hidden="true"
-              className="on"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-              />
-            </svg>
-          </button>
-        </div>
-
-        <div className="ld dnq dst hidden lg:flex space-x-6">
-          <Link href="/" className="aze azr baw hover:text-blue-600">
-            Home
+      <nav className="mobile-bottom-nav" aria-label="Mobile navigation">
+        {primaryLinks.slice(0, 4).map(([label, href, icon]) => (
+          <Link key={href} href={href} className={`mobile-nav-link${isActive(href) ? " is-active" : ""}`} aria-current={isActive(href) ? "page" : undefined}>
+            <NavIcon name={icon} /><span>{label}</span>
           </Link>
-          <Link href="/services" className="aze azr baw hover:text-blue-600">
-            Services
-          </Link>
-          <Link href="/enroll" className="aze azr baw hover:text-blue-600">
-            Courses
-          </Link>
-          <Link href="/jobs" className="aze azr baw hover:text-blue-600">
-            Jobs
-          </Link>
-          <Link href="/blogs" className="aze azr baw hover:text-blue-600">
-            Blogs
-          </Link>
-          <Link href="/about" className="aze azr baw hover:text-blue-600">
-            About
-          </Link>
-          <Link href="/contact" className="aze azr baw hover:text-blue-600">
-            Contact
-          </Link>
-        </div>
-
-        <div className="ld dnq dqo dsh hidden lg:flex">
-          <Link href="/login" className="aze azr baw hover:text-blue-600">
-            Log in <span aria-hidden="true">→</span>
-          </Link>
-        </div>
+        ))}
+        <button type="button" className={`mobile-nav-link${moreOpen ? " is-active" : ""}`} aria-expanded={moreOpen} onClick={() => setMoreOpen((open) => !open)}>
+          <NavIcon name="more" /><span>More</span>
+        </button>
       </nav>
 
-      {mounted && menuOpen && (
-        <div className="lg:hidden px-4 py-4 space-y-2 bg-white shadow-md">
-          <Link href="/" className="block text-gray-700 hover:text-blue-600">
-            Home
-          </Link>
-          <Link
-            href="/services"
-            className="block text-gray-700 hover:text-blue-600"
-          >
-            Services
-          </Link>
-          <Link
-            href="/enroll"
-            className="block text-gray-700 hover:text-blue-600"
-          >
-            Courses
-          </Link>
-          <Link
-            href="/blogs"
-            className="block text-gray-700 hover:text-blue-600"
-          >
-            Blogs
-          </Link>
-          <Link href="/jobs" className="block text-gray-700 hover:text-blue-600">
-            Jobs
-          </Link>
-          <Link
-            href="/about"
-            className="block text-gray-700 hover:text-blue-600"
-          >
-            About
-          </Link>
-          <Link
-            href="/contact"
-            className="block text-gray-700 hover:text-blue-600"
-          >
-            Contact
-          </Link>
-          <Link
-            href="/login"
-            className="block text-gray-700 hover:text-blue-600"
-          >
-            Log in →
-          </Link>
+      {moreOpen && (
+        <div className="mobile-more-panel" aria-label="More pages">
+          <div className="mobile-more-heading"><span>Explore ITIDCS</span><button type="button" aria-label="Close menu" onClick={() => setMoreOpen(false)}>×</button></div>
+          {[["Journal", "/blogs"], ["About", "/about"], ...moreLinks].map(([label, href]) => (
+            <Link key={href} href={href} onClick={() => setMoreOpen(false)}>{label}<span aria-hidden="true">↗</span></Link>
+          ))}
         </div>
       )}
-    </header>
+    </>
   );
 }

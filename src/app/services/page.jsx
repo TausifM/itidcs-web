@@ -9,7 +9,7 @@ export default function ServicesPage() {
         title="Our Services - ITIDCS"
         description="Explore ITIDCS services including web development, digital marketing, UI/UX design, and cloud solutions."
       />
-     <div className="overflow-hidden bg-white py-6 sm:py-8">
+     <main className="services-page overflow-hidden bg-white py-6 sm:py-8">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Grid Features */}
         <div className="bg-gray-50 py-5 sm:py-8">
@@ -24,7 +24,6 @@ export default function ServicesPage() {
                 and certifications.
               </p>
             </div>
-
             {/* Service 1: CCC - Government Certified Course */}
             <div className="mt-20 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
               <div className="relative pl-9">
@@ -240,8 +239,8 @@ export default function ServicesPage() {
               <div className="flex flex-col sm:flex-row items-center sm:items-start justify-between space-y-8 sm:space-y-0 sm:space-x-8">
                 <Image
                   className="w-full sm:w-1/2 h-auto rounded-lg shadow-lg"
-                  src="https://images.unsplash.com/photo-1529209076408-5a115ec9f1c6"
-                  alt="IT Skills"
+                  src="/images/software-development.jpg"
+                  alt="Close-up of modern computer hardware"
                   width={500}
                   height={500}
                 />
@@ -269,8 +268,8 @@ export default function ServicesPage() {
               <div className="flex flex-col sm:flex-row items-center sm:items-start justify-between space-y-8 sm:space-y-0 sm:space-x-8">
                 <Image
                   className="w-full sm:w-1/2 h-auto rounded-lg shadow-lg"
-                  src="https://images.unsplash.com/photo-1634084462412-b54873c0a56d"
-                  alt="Web & App Development"
+                  src="/images/technology-work.jpg"
+                  alt="A team collaborating around a laptop"
                   width={500}
                   height={500}
                 />
@@ -297,8 +296,8 @@ export default function ServicesPage() {
               <div className="flex flex-col sm:flex-row items-center sm:items-start justify-between space-y-8 sm:space-y-0 sm:space-x-8">
                 <Image
                   className="w-full sm:w-1/2 h-auto rounded-lg shadow-lg"
-                  src="https://tailwindcss.com/plus-assets/img/component-images/bento-03-performance.png"
-                  alt="SEO & Digital Marketing"
+                  src="/images/digital-workspace.jpg"
+                  alt="A digital team working together"
                   width={500}
                   height={500}
                 />
@@ -325,8 +324,8 @@ export default function ServicesPage() {
               <div className="flex flex-col sm:flex-row items-center sm:items-start justify-between space-y-8 sm:space-y-0 sm:space-x-8">
                 <Image
                   className="w-full sm:w-1/2 h-70 rounded-lg shadow-lg object-cover"
-                  src="https://images.unsplash.com/photo-1618788372246-79faff0c3742"
-                  alt="UI/UX & Branding"
+                  src="/images/creative-design.jpg"
+                  alt="A designer working with a digital tablet"
                   width={500}
                   height={500}
                 />
@@ -364,7 +363,7 @@ export default function ServicesPage() {
           </div>
         </div>
       </div>
-    </div> 
+    </main>
     </>
     
   );

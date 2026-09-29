@@ -2,8 +2,8 @@
 
 export default function CancellationRefundPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-slate-800 to-black text-white p-6">
-      <div className="max-w-4xl mx-auto py-16">
+    <div className="policy-page min-h-screen p-6">
+      <div className="policy-card max-w-4xl mx-auto py-16">
         <h1 className="text-4xl font-bold mb-6 text-center">Cancellation & Refund Policy</h1>
         <p className="text-lg text-gray-300 mb-6">
           At ITIDCS, we value transparency and your satisfaction. Below are our cancellation and refund guidelines for courses, services, and digital solutions.

@@ -1,86 +1,76 @@
+"use client";
+
 import Link from "next/link";
+import BrandMark from "./brandmark";
+import ThreeBackdrop from "./threebackdrop";
+
+const companyLinks = [
+  ["About ITIDCS", "/about"],
+  ["Careers", "/carriers"],
+  ["Our values", "/values"],
+  ["Leadership", "/leadership"],
+];
+
+const exploreLinks = [
+  ["Services", "/services"],
+  ["Courses", "/enroll"],
+  ["Journal", "/blogs"],
+  ["Customer support", "/support"],
+];
 
 export default function NewsLetter() {
   return (
-    <footer className="relative isolate overflow-hidden bg-gray-900 text-gray-400 py-12">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div>
-            <h3 className="text-white text-lg font-semibold">ITIDCS</h3>
-            <p className="mt-2 text-sm">
-              Innovating the future of IT solutions. Empowering businesses through digital transformation and tech excellence.
-            </p>
-            <h4 className="text-white font-semibold text-sm mb-3 mt-4">Stay Connected</h4>
-            <form className="flex flex-col sm:flex-row gap-4 mt-2">
-              <input
-                type="email"
-                placeholder="Your email"
-                className="w-full rounded-md bg-white/5 px-3 py-2 text-sm text-white placeholder:text-gray-500 focus:outline-2 focus:outline-indigo-500"
-              />
-              <button
-                type="submit"
-                className="rounded-md bg-indigo-500 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-400 transition"
-              >
-                Subscribe
-              </button>
+    <footer className="site-footer">
+      <div className="footer-shell">
+        <section className="footer-newsletter">
+          <div className="footer-newsletter-copy">
+            <p className="footer-eyebrow"><span /> Stay curious</p>
+            <h2>A little signal<br />in a noisy world.</h2>
+            <p>Get thoughtful updates on new courses, digital ideas, and what we&apos;re building.</p>
+            <form className="footer-subscribe" onSubmit={(event) => event.preventDefault()}>
+              <label className="sr-only" htmlFor="newsletter-email">Your email address</label>
+              <input id="newsletter-email" name="email" type="email" placeholder="Your email address" autoComplete="email" required />
+              <button type="submit">Subscribe <span aria-hidden="true">↗</span></button>
             </form>
+            <small className="footer-subscribe-note">Occasional notes. No clutter.</small>
           </div>
-          <div>
-            <h4 className="text-white font-semibold text-sm mb-3">Company</h4>
-            <ul className="space-y-2 text-sm">
-              <li><Link href="/about" className="hover:text-white transition">About Us</Link></li>
-              <li><Link href="/jobs" className="hover:text-white transition">Careers</Link></li>
-              <li><Link href="/blogs" className="hover:text-white transition">Blog</Link></li>
-              <li><Link href="/contact" className="hover:text-white transition">Contact</Link></li>
-              <li><Link href="/services" className="hover:text-white transition">Services</Link></li>
-              <li><Link href="/privacy-policy" className="hover:text-white transition">Privacy Policy</Link></li>
-              <li><Link href="/terms" className="hover:text-white transition">Terms of Service</Link></li>
-              <li><Link href="/support" className="hover:text-white transition">Support</Link></li>
-              <li><Link href="/values" className="hover:text-white transition">Values</Link></li>
-              <li><Link href="/cancellation-refund" className="hover:text-white transition">Cancellation & Refund Policy</Link></li>
-            </ul>
+          <div className="footer-newsletter-art" aria-hidden="true">
+            <div className="footer-art-glow" />
+            <ThreeBackdrop variant="newsletter" />
+            <span className="footer-art-chip footer-art-chip-a">Ideas</span>
+            <span className="footer-art-chip footer-art-chip-b">In motion</span>
           </div>
-          <div>
-            <h4 className="text-white font-semibold text-sm mb-3">Services</h4>
-            <ul className="space-y-2 text-sm">
-              <li><a href="#" className="hover:text-white transition">Software Development</a></li>
-              <li><a href="#" className="hover:text-white transition">Cloud Solutions</a></li>
-              <li><a href="#" className="hover:text-white transition">IT Consulting</a></li>
-              <li><a href="#" className="hover:text-white transition">Cybersecurity</a></li>
-            </ul>
+          <span className="footer-newsletter-index" aria-hidden="true">ITIDCS / 2026</span>
+        </section>
+
+        <div className="footer-main">
+          <div className="footer-brand-column">
+            <Link href="/" className="footer-brand" aria-label="ITIDCS home"><BrandMark /></Link>
+            <p>Learning and digital solutions for people ready to move forward.</p>
+            <a className="footer-email-link" href="mailto:innovativeitdcorporation@gmail.com">innovativeitdcorporation@gmail.com <span aria-hidden="true">↗</span></a>
           </div>
-          <div>
-                  {/* Contact Info */}
-          <div>
-            <h4 className="text-white font-semibold text-sm mb-3">Contact</h4>
-            <ul className="space-y-2 text-sm">
-              <li>Email: <a href="mailto:innovativeitdcorporation@gmail.com" className="text-indigo-400 hover:text-white transition">innovativeitdcorporation@gmail.com</a></li>
-              <li className="mt-2">
-                <span className="block font-semibold text-white">Office 1:</span>
-                Sanskriti Nagar, Near Bhakre Layout, Arvi<br />
-              </li>
-              <li className="mt-2">
-                <span className="block font-semibold text-white">Office 2:</span>
-                Siraspeth, Near Anand Budh Vihar, Nagpur
-              </li>
-            </ul>
+
+          <div className="footer-link-column">
+            <h3>Company</h3>
+            {companyLinks.map(([label, href]) => <Link key={href} href={href}>{label}</Link>)}
           </div>
-          
-          
+
+          <div className="footer-link-column">
+            <h3>Explore</h3>
+            {exploreLinks.map(([label, href]) => <Link key={href} href={href}>{label}</Link>)}
+          </div>
+
+          <div className="footer-contact-column">
+            <h3>Come say hello</h3>
+            <p><strong>Arvi</strong><br />Sanskriti Nagar, Near Bhakre Layout</p>
+            <p><strong>Nagpur</strong><br />Siraspeth, Near Anand Budh Vihar</p>
+            <Link href="/contact" className="footer-contact-link">Contact our team <span aria-hidden="true">↗</span></Link>
           </div>
         </div>
-        <div className="mt-12 border-t border-white/10 pt-8 text-sm text-center text-gray-500">
-          &copy; {new Date().getFullYear()} ITIDCS. All rights reserved.
-          <div aria-hidden="true" className="absolute top-0 left-1/2 -z-10 -translate-x-1/2 blur-3xl xl:-top-6">
-          <div
-            style={{
-              clipPath:
-                'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
-            }}
-            className="aspect-1155/678 w-[72.1875rem] bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-30"
-          />
-          </div>
-       
+
+        <div className="footer-bottom">
+          <span>© {new Date().getFullYear()} ITIDCS. Built with purpose.</span>
+          <div><Link href="/privacy-policy">Privacy</Link><Link href="/terms">Terms</Link><Link href="/cancellation-refund">Refund policy</Link></div>
         </div>
       </div>
     </footer>

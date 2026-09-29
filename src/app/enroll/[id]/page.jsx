@@ -6,7 +6,7 @@ const coursesData = [
   {
     id: 1,
     title: "Full Stack Web Development",
-    image: "https://res.cloudinary.com/plot-app-say-no-broker/image/upload/v1746501838/itidcs-web-images/jiuysrvzqzbaylwrnt3o.webp",
+    image: "/images/technology-work.jpg",
     description:
       "Learn front-end and back-end development with hands-on projects.",
     price: "₹59,999",
@@ -23,7 +23,7 @@ const coursesData = [
   {
     id: 2,
     title: "Data Science & Machine Learning",
-    image: "https://res.cloudinary.com/plot-app-say-no-broker/image/upload/v1746502077/itidcs-web-images/rcudkrvgty7dpthqrg30.webp",
+    image: "/images/digital-workspace.jpg",
     description:
       "Master data analysis, visualization, and machine learning techniques.",
     price: "₹24,999",
@@ -41,7 +41,7 @@ const coursesData = [
   {
     id: 3,
     title: "UI/UX Design Fundamentals",
-    image: "https://res.cloudinary.com/plot-app-say-no-broker/image/upload/v1746502077/itidcs-web-images/asrmxwqupclkqvqrsjxr.webp",
+    image: "/images/creative-design.jpg",
     description:
       "Understand design principles, tools, and user-centric processes.",
     price: "₹14,999",
@@ -58,7 +58,7 @@ const coursesData = [
   {
     id: 4,
     title: "Cybersecurity Essentials",
-    image: "https://res.cloudinary.com/plot-app-say-no-broker/image/upload/v1746502076/itidcs-web-images/bnte32sey97snldaq0yh.webp",
+    image: "/images/software-development.jpg",
     description:
       "Protect systems, networks, and data with cybersecurity practices.",
     price: "₹19,999",
@@ -75,7 +75,7 @@ const coursesData = [
   {
     id: 5,
     title: "Mobile App Development",
-    image: "https://res.cloudinary.com/plot-app-say-no-broker/image/upload/v1746502075/itidcs-web-images/p7hdrrcvzs27rdtztzks.webp",
+    image: "/images/team-workspace.jpg",
     description: "Build responsive apps using React Native and Backend APIs.",
     price: "₹49,999",
     offerPrice: "₹17,999", // Discounted price
@@ -91,7 +91,7 @@ const coursesData = [
   {
     id: 6,
     title: "Cloud Computing & DevOps",
-    image: "/images/cloud-computing.png",
+    image: "/images/technology-work.jpg",
     description:
       "Learn cloud platforms and DevOps practices to build scalable systems.",
     price: "₹24,999",
@@ -109,7 +109,7 @@ const coursesData = [
   {
     id: 7,
     title: "Game Development with Unity",
-    image: "/images/unity-game-dev.png",
+    image: "/images/creative-design.jpg",
     description:
       "Learn how to create 2D and 3D games using Unity engine and C#.",
     price: "₹29,999",
@@ -126,7 +126,7 @@ const coursesData = [
   {
     id: 8,
     title: "Digital Marketing & SEO",
-    image: "/images/digital-marketing.png",
+    image: "/images/digital-workspace.jpg",
     description:
       "Master the strategies for online marketing, SEO, and social media.",
     price: "₹14,999",
@@ -143,7 +143,7 @@ const coursesData = [
   {
     id: 9,
     title: "Blockchain and Cryptocurrency",
-    image: "/images/blockchain.png",
+    image: "/images/software-development.jpg",
     description:
       "Understand the fundamentals of blockchain technology and cryptocurrency.",
     price: "₹19,999",
@@ -160,7 +160,7 @@ const coursesData = [
   {
     id: 10,
     title: "Artificial Intelligence & Deep Learning",
-    image: "/images/ai-deep-learning.png",
+    image: "/images/team-collaboration.jpg",
     description:
       "Dive into the world of AI and deep learning with hands-on projects.",
     price: "₹44,999",
@@ -194,8 +194,8 @@ export default function CourseDetailsPage({ params }) {
   }
 
   return (
-    <div className="l dn aoc axf cyi min-h-screen p-8 bg-gradient-to-r from-blue-50 to-blue-100">
-      <div className="max-w-7xl mx-auto py-8 px-6 lg:px-8 rounded-3xl bg-white shadow-lg">
+    <main className="course-detail-page l dn aoc axf cyi min-h-screen p-8">
+      <div className="course-detail-card max-w-7xl mx-auto py-8 px-6 lg:px-8 rounded-3xl bg-white shadow-lg">
         {/* Course Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-extrabold  text-fuchsia-950">
@@ -261,6 +261,6 @@ export default function CourseDetailsPage({ params }) {
         
         </div>
       </div>
-    </div>
+    </main>
   );
 }

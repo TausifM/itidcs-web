@@ -27,8 +27,8 @@ export default function BentoGrid() {
               <div className="absolute inset-x-10 top-10 bottom-0 overflow-hidden rounded-t-[12cqw] border-x-[3cqw] border-t-[3cqw] border-gray-700 bg-gray-900 shadow-2xl">
                 <Image
                   className="size-full object-cover object-top"
-                  src="https://images.unsplash.com/photo-1529209076408-5a115ec9f1c6"
-                  alt=""
+                  src="/images/software-development.jpg"
+                  alt="Close-up of modern computer hardware"
                   fill
                 />
                 </div>
@@ -48,11 +48,11 @@ export default function BentoGrid() {
                   website & app development services.
                 </p>
               </div>
-              <div className="flex flex-1 items-center justify-center px-8 max-lg:pt-10 max-lg:pb-12 sm:px-10 lg:pb-2">
+              <div className="relative flex flex-1 items-center justify-center px-8 max-lg:pt-10 max-lg:pb-12 sm:px-10 lg:pb-2">
                 <Image
                   className="w-full max-lg:max-w-xs"
-                  src="https://images.unsplash.com/photo-1634084462412-b54873c0a56d"
-                  alt=""
+                  src="/images/technology-work.jpg"
+                  alt="A team collaborating around a laptop"
                   fill
                 />
               </div>
@@ -71,11 +71,11 @@ export default function BentoGrid() {
                   data-driven marketing strategies.
                 </p>
               </div>
-              <div className="@container flex flex-1 items-center max-lg:py-6 lg:pb-2">
+              <div className="@container relative flex flex-1 items-center max-lg:py-6 lg:pb-2">
                 <Image
-                  className="h-[min(152px,40cqw)]"
-                  src="https://tailwindcss.com/plus-assets/img/component-images/bento-03-performance.png"
-                  alt=""
+                  className="size-full object-cover object-center"
+                  src="/images/creative-design.jpg"
+                  alt="A designer working with a digital tablet"
                   fill
                 />
               </div>
@@ -99,8 +99,8 @@ export default function BentoGrid() {
                   <div className="absolute inset-x-10 top-10 bottom-0 overflow-hidden rounded-t-[12cqw] border-x-[3cqw] border-t-[3cqw] border-gray-700 bg-gray-900 shadow-2xl">
                     <Image
                       className="size-full object-cover object-top"
-                      src="https://images.unsplash.com/photo-1618788372246-79faff0c3742"
-                      alt=""
+                      src="/images/team-collaboration.jpg"
+                      alt="Developers working together at a table"
                       fill
                     />
                   </div>

@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const nextConfig = (phase) => ({
+    // Keep the dev server's incremental output separate from production builds.
+    // This avoids missing manifest errors if `next dev` and `next build` overlap.
+    distDir: phase === "phase-development-server" ? ".next-dev" : ".next",
     images: {
         remotePatterns: [
             {
@@ -58,6 +61,6 @@ const nextConfig = {
             },
         ],
       },
-};
+});
 
 export default nextConfig;
