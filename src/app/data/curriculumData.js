@@ -705,6 +705,70 @@ export const curriculumData = [
       },
     ],
   },
+  {
+    courseId: 11,
+    title: "Agentic AI Engineering with LangChain",
+    roadmap: [
+      { section: "LangChain Foundations", tag: "Core", duration: "2 Weeks", topics: ["LCEL and runnable pipelines", "Prompt templates and structured output", "Model adapters and streaming responses"] },
+      { section: "Tools, Memory & Agents", tag: "Agents", duration: "2 Weeks", topics: ["Function and tool calling", "Short-term and long-term memory", "Routers and multi-step agent graphs"] },
+      { section: "RAG & Evaluation", tag: "Grounding", duration: "2 Weeks", topics: ["Chunking and embeddings", "Retrieval, reranking, and citations", "Tracing, datasets, and agent evaluations"] },
+      { section: "Production Agent Capstone", tag: "Project", duration: "2 Weeks", topics: ["Human handoff and guardrails", "Deploy a support agent", "Cost, latency, and reliability review"] },
+    ],
+  },
+  {
+    courseId: 12,
+    title: "Amazon Bedrock Generative AI",
+    roadmap: [
+      { section: "Bedrock Foundations", tag: "AWS", duration: "1.5 Weeks", topics: ["Model catalog and inference APIs", "IAM, regions, quotas, and pricing", "Prompt patterns and model selection"] },
+      { section: "Reliable GenAI Apps", tag: "Application", duration: "2 Weeks", topics: ["Streaming and structured responses", "Guardrails and responsible AI", "Evaluation and prompt versioning"] },
+      { section: "Serverless Integration", tag: "Cloud", duration: "1.5 Weeks", topics: ["Lambda and API Gateway", "Secrets and least-privilege IAM", "Observability and cost controls"] },
+      { section: "Bedrock Copilot Capstone", tag: "Project", duration: "1 Week", topics: ["Design a business copilot", "Test quality and safety", "Deploy and document the solution"] },
+    ],
+  },
+  {
+    courseId: 13,
+    title: "AWS Bedrock Knowledge Bases & RAG",
+    roadmap: [
+      { section: "Data Preparation", tag: "Foundations", duration: "1 Week", topics: ["Document formats and metadata", "Chunking strategies", "Sync jobs and ingestion checks"] },
+      { section: "Retrieval Engineering", tag: "RAG", duration: "2 Weeks", topics: ["Embeddings and vector stores", "Hybrid search and filters", "Reranking and retrieval tuning"] },
+      { section: "Grounded Responses", tag: "Quality", duration: "1 Week", topics: ["RetrieveAndGenerate", "Citations and fallback answers", "Groundedness and relevance evaluation"] },
+      { section: "Knowledge Assistant Capstone", tag: "Project", duration: "1 Week", topics: ["Build a secure internal assistant", "Add source links and feedback", "Review latency and operating cost"] },
+    ],
+  },
+  {
+    courseId: 14,
+    title: "Amazon Bedrock AgentCore",
+    roadmap: [
+      { section: "AgentCore Runtime", tag: "AWS", duration: "1.5 Weeks", topics: ["Runtime concepts and sessions", "Identity and tool boundaries", "Agent lifecycle patterns"] },
+      { section: "Secure Agent Deployment", tag: "Security", duration: "1.5 Weeks", topics: ["IAM and secrets", "Networking and isolation", "Policy-based tool access"] },
+      { section: "Memory & Observability", tag: "Operations", duration: "1.5 Weeks", topics: ["Long-running context patterns", "Tracing and evaluations", "Scaling and failure recovery"] },
+      { section: "AgentCore Production Review", tag: "Project", duration: "1.5 Weeks", topics: ["Ship a monitored multi-tool agent", "Run reliability and safety checks", "Present an operations handoff"] },
+    ],
+  },
+  {
+    courseId: 15, title: "Multi-Agent Systems & Workflow Design", roadmap: [
+      { section: "Agent Roles & State", tag: "Core", duration: "1.5 Weeks", topics: ["Specialist roles and delegation", "Shared state and context", "Routing and supervisor patterns"] },
+      { section: "Reliable Workflows", tag: "Systems", duration: "1.5 Weeks", topics: ["Approvals and human handoff", "Retries, timeouts, and idempotency", "Audit trails and failure recovery"] },
+      { section: "Event-Driven Agents", tag: "AWS", duration: "1.5 Weeks", topics: ["Queues and workflow orchestration", "Tool boundaries and permissions", "Long-running task design"] },
+      { section: "Multi-Agent Capstone", tag: "Project", duration: "1.5 Weeks", topics: ["Build an operations workflow", "Add approval gates", "Demo reliability and observability"] },
+    ],
+  },
+  {
+    courseId: 16, title: "AI Evaluation, Safety & Observability", roadmap: [
+      { section: "Evaluation Foundations", tag: "Quality", duration: "1 Week", topics: ["Correctness and relevance datasets", "Groundedness and citation checks", "Human review rubrics"] },
+      { section: "Safety Engineering", tag: "Safety", duration: "1.5 Weeks", topics: ["Guardrails and safe fallbacks", "Red teaming and prompt injection", "PII handling and access controls"] },
+      { section: "Production Observability", tag: "Operations", duration: "1.5 Weeks", topics: ["Tracing tokens and latency", "Tool failures and error budgets", "Cost per task and regression alerts"] },
+      { section: "Evaluation Capstone", tag: "Project", duration: "1 Week", topics: ["Build an evaluation dashboard", "Run a release readiness review", "Document operating playbooks"] },
+    ],
+  },
+  {
+    courseId: 17, title: "AWS AI Solutions Architect", roadmap: [
+      { section: "AI Platform Architecture", tag: "Architecture", duration: "2 Weeks", topics: ["RAG and agent reference patterns", "Bedrock and serverless boundaries", "Data flow and service selection"] },
+      { section: "Security & Governance", tag: "Security", duration: "2 Weeks", topics: ["IAM, VPC, encryption, and secrets", "Tenant isolation and data boundaries", "Responsible AI governance"] },
+      { section: "Reliability & FinOps", tag: "Operations", duration: "2 Weeks", topics: ["Queues, workflows, and resilience", "Observability and disaster recovery", "Capacity and cost planning"] },
+      { section: "Architecture Capstone", tag: "Project", duration: "2 Weeks", topics: ["Design a secure AWS AI platform", "Defend tradeoffs in a review", "Produce a handoff-ready architecture pack"] },
+    ],
+  },
 ];
 
 export default curriculumData;

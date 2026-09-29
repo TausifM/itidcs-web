@@ -10,3 +10,15 @@ These project photos were downloaded from Unsplash and are served locally to avo
 - `software-development.jpg` — https://images.unsplash.com/photo-1518770660439-4636190af475
 
 Unsplash license: https://unsplash.com/license
+
+## AWS Agentic AI course artwork
+
+The following original course illustrations were generated for ITIDCS with OpenAI image generation. Each AWS Agentic AI course has its own image; these files are not reused across the course cards.
+
+- `aws-agentic-langchain.png` â€” Agentic AI and LangChain workflows
+- `aws-bedrock-genai.png` â€” Foundation models and generative AI
+- `aws-knowledge-rag.png` â€” Knowledge Bases and retrieval augmented generation
+- `aws-agentcore.png` â€” Secure agent runtime and operations
+- `aws-multi-agent.png` â€” Multi-agent collaboration and workflows
+- `aws-ai-safety.png` â€” AI evaluation, safety, and observability
+- `aws-ai-architecture.png` â€” Cloud AI solutions architecture

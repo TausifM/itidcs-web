@@ -1,10 +1,8 @@
 import { Inter } from "next/font/google";
-import { Analytics } from "@vercel/analytics/next"
 import "./globals.css";
 import Header from "./component/header";
 import NewsLetter from "./component/newsletter";
-import GoogleAnalytics from "./component/GoogleAnalytics";
-import RouteChangeTracker from "./component/RouteChangeTracker";
+import SEOHead from "./component/SEOHead";
 
 const inter = Inter({ subsets: ["latin"], display: 'swap' });
 

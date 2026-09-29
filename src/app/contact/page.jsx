@@ -51,7 +51,6 @@ export default function Contact() {
   return (
     <>
       <SEOHead
-      <SEOHead
         title="Contact Us - ITIDCS"
         description="Get in touch with ITIDCS for questions about courses, services, or support."
       />

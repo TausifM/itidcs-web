@@ -1,133 +1,64 @@
-// pages/badge.jsx
-import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import SEOHead from "../component/SEOHead";
+
+const badgeSignals = [
+  { number: "01", title: "A learning milestone", text: "Recognition for completing the Successful Career Starter learning experience." },
+  { number: "02", title: "Skills in motion", text: "A reminder to keep practicing, building, and applying new knowledge." },
+  { number: "03", title: "The next step", text: "A starting point for exploring new roles, projects, and areas of technology." },
+];
 
 export default function BadgePage() {
   return (
-    <>
-      <Head>
-        <title>I earned a badge from ITIDCS!</title>
+    <main className="achievement-page">
+      <SEOHead
+        title="Successful Career Starter Badge | ITIDCS"
+        description="Celebrate the Successful Career Starter badge from ITIDCS, explore practical technology learning paths, and take your next step."
+        image="https://itidcs.vercel.app/badge.png"
+        canonical="https://itidcs.vercel.app/badge"
+      />
 
-        {/* Open Graph tags */}
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://itidcs.vercel.app/badge" />
-        <meta
-          property="og:title"
-          content="I earned the Successful Career Starter badge!"
-        />
-        <meta
-          property="og:description"
-          content="Check out the badge I just earned from ITIDCS PVT LTD."
-        />
-        <meta
-          property="og:image"
-          content="https://itidcs.vercel.app/badge.png"
-        />
-
-        {/* Twitter Card tags */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:url" content="https://itidcs.vercel.app/badge" />
-        <meta
-          name="twitter:title"
-          content="I earned the Successful Career Starter badge!"
-        />
-        <meta
-          name="twitter:description"
-          content="Check out the badge I just earned from ITIDCS PVT LTD."
-        />
-        <meta
-          name="twitter:image"
-          content="https://itidcs.vercel.app/badge.png"
-        />
-      </Head>
-
-      <main style={styles.main}>
-        <div style={styles.card}>
-          <h1 style={styles.title}>🏆 You’ve Earned Your Badge!</h1>
-          <p style={styles.subtitle}>
-            Congratulations on completing the Successful Career Starter course with ITIDCS PVT LTD! Your dedication and hard work have paid off, and you now hold a badge that represents your achievement.
-            <br />
-            <br />
-          </p>
-          <Image
-            width={200}
-            height={200}
-            src="https://itidcs.vercel.app/badge.png"
-            alt="Successful Career Starter badge"
-            style={styles.badge}
-          />
-          <p style={styles.description}>
-            Show off your achievement by sharing it on social media.
-          </p>
-          <Link
-            href="https://itidcs.vercel.app"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={styles.button}
-          >
-            Visit ITIDCS Website →
-          </Link>
+      <section className="achievement-hero">
+        <div className="achievement-hero-copy">
+          <p className="section-kicker"><span /> ITIDCS · LEARNING MILESTONE</p>
+          <h1>Progress worth<br /><em>celebrating.</em></h1>
+          <p className="achievement-lede">The Successful Career Starter badge recognizes a meaningful step in a technology learning journey: showing up, completing the work, and choosing to keep growing.</p>
+          <div className="achievement-actions">
+            <Link className="achievement-primary" href="/enroll">Explore courses <span aria-hidden="true">↗</span></Link>
+            <Link className="achievement-secondary" href="/about">Meet ITIDCS <span aria-hidden="true">→</span></Link>
+          </div>
+          <div className="achievement-signature"><span className="achievement-signature-mark">IT</span><span><strong>Learn · Build · Grow</strong><small>Technology with purpose</small></span></div>
         </div>
-      </main>
-    </>
+
+        <div className="achievement-art" aria-label="Successful Career Starter achievement badge">
+          <span className="achievement-orbit achievement-orbit-one" aria-hidden="true" />
+          <span className="achievement-orbit achievement-orbit-two" aria-hidden="true" />
+          <span className="achievement-art-chip achievement-chip-top" aria-hidden="true">SKILLS IN PROGRESS</span>
+          <div className="achievement-badge-frame"><Image src="/badge.png" alt="Successful Career Starter badge from ITIDCS" width={520} height={520} priority /></div>
+          <span className="achievement-art-chip achievement-chip-bottom" aria-hidden="true">A MILESTONE, NOT THE FINISH LINE</span>
+        </div>
+      </section>
+
+      <section className="achievement-signals">
+        <div className="achievement-section-heading"><p className="section-kicker">What this badge represents</p><h2>Small wins create<br /><em>real momentum.</em></h2><p>Every career path is built through learning, practice, and the confidence to take another step.</p></div>
+        <div className="achievement-signal-list">
+          {badgeSignals.map((signal) => (
+            <article key={signal.number} className="achievement-signal-card">
+              <span>{signal.number}</span><div><h3>{signal.title}</h3><p>{signal.text}</p></div><b aria-hidden="true">↗</b>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="achievement-about">
+        <div className="achievement-about-visual"><Image src="/images/team-workspace.jpg" alt="People learning and sharing ideas in a collaborative workspace" fill sizes="(max-width: 760px) 100vw, 42vw" /><span className="achievement-visual-note"><strong>ITIDCS</strong><small>Practical learning. Useful technology.</small></span></div>
+        <div className="achievement-about-copy"><p className="section-kicker">A little about ITIDCS</p><h2>Education and digital development, in one place.</h2><p>We bring practical technology learning together with digital products and software services. Learners can grow their skills; organizations can shape useful digital experiences around real needs.</p><p>Our approach starts with listening, learning by doing, and making progress visible along the way.</p><div className="achievement-about-links"><Link href="/services" className="achievement-about-link">Explore our services <span aria-hidden="true">↗</span></Link><Link href="/contact" className="achievement-about-link quiet">Talk to our team <span aria-hidden="true">→</span></Link></div></div>
+      </section>
+
+      <section className="achievement-pathways">
+        <div><p className="section-kicker">Keep your momentum</p><h2>Choose what you want to <em>build next.</em></h2><p>Explore a practical course path, find a digital service for your organization, or start a conversation with our team.</p></div>
+        <div className="achievement-pathway-actions"><Link href="/enroll" className="achievement-primary">Browse learning paths <span aria-hidden="true">↗</span></Link><Link href="/contact" className="achievement-secondary">Contact ITIDCS <span aria-hidden="true">→</span></Link></div>
+      </section>
+    </main>
   );
-}
-const styles = {
-  main: {
-    background: "linear-gradient(to right, #fdfbfb, #ebedee)",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    minHeight: "100vh",
-  },
-  card: {
-    background: "#fff",
-    borderRadius: "16px",
-    padding: "3rem 2rem",
-    boxShadow: "0 10px 30px rgba(0, 0, 0, 0.1)",
-    maxWidth: "500px",
-    width: "100%",
-    textAlign: "center",
-  },
-  title: {
-    fontSize: "28px",
-    fontWeight: "700",
-    marginBottom: "1rem",
-    color: "#111",
-  },
-  subtitle: {
-    fontSize: "16px",
-    color: "#444",
-    marginBottom: "1rem",
-  },
-  badge: {
-    display: "block",
-    margin: "0 auto",
-    objectFit: "cover",
-    borderRadius: "8%",
-    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-    marginBottom: "1.5rem",
-    
-  },
-  description: {
-    marginTop: "1rem",
-    fontSize: "15px",
-    color: "#555",
-    marginBottom: "2rem",
-  },
-  button: {
-    display: "inline-block",
-    padding: "0.75rem 1.5rem",
-    backgroundColor: "#0070f3",
-    color: "#fff",
-    borderRadius: "8px",
-    textDecoration: "none",
-    fontSize: "16px",
-    fontWeight: "500",
-    transition: "background-color 0.3s ease",
-  },
-    buttonHover: {
-        backgroundColor: "#005bb5",
-    },
 }
